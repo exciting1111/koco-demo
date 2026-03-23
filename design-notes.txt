@@ -1,0 +1,21 @@
+Design Notes - Scenarios Section Redesign
+==========================================
+
+The new "3 Scenarios" section has been successfully redesigned with premium effects:
+
+1. Dark gradient background (navy blue tones: #1a1a2e → #16213e → #0f3460)
+2. Three colorful gradient cards:
+   - Card 1 (Lucky): Orange gradient (#FF6B35 → #FF8F5E → #FFB088)
+   - Card 2 (Normal): Blue gradient (#2563EB → #3B82F6 → #60A5FA)
+   - Card 3 (Safe): Green gradient (#059669 → #10B981 → #34D399)
+3. Large step numbers (01, 02, 03) with low opacity in background
+4. Glassmorphism icon circles with glow effects
+5. Frosted glass tags
+6. White text on colored backgrounds
+7. Gradient divider lines
+8. Bottom connector with "KẾT QUẢ CUỐI CÙNG" label
+9. All three cards visible and properly aligned in 3-column grid
+10. Section title and subtitle in white on dark background
+
+Status: LOOKS GREAT - Premium/high-end design achieved!
+The cards have proper hover effects, shadows, and the overall look is sophisticated.

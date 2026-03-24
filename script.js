@@ -92,6 +92,7 @@ const i18n = {
     cat_baby: 'Mẹ & Bé',
     cat_kitchen: 'Nhà bếp',
     cat_luxury: 'Cao cấp',
+    cat_digital: 'Thẻ số',
     cat_snacks: 'Đồ ăn vặt',
     referral_signup: 'Đăng ký nhận',
     referral_invite1: 'Mời 1 bạn',
@@ -286,6 +287,7 @@ const i18n = {
     cat_baby: '母婴儿童',
     cat_kitchen: '厨房用品',
     cat_luxury: '轻奢尚品',
+    cat_digital: '数字卡',
     cat_snacks: '零食酒水',
     referral_signup: '注册领取',
     referral_invite1: '邀请1位好友',
@@ -480,6 +482,7 @@ const i18n = {
     cat_baby: 'Ibu & Bayi',
     cat_kitchen: 'Dapur',
     cat_luxury: 'Mewah',
+    cat_digital: 'Kartu Digital',
     cat_snacks: 'Camilan',
     referral_signup: 'Daftar dapat',
     referral_invite1: 'Ajak 1 teman',
@@ -1027,6 +1030,42 @@ const productData = {
     marketPrice: { VN: '5.990.000₫', CN: '¥1,299', ID: 'Rp3.999.000' },
     wishPrice: { VN: '5.000₫', CN: '¥1', ID: 'Rp500' },
     round: '1/10', participants: 3, progress: 20, totalStars: 100
+  },
+  zing: {
+    img: 'images/zing_card.jpg',
+    name: 'Zing Card 100K',
+    cat: { VN: '🎮 Thẻ số', CN: '🎮 数字卡', ID: '🎮 Kartu Digital' },
+    status: { VN: '✨ Mới', CN: '✨ 新品', ID: '✨ Baru' },
+    marketPrice: { VN: '100.000₫', CN: '¥30', ID: 'Rp65.000' },
+    wishPrice: { VN: '2.000₫', CN: '¥1', ID: 'Rp200' },
+    round: '1/5', participants: 8, progress: 60, totalStars: 25
+  },
+  garena: {
+    img: 'images/garena_shells.jpg',
+    name: 'Garena Shells 100',
+    cat: { VN: '🎮 Thẻ số', CN: '🎮 数字卡', ID: '🎮 Kartu Digital' },
+    status: { VN: '🔥 Hot', CN: '🔥 热门', ID: '🔥 Hot' },
+    marketPrice: { VN: '120.000₫', CN: '¥35', ID: 'Rp78.000' },
+    wishPrice: { VN: '2.000₫', CN: '¥1', ID: 'Rp200' },
+    round: '2/10', participants: 15, progress: 75, totalStars: 30
+  },
+  googleplay: {
+    img: 'images/google_play_card.jpg',
+    name: 'Google Play 200K',
+    cat: { VN: '🎮 Thẻ số', CN: '🎮 数字卡', ID: '🎮 Kartu Digital' },
+    status: { VN: '', CN: '', ID: '' },
+    marketPrice: { VN: '200.000₫', CN: '¥60', ID: 'Rp130.000' },
+    wishPrice: { VN: '3.000₫', CN: '¥1', ID: 'Rp300' },
+    round: '1/8', participants: 5, progress: 40, totalStars: 40
+  },
+  apple_gift: {
+    img: 'images/apple_gift_card.jpg',
+    name: 'Apple Gift Card 500K',
+    cat: { VN: '🎮 Thẻ số', CN: '🎮 数字卡', ID: '🎮 Kartu Digital' },
+    status: { VN: '🔥 Hot', CN: '🔥 热门', ID: '🔥 Hot' },
+    marketPrice: { VN: '500.000₫', CN: '¥150', ID: 'Rp325.000' },
+    wishPrice: { VN: '5.000₫', CN: '¥2', ID: 'Rp500' },
+    round: '3/10', participants: 20, progress: 85, totalStars: 60
   }
 };
 

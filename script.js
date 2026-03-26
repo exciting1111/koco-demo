@@ -1114,6 +1114,8 @@ function openProduct(key) {
   // Show modal
   document.getElementById('productModal').classList.add('open');
   document.body.style.overflow = 'hidden';
+  // Render winner reviews
+  renderReviews(key);
 }
 
 function selectStars(btn, count) {
@@ -1186,3 +1188,242 @@ function filterOrders(btn, status) {
 
 // Update search placeholder on language change
 const _origApplyLang = applyLang;
+
+
+// ========== WINNER REVIEWS DATA & RENDERER ==========
+const reviewsData = {
+  iphone: {
+    VN: [
+      { name: 'Nguyen Minh Tu', initials: 'T', color: '#FF5722', date: '15/03/2025', round: 'Dot 4', text: 'Minh khong tin la minh trung that! Chi bo 10 sao ma nhan duoc iPhone 17 Pro Max. KOCO qua tuyet voi, cam on team rat nhieu!', rating: 5 },
+      { name: 'Tran Thi Lan', initials: 'L', color: '#9C27B0', date: '02/03/2025', round: 'Dot 3', text: 'Ban dau minh con nghi ngo, nhung sau khi nhan may that tay thi minh tin 100%. San pham chinh hang, dong goi can than. Se tiep tuc tham gia!', rating: 5 },
+      { name: 'Pham Quoc Hung', initials: 'H', color: '#2196F3', date: '18/02/2025', round: 'Dot 3', text: 'Da nhan may sau 3 ngay xac nhan trung thuong. May moi 100%, seal nguyen ven. Rat hai long voi dich vu cua KOCO!', rating: 5 },
+      { name: 'Le Thi Hoa', initials: 'H', color: '#4CAF50', date: '05/02/2025', round: 'Dot 2', text: 'Minh tich luy sao moi ngay va cuoi cung cung trung roi. Cam giac mo hop iPhone moi that su rat vui. Cam on KOCO!', rating: 5 },
+      { name: 'Vo Van Nam', initials: 'N', color: '#FF9800', date: '20/01/2025', round: 'Dot 2', text: 'Trung iPhone 17 Pro Max mau titan sa mac, dung mau minh thich. Giao hang nhanh, nhan vien ho tro nhiet tinh. 5 sao!', rating: 5 },
+      { name: 'Dang Thi Mai', initials: 'M', color: '#E91E63', date: '10/01/2025', round: 'Dot 1', text: 'Lan dau tham gia da trung luon! Minh chi bo 5 sao thoi ma. Ban be ai cung ghen ti het. KOCO xin lam!', rating: 5 }
+    ],
+    CN: [
+      { name: '\u5f20\u5c0f\u660e', initials: '\u5f20', color: '#FF5722', date: '2025/03/15', round: '\u7b2c4\u671f', text: '\u5b8c\u5168\u6ca1\u60f3\u5230\u771f\u7684\u4e2d\u5956\u4e86\uff01\u53ea\u6295\u4e8610\u9897\u661f\u5c31\u62ff\u5230\u4e86iPhone 17 Pro Max\uff0cKOCO\u592a\u5389\u5bb3\u4e86\uff0c\u5f3a\u70c8\u63a8\u8350\uff01', rating: 5 },
+      { name: '\u674e\u96ea\u6885', initials: '\u674e', color: '#9C27B0', date: '2025/03/02', round: '\u7b2c3\u671f', text: '\u4e00\u5f00\u59cb\u8fd8\u6709\u70b9\u6000\u7591\uff0c\u6536\u5230\u624b\u673a\u540e\u5f7b\u5e95\u4fe1\u4e86\u3002\u6b63\u54c1\u884c\u8d27\uff0c\u5305\u88c5\u5b8c\u597d\uff0c\u7269\u6d41\u5f88\u5feb\u3002\u4e0b\u6b21\u8fd8\u4f1a\u53c2\u52a0\uff01', rating: 5 },
+      { name: '\u738b\u5927\u4f1f', initials: '\u738b', color: '#2196F3', date: '2025/02/18', round: '\u7b2c3\u671f', text: '\u786e\u8ba4\u4e2d\u5956\u540e3\u5929\u5c31\u6536\u5230\u4e86\uff0c\u624b\u673a\u5168\u65b0\u672a\u62c6\u5c01\u3002KOCO\u7684\u6d3b\u52a8\u771f\u7684\u9760\u8c31\uff0c\u670d\u52a1\u4e5f\u5f88\u597d\uff01', rating: 5 },
+      { name: '\u9648\u7f8e\u73b2', initials: '\u9648', color: '#4CAF50', date: '2025/02/05', round: '\u7b2c2\u671f', text: '\u6bcf\u5929\u7b7e\u5230\u79ef\u661f\uff0c\u575a\u6301\u4e86\u4e00\u4e2a\u6708\u7ec8\u4e8e\u4e2d\u4e86\uff01\u5f00\u7bb1\u7684\u90a3\u4e00\u523b\u8d85\u7ea7\u6fc0\u52a8\uff0c\u611f\u8c22KOCO\uff01', rating: 5 },
+      { name: '\u5218\u5efa\u56fd', initials: '\u5218', color: '#FF9800', date: '2025/01/20', round: '\u7b2c2\u671f', text: '\u4e2d\u4e86\u6c99\u6f20\u9493\u8272\uff0c\u6b63\u662f\u6211\u6700\u60f3\u8981\u7684\u989c\u8272\uff01\u53d1\u8d27\u5feb\uff0c\u5ba2\u670d\u6001\u5ea6\u4e5f\u5f88\u597d\uff0c\u6ee1\u5206\u597d\u8bc4\uff01', rating: 5 },
+      { name: '\u8d75\u4e3d\u534e', initials: '\u8d75', color: '#E91E63', date: '2025/01/10', round: '\u7b2c1\u671f', text: '\u7b2c\u4e00\u6b21\u53c2\u52a0\u5c31\u4e2d\u5956\u4e86\uff0c\u53ea\u6295\u4e865\u9897\u661f\uff01\u670b\u53cb\u4eec\u90fd\u7f61\u6155\u6b7b\u4e86\uff0cKOCO\u771f\u7684\u592a\u826f\u5fc3\u4e86\uff01', rating: 5 }
+    ],
+    ID: [
+      { name: 'Budi Santoso', initials: 'B', color: '#FF5722', date: '15/03/2025', round: 'Putaran 4', text: 'Tidak percaya bisa menang! Hanya pakai 10 bintang dan dapat iPhone 17 Pro Max. KOCO luar biasa, terima kasih banyak!', rating: 5 },
+      { name: 'Siti Rahayu', initials: 'S', color: '#9C27B0', date: '02/03/2025', round: 'Putaran 3', text: 'Awalnya ragu, tapi setelah terima HP aslinya langsung percaya 100%. Produk original, dikemas dengan rapi. Akan ikut lagi!', rating: 5 },
+      { name: 'Ahmad Fauzi', initials: 'A', color: '#2196F3', date: '18/02/2025', round: 'Putaran 3', text: 'Terima HP 3 hari setelah konfirmasi menang. HP baru 100%, segel masih utuh. Sangat puas dengan layanan KOCO!', rating: 5 },
+      { name: 'Dewi Kusuma', initials: 'D', color: '#4CAF50', date: '05/02/2025', round: 'Putaran 2', text: 'Kumpulkan bintang setiap hari dan akhirnya menang! Rasanya senang banget buka kotak iPhone baru. Makasih KOCO!', rating: 5 },
+      { name: 'Rizky Pratama', initials: 'R', color: '#FF9800', date: '20/01/2025', round: 'Putaran 2', text: 'Menang iPhone 17 Pro Max warna desert titanium, warna favorit saya! Pengiriman cepat, CS ramah. 5 bintang!', rating: 5 },
+      { name: 'Nurul Hidayah', initials: 'N', color: '#E91E63', date: '10/01/2025', round: 'Putaran 1', text: 'Pertama kali ikut langsung menang! Cuma pakai 5 bintang. Semua teman pada iri. KOCO keren banget!', rating: 5 }
+    ]
+  },
+  ps5: {
+    VN: [
+      { name: 'Hoang Van Tung', initials: 'T', color: '#1565C0', date: '10/03/2025', round: 'Dot 1', text: 'PS5 ve tay roi! May moi tinh, choi game muot ma. Cam on KOCO da tao ra san choi cong bang cho moi nguoi!', rating: 5 },
+      { name: 'Bui Thi Thao', initials: 'T', color: '#00897B', date: '25/02/2025', round: 'Dot 1', text: 'Minh mo co PS5 tu lau ma gia cao qua. Nho KOCO ma gio minh da co roi! Cuc ky hai long!', rating: 5 },
+      { name: 'Ngo Thanh Hai', initials: 'H', color: '#7B1FA2', date: '15/02/2025', round: 'Dot 1', text: 'Trung PS5 sau 2 tuan tham gia. Hop nguyen seal, day du phu kien. KOCO uy tin that su!', rating: 5 },
+      { name: 'Phan Thi Linh', initials: 'L', color: '#C62828', date: '01/02/2025', round: 'Dot 1', text: 'Chong minh trung PS5 cho minh lam qua sinh nhat. Cam on KOCO da tao ra ky niem dep!', rating: 5 }
+    ],
+    CN: [
+      { name: '\u5b59\u6d69\u7136', initials: '\u5b59', color: '#1565C0', date: '2025/03/10', round: '\u7b2c1\u671f', text: 'PS5\u5230\u624b\u4e86\uff01\u5168\u65b0\u673a\u5668\uff0c\u6e38\u620f\u8fd0\u884c\u8d85\u6d41\u7545\u3002\u611f\u8c22KOCO\u521b\u9020\u4e86\u8fd9\u4e48\u516c\u5e73\u7684\u6d3b\u52a8\uff01', rating: 5 },
+      { name: '\u5468\u6653\u71d5', initials: '\u5468', color: '#00897B', date: '2025/02/25', round: '\u7b2c1\u671f', text: '\u4e00\u76f4\u68a6\u60f3\u6709PS5\u4f46\u4ef7\u683c\u592a\u8d35\uff0c\u9760KOCO\u5b9e\u73b0\u4e86\uff01\u975e\u5e38\u6ee1\u610f\uff01', rating: 5 },
+      { name: '\u5434\u5fd7\u8fdc', initials: '\u5434', color: '#7B1FA2', date: '2025/02/15', round: '\u7b2c1\u671f', text: '\u53c2\u4e0e\u4e24\u5468\u540e\u4e2d\u5956\uff0c\u539f\u88c5\u5c01\u53e3\uff0c\u914d\u4ef6\u9f50\u5168\u3002KOCO\u771f\u7684\u9760\u8c31\uff01', rating: 5 },
+      { name: '\u90d1\u96c5\u5a77', initials: '\u90d1', color: '#C62828', date: '2025/02/01', round: '\u7b2c1\u671f', text: '\u8001\u516c\u7ed9\u6211\u62bd\u5230PS5\u5f53\u751f\u65e5\u793c\u7269\uff0c\u611f\u8c22KOCO\u521b\u9020\u4e86\u7f8e\u597d\u7684\u56de\u5fc6\uff01', rating: 5 }
+    ],
+    ID: [
+      { name: 'Hendra Wijaya', initials: 'H', color: '#1565C0', date: '10/03/2025', round: 'Putaran 1', text: 'PS5 sudah di tangan! Unit baru, game berjalan mulus. Terima kasih KOCO sudah buat platform yang adil!', rating: 5 },
+      { name: 'Rina Susanti', initials: 'R', color: '#00897B', date: '25/02/2025', round: 'Putaran 1', text: 'Sudah lama impikan PS5 tapi harganya mahal. Berkat KOCO sekarang sudah punya! Sangat puas!', rating: 5 },
+      { name: 'Doni Prasetyo', initials: 'D', color: '#7B1FA2', date: '15/02/2025', round: 'Putaran 1', text: 'Menang PS5 setelah 2 minggu ikut. Kotak masih disegel, aksesoris lengkap. KOCO terpercaya!', rating: 5 },
+      { name: 'Fitri Handayani', initials: 'F', color: '#C62828', date: '01/02/2025', round: 'Putaran 1', text: 'Suami menangkan PS5 sebagai hadiah ulang tahun saya. Terima kasih KOCO!', rating: 5 }
+    ]
+  },
+  airpods: {
+    VN: [
+      { name: 'Trinh Thi Ngoc', initials: 'N', color: '#0288D1', date: '12/03/2025', round: 'Dot 2', text: 'AirPods Pro 3 chat luong am thanh tuyet voi! Chi ton 5 sao ma nhan duoc tai nghe xin. KOCO qua oke!', rating: 5 },
+      { name: 'Dinh Van Khoa', initials: 'K', color: '#388E3C', date: '28/02/2025', round: 'Dot 2', text: 'Dang dung AirPods cu thi trung cai moi luon! Chong on cuc tot, pin trau. Cam on KOCO!', rating: 5 },
+      { name: 'Ly Thi Thu', initials: 'T', color: '#F57C00', date: '14/02/2025', round: 'Dot 1', text: 'Qua Valentine tu tang cho minh! Trung AirPods Pro 3 dung ngay le tinh nhan. Hanh phuc qua!', rating: 5 }
+    ],
+    CN: [
+      { name: '\u6797\u5c0f\u7ea2', initials: '\u6797', color: '#0288D1', date: '2025/03/12', round: '\u7b2c2\u671f', text: 'AirPods Pro 3\u97f3\u8d28\u592a\u68d2\u4e86\uff01\u53ea\u82b15\u9897\u661f\u5c31\u62ff\u5230\u4e86\uff0cKOCO\u771f\u7684\u592a\u503c\u4e86\uff01', rating: 5 },
+      { name: '\u9ec4\u5fd7\u5f3a', initials: '\u9ec4', color: '#388E3C', date: '2025/02/28', round: '\u7b2c2\u671f', text: '\u6b63\u5728\u7528\u65e7AirPods\uff0c\u7ed3\u679c\u4e2d\u4e86\u65b0\u6b3e\uff01\u964d\u566a\u6548\u679c\u8d85\u597d\uff0c\u7eed\u822a\u4e5f\u5f3a\u3002\u611f\u8c22KOCO\uff01', rating: 5 },
+      { name: '\u5f90\u7f8e\u534e', initials: '\u5f90', color: '#F57C00', date: '2025/02/14', round: '\u7b2c1\u671f', text: '\u60c5\u4eba\u8282\u7ed9\u81ea\u5df1\u7684\u793c\u7269\uff01\u6b63\u597d\u5728\u60c5\u4eba\u8282\u90a3\u5929\u4e2d\u4e86AirPods Pro 3\uff0c\u592a\u5f00\u5fc3\u4e86\uff01', rating: 5 }
+    ],
+    ID: [
+      { name: 'Yuli Astuti', initials: 'Y', color: '#0288D1', date: '12/03/2025', round: 'Putaran 2', text: 'Kualitas suara AirPods Pro 3 luar biasa! Cuma pakai 5 bintang dapat earphone premium. KOCO mantap!', rating: 5 },
+      { name: 'Eko Saputra', initials: 'E', color: '#388E3C', date: '28/02/2025', round: 'Putaran 2', text: 'Lagi pakai AirPods lama eh menang yang baru! ANC-nya bagus banget, baterai awet. Makasih KOCO!', rating: 5 },
+      { name: 'Mega Wulandari', initials: 'M', color: '#F57C00', date: '14/02/2025', round: 'Putaran 1', text: 'Hadiah Valentine untuk diri sendiri! Menang AirPods Pro 3 tepat di Hari Valentine. Bahagia banget!', rating: 5 }
+    ]
+  },
+  lv: {
+    VN: [
+      { name: 'Nguyen Thi Bich', initials: 'B', color: '#880E4F', date: '08/03/2025', round: 'Dot 3', text: 'Tui LV Neverfull MM chinh hang 100%! Minh da kiem tra ky roi. KOCO xung dang la nen tang uy tin nhat!', rating: 5 },
+      { name: 'Cao Thi Huong', initials: 'H', color: '#4A148C', date: '20/02/2025', round: 'Dot 2', text: 'Tu lau minh muon co tui LV nhung gia qua cao. Gio nho KOCO ma minh da co roi! Hanh phuc lam!', rating: 5 },
+      { name: 'Vu Thi Kim', initials: 'K', color: '#BF360C', date: '05/02/2025', round: 'Dot 2', text: 'Trung tui LV tang me nhan dip 8/3. Me minh vui lam! Cam on KOCO da tao co hoi cho moi nguoi!', rating: 5 }
+    ],
+    CN: [
+      { name: '\u848b\u4e3d\u5a1f', initials: '\u848b', color: '#880E4F', date: '2025/03/08', round: '\u7b2c3\u671f', text: 'LV Neverfull MM\u6b63\u54c1100%\uff01\u4ed4\u7ec6\u9a8c\u8fc7\u4e86\u3002KOCO\u7edd\u5bf9\u662f\u6700\u9760\u8c31\u7684\u5e73\u53f0\uff01', rating: 5 },
+      { name: '\u97e9\u96ea', initials: '\u97e9', color: '#4A148C', date: '2025/02/20', round: '\u7b2c2\u671f', text: '\u4e00\u76f4\u60f3\u8981LV\u5305\u4f46\u4ef7\u683c\u592a\u8d35\uff0c\u9760KOCO\u7ec8\u4e8e\u5b9e\u73b0\u4e86\uff01\u592a\u5f00\u5fc3\u4e86\uff01', rating: 5 },
+      { name: '\u66f9\u7389\u73cd', initials: '\u66f9', color: '#BF360C', date: '2025/02/05', round: '\u7b2c2\u671f', text: '\u4e2d\u4e86LV\u5305\u9001\u7ed9\u5988\u5988\u4f5c\u4e3a\u4e09\u516b\u8282\u793c\u7269\uff0c\u5988\u5988\u8d85\u5f00\u5fc3\uff01\u611f\u8c22KOCO\uff01', rating: 5 }
+    ],
+    ID: [
+      { name: 'Ratna Dewi', initials: 'R', color: '#880E4F', date: '08/03/2025', round: 'Putaran 3', text: 'Tas LV Neverfull MM 100% original! Sudah dicek teliti. KOCO layak jadi platform terpercaya!', rating: 5 },
+      { name: 'Indah Permata', initials: 'I', color: '#4A148C', date: '20/02/2025', round: 'Putaran 2', text: 'Sudah lama ingin tas LV tapi harganya mahal. Berkat KOCO akhirnya punya! Senang banget!', rating: 5 },
+      { name: 'Sri Wahyuni', initials: 'S', color: '#BF360C', date: '05/02/2025', round: 'Putaran 2', text: 'Menang tas LV untuk hadiah Hari Ibu. Mama senang banget! Terima kasih KOCO!', rating: 5 }
+    ]
+  },
+  dyson: {
+    VN: [
+      { name: 'Pham Thi Dung', initials: 'D', color: '#E65100', date: '14/03/2025', round: 'Dot 1', text: 'Dyson V15 hut bui cuc manh, pin lau. Nha minh sach hon han tu khi co cai nay. Cam on KOCO!', rating: 5 },
+      { name: 'Tran Van Minh', initials: 'M', color: '#1B5E20', date: '01/03/2025', round: 'Dot 1', text: 'Vo minh trung Dyson V15 va co ay rat vui! May hut bui xin nhat thi truong. KOCO tuyet voi!', rating: 5 },
+      { name: 'Le Thi Phuong', initials: 'P', color: '#0D47A1', date: '15/02/2025', round: 'Dot 1', text: 'Trung Dyson V15 sau 1 tuan tham gia. May nhe, manh, de dung. Rat hai long!', rating: 5 }
+    ],
+    CN: [
+      { name: '\u8bb8\u79c0\u82f1', initials: '\u8bb8', color: '#E65100', date: '2025/03/14', round: '\u7b2c1\u671f', text: 'Dyson V15\u5438\u529b\u8d85\u5f3a\uff0c\u7eed\u822a\u4e45\u3002\u5bb6\u91cc\u5e72\u51c0\u591a\u4e86\uff0c\u611f\u8c22KOCO\uff01', rating: 5 },
+      { name: '\u9a6c\u5efa\u519b', initials: '\u9a6c', color: '#1B5E20', date: '2025/03/01', round: '\u7b2c1\u671f', text: '\u8001\u5a46\u4e2d\u4e86Dyson V15\u8d85\u5f00\u5fc3\uff01\u5e02\u9762\u4e0a\u6700\u597d\u7684\u5438\u5c18\u5668\uff0cKOCO\u592a\u68d2\u4e86\uff01', rating: 5 },
+      { name: '\u6731\u6653\u4e3d', initials: '\u6731', color: '#0D47A1', date: '2025/02/15', round: '\u7b2c1\u671f', text: '\u53c2\u4e0e\u4e00\u5468\u540e\u4e2d\u5956\uff0c\u673a\u5668\u8f7b\u4fbf\u6709\u529b\uff0c\u597d\u7528\u3002\u975e\u5e38\u6ee1\u610f\uff01', rating: 5 }
+    ],
+    ID: [
+      { name: 'Wati Suryani', initials: 'W', color: '#E65100', date: '14/03/2025', round: 'Putaran 1', text: 'Dyson V15 daya hisapnya kuat banget, baterai tahan lama. Rumah jadi lebih bersih. Makasih KOCO!', rating: 5 },
+      { name: 'Agus Setiawan', initials: 'A', color: '#1B5E20', date: '01/03/2025', round: 'Putaran 1', text: 'Istri menang Dyson V15 dan dia sangat senang! Vacuum cleaner terbaik di pasaran. KOCO luar biasa!', rating: 5 },
+      { name: 'Lilis Handayani', initials: 'L', color: '#0D47A1', date: '15/02/2025', round: 'Putaran 1', text: 'Menang Dyson V15 setelah 1 minggu ikut. Ringan, kuat, mudah dipakai. Sangat puas!', rating: 5 }
+    ]
+  },
+  skii: {
+    VN: [
+      { name: 'Ngo Thi Lan', initials: 'L', color: '#AD1457', date: '11/03/2025', round: 'Dot 1', text: 'SK-II Facial Kit chinh hang, duong da rat tot! Sau 2 tuan dung da minh sang hon han. KOCO qua xin!', rating: 5 },
+      { name: 'Do Thi Hang', initials: 'H', color: '#6A1B9A', date: '25/02/2025', round: 'Dot 1', text: 'Minh hay mua SK-II o cua hang chinh hang nen biet chat luong. Bo kit nay xin lam! Cam on KOCO!', rating: 5 },
+      { name: 'Truong Thi Nhung', initials: 'N', color: '#00695C', date: '10/02/2025', round: 'Dot 1', text: 'Trung bo SK-II tang chi gai. Chi minh dung va khen lam! KOCO uy tin, se tiep tuc ung ho!', rating: 5 }
+    ],
+    CN: [
+      { name: '\u9322\u5c0f\u82b3', initials: '\u9322', color: '#AD1457', date: '2025/03/11', round: '\u7b2c1\u671f', text: 'SK-II Facial Kit\u6b63\u54c1\uff0c\u62a4\u80a4\u6548\u679c\u8d85\u597d\uff01\u7528\u4e86\u4e24\u5468\u76ae\u80a4\u660e\u663e\u4eae\u4e86\u3002KOCO\u592a\u8d5e\u4e86\uff01', rating: 5 },
+      { name: '\u51af\u7f8e\u4e3d', initials: '\u51af', color: '#6A1B9A', date: '2025/02/25', round: '\u7b2c1\u671f', text: '\u7ecf\u5e38\u5728\u4e13\u67dc\u4e70SK-II\u6240\u4ee5\u5f88\u4e86\u89e3\u54c1\u8d28\uff0c\u8fd9\u5957\u793c\u76d2\u771f\u7684\u5f88\u597d\uff01\u611f\u8c22KOCO\uff01', rating: 5 },
+      { name: '\u50a8\u7389\u534e', initials: '\u50a8', color: '#00695C', date: '2025/02/10', round: '\u7b2c1\u671f', text: '\u4e2d\u4e86SK-II\u9001\u7ed9\u59d0\u59d0\uff0c\u5979\u7528\u4e86\u8d85\u6ee1\u610f\uff01KOCO\u9760\u8c31\uff0c\u7ee7\u7eed\u652f\u6301\uff01', rating: 5 }
+    ],
+    ID: [
+      { name: 'Tini Rahayu', initials: 'T', color: '#AD1457', date: '11/03/2025', round: 'Putaran 1', text: 'SK-II Facial Kit original, perawatan kulit sangat bagus! Setelah 2 minggu pakai kulit jadi lebih cerah. KOCO keren!', rating: 5 },
+      { name: 'Ani Kusuma', initials: 'A', color: '#6A1B9A', date: '25/02/2025', round: 'Putaran 1', text: 'Sering beli SK-II di counter resmi jadi tahu kualitasnya. Kit ini bagus banget! Terima kasih KOCO!', rating: 5 },
+      { name: 'Sari Utami', initials: 'S', color: '#00695C', date: '10/02/2025', round: 'Putaran 1', text: 'Menang SK-II untuk hadiah kakak. Kakak pakai dan suka banget! KOCO terpercaya!', rating: 5 }
+    ]
+  },
+  zing: {
+    VN: [
+      { name: 'Nguyen Van An', initials: 'A', color: '#1565C0', date: '20/03/2025', round: 'Dot 1', text: 'Trung the Zing 100K chi voi 2 sao! Nap game ngay luon, khong can cho. KOCO tien loi!', rating: 5 },
+      { name: 'Le Minh Duc', initials: 'D', color: '#2E7D32', date: '15/03/2025', round: 'Dot 1', text: 'The Zing giao ma qua email rat nhanh. Chi 5 phut sau khi xac nhan trung la co ma roi!', rating: 5 },
+      { name: 'Pham Thi Yen', initials: 'Y', color: '#C62828', date: '10/03/2025', round: 'Dot 1', text: 'Minh choi game Zing thuong xuyen nen trung the nay la qua hop. Cam on KOCO!', rating: 5 }
+    ],
+    CN: [
+      { name: '\u5510\u5c0f\u9f99', initials: '\u5510', color: '#1565C0', date: '2025/03/20', round: '\u7b2c1\u671f', text: '\u53ea\u75282\u9897\u661f\u5c31\u4e2d\u4e86Zing\u5361100K\uff01\u9a6c\u4e0a\u5145\u5024\u6e38\u620f\uff0c\u4e0d\u7528\u7b49\u3002KOCO\u592a\u65b9\u4fbf\u4e86\uff01', rating: 5 },
+      { name: '\u53f2\u5efa\u5e73', initials: '\u53f2', color: '#2E7D32', date: '2025/03/15', round: '\u7b2c1\u671f', text: 'Zing\u5361\u901a\u8fc7\u90ae\u4ef6\u53d1\u9001\u7801\u5f88\u5feb\uff0c\u786e\u8ba4\u4e2d\u52595\u5206\u949f\u540e\u5c31\u6536\u5230\u7801\u4e86\uff01', rating: 5 },
+      { name: '\u5b54\u6de6\u534e', initials: '\u5b54', color: '#C62828', date: '2025/03/10', round: '\u7b2c1\u671f', text: '\u7ecf\u5e38\u73a9Zing\u6e38\u620f\uff0c\u4e2d\u4e86\u8fd9\u5f20\u5361\u592a\u5408\u9002\u4e86\u3002\u611f\u8c22KOCO\uff01', rating: 5 }
+    ],
+    ID: [
+      { name: 'Bayu Nugroho', initials: 'B', color: '#1565C0', date: '20/03/2025', round: 'Putaran 1', text: 'Menang kartu Zing 100K cuma pakai 2 bintang! Langsung top up game, ga perlu nunggu. KOCO praktis!', rating: 5 },
+      { name: 'Reza Firmansyah', initials: 'R', color: '#2E7D32', date: '15/03/2025', round: 'Putaran 1', text: 'Kartu Zing dikirim via email sangat cepat. 5 menit setelah konfirmasi menang sudah dapat kode!', rating: 5 },
+      { name: 'Putri Anggraini', initials: 'P', color: '#C62828', date: '10/03/2025', round: 'Putaran 1', text: 'Sering main game Zing jadi menang kartu ini pas banget. Makasih KOCO!', rating: 5 }
+    ]
+  },
+  garena: {
+    VN: [
+      { name: 'Tran Van Hung', initials: 'H', color: '#E65100', date: '22/03/2025', round: 'Dot 2', text: 'Trung 100 Garena Shells! Mua skin xin trong Free Fire luon. KOCO hieu long game thu!', rating: 5 },
+      { name: 'Ly Van Toan', initials: 'T', color: '#1565C0', date: '18/03/2025', round: 'Dot 2', text: 'Ma Garena giao nhanh, dung duoc ngay. Chi ton 2 sao ma duoc 100 shells. Qua loi!', rating: 5 },
+      { name: 'Ngo Thi Ha', initials: 'H', color: '#4A148C', date: '12/03/2025', round: 'Dot 1', text: 'Minh mua shells cho chong choi game. Anh ay vui lam! Cam on KOCO da co nhieu phan thuong da dang!', rating: 5 }
+    ],
+    CN: [
+      { name: '\u536b\u5fd7\u8fdc', initials: '\u536b', color: '#E65100', date: '2025/03/22', round: '\u7b2c2\u671f', text: '\u4e2d\u4e86100 Garena Shells\uff01\u9a6c\u4e0a\u4e70Free Fire\u76ae\u80a4\u3002KOCO\u61c2\u73a9\u5bb6\u7684\u5fc3\uff01', rating: 5 },
+      { name: '\u59dc\u5927\u6d77', initials: '\u59dc', color: '#1565C0', date: '2025/03/18', round: '\u7b2c2\u671f', text: 'Garena\u7801\u53d1\u5f97\u5f88\u5feb\uff0c\u7acb\u5373\u53ef\u7528\u3002\u53ea\u82b12\u9897\u661f\u5f9710 shells\uff0c\u592a\u5212\u7b97\u4e86\uff01', rating: 5 },
+      { name: '\u859b\u7f8e\u4e91', initials: '\u859b', color: '#4A148C', date: '2025/03/12', round: '\u7b2c1\u671f', text: '\u7ed9\u8001\u516c\u4e70shells\u73a9\u6e38\u620f\uff0c\u4ed6\u8d85\u5f00\u5fc3\uff01\u611f\u8c22KOCO\u5956\u54c1\u591a\u6837\u5316\uff01', rating: 5 }
+    ],
+    ID: [
+      { name: 'Fajar Setiawan', initials: 'F', color: '#E65100', date: '22/03/2025', round: 'Putaran 2', text: 'Menang 100 Garena Shells! Langsung beli skin keren di Free Fire. KOCO ngerti gamer!', rating: 5 },
+      { name: 'Wahyu Hidayat', initials: 'W', color: '#1565C0', date: '18/03/2025', round: 'Putaran 2', text: 'Kode Garena dikirim cepat, langsung bisa dipakai. Cuma 2 bintang dapat 100 shells. Untung banget!', rating: 5 },
+      { name: 'Nita Sari', initials: 'N', color: '#4A148C', date: '12/03/2025', round: 'Putaran 1', text: 'Beli shells untuk suami main game. Dia senang banget! Makasih KOCO punya banyak hadiah beragam!', rating: 5 }
+    ]
+  },
+  googleplay: {
+    VN: [
+      { name: 'Dao Thi Lan', initials: 'L', color: '#1B5E20', date: '19/03/2025', round: 'Dot 1', text: 'The Google Play 200K dung mua ung dung va game. Ma giao ngay qua email. KOCO tien loi!', rating: 5 },
+      { name: 'Bui Van Tan', initials: 'T', color: '#0D47A1', date: '14/03/2025', round: 'Dot 1', text: 'Trung the Google Play, mua ngay bo game yeu thich. Chi 3 sao ma duoc 200K. Qua hoi!', rating: 5 }
+    ],
+    CN: [
+      { name: '\u5085\u6653\u71d5', initials: '\u5085', color: '#1B5E20', date: '2025/03/19', round: '\u7b2c1\u671f', text: 'Google Play 200K\u7528\u6765\u4e70\u5e94\u7528\u548c\u6e38\u620f\u3002\u7801\u901a\u8fc7\u90ae\u4ef6\u7acb\u5373\u53d1\u5230\u3002KOCO\u5f88\u65b9\u4fbf\uff01', rating: 5 },
+      { name: '\u6c88\u5efa\u56fd', initials: '\u6c88', color: '#0D47A1', date: '2025/03/14', round: '\u7b2c1\u671f', text: '\u4e2d\u4e86Google Play\u5361\uff0c\u9a6c\u4e0a\u4e70\u4e86\u559c\u6b22\u7684\u6e38\u620f\u3002\u53ea\u82b13\u9897\u661f\u5f97200K\uff0c\u592a\u5212\u7b97\u4e86\uff01', rating: 5 }
+    ],
+    ID: [
+      { name: 'Dina Marlina', initials: 'D', color: '#1B5E20', date: '19/03/2025', round: 'Putaran 1', text: 'Kartu Google Play 200K untuk beli aplikasi dan game. Kode langsung dikirim via email. KOCO praktis!', rating: 5 },
+      { name: 'Hadi Susanto', initials: 'H', color: '#0D47A1', date: '14/03/2025', round: 'Putaran 1', text: 'Menang kartu Google Play, langsung beli game favorit. Cuma 3 bintang dapat 200K. Untung banget!', rating: 5 }
+    ]
+  },
+  apple_gift: {
+    VN: [
+      { name: 'Nguyen Thi Thuy', initials: 'T', color: '#37474F', date: '21/03/2025', round: 'Dot 3', text: 'The Apple Gift Card 500K dung mua app tren App Store. Ma giao ngay, dung duoc luon. KOCO uy tin!', rating: 5 },
+      { name: 'Le Van Phuc', initials: 'P', color: '#BF360C', date: '16/03/2025', round: 'Dot 3', text: 'Trung the Apple 500K, mua iCloud va app xin. Chi 5 sao ma duoc 500K. KOCO qua tot!', rating: 5 },
+      { name: 'Pham Thi Nga', initials: 'N', color: '#1A237E', date: '08/03/2025', round: 'Dot 2', text: 'Minh dung the Apple Gift Card mua nhac tren Apple Music. Ma hop le 100%. Cam on KOCO!', rating: 5 }
+    ],
+    CN: [
+      { name: '\u9f9a\u5c0f\u660e', initials: '\u9f9a', color: '#37474F', date: '2025/03/21', round: '\u7b2c3\u671f', text: 'Apple Gift Card 500K\u7528\u6765\u5728App Store\u4e70\u5e94\u7528\u3002\u7801\u7acb\u5373\u53d1\u5230\uff0c\u76f4\u63a5\u53ef\u7528\u3002KOCO\u9760\u8c31\uff01', rating: 5 },
+      { name: '\u6bdb\u5efa\u534e', initials: '\u6bdb', color: '#BF360C', date: '2025/03/16', round: '\u7b2c3\u671f', text: '\u4e2d\u4e86Apple\u5361500K\uff0c\u4e70\u4e86iCloud\u548c\u597d\u7528\u7684app\u3002\u53ea\u82b15\u9897\u661f\u5f97500K\uff0cKOCO\u592a\u597d\u4e86\uff01', rating: 5 },
+      { name: '\u962e\u79c0\u73cd', initials: '\u962e', color: '#1A237E', date: '2025/03/08', round: '\u7b2c2\u671f', text: '\u7528Apple Gift Card\u4e70Apple Music\u97f3\u4e50\uff0c\u7801100%\u6709\u6548\u3002\u611f\u8c22KOCO\uff01', rating: 5 }
+    ],
+    ID: [
+      { name: 'Citra Dewi', initials: 'C', color: '#37474F', date: '21/03/2025', round: 'Putaran 3', text: 'Apple Gift Card 500K untuk beli app di App Store. Kode langsung dikirim, langsung bisa dipakai. KOCO terpercaya!', rating: 5 },
+      { name: 'Irwan Santoso', initials: 'I', color: '#BF360C', date: '16/03/2025', round: 'Putaran 3', text: 'Menang kartu Apple 500K, beli iCloud dan app bagus. Cuma 5 bintang dapat 500K. KOCO keren!', rating: 5 },
+      { name: 'Yanti Rahayu', initials: 'Y', color: '#1A237E', date: '08/03/2025', round: 'Putaran 2', text: 'Pakai Apple Gift Card beli Apple Music. Kode 100% valid. Terima kasih KOCO!', rating: 5 }
+    ]
+  }
+};
+
+const reviewsI18n = {
+  VN: { title: 'Nguoi trung thuong noi gi?', count: 'danh gia', verified: 'Da xac minh trung thuong' },
+  CN: { title: '\u4e2d\u5956\u7528\u6237\u600e\u4e48\u8bf4\uff1f', count: '\u6761\u8bc4\u4ef7', verified: '\u5df2\u9a8c\u8bc1\u4e2d\u5956' },
+  ID: { title: 'Apa kata pemenang?', count: 'ulasan', verified: 'Terverifikasi menang' }
+};
+
+function renderReviews(productKey) {
+  var lang = (typeof currentLang !== 'undefined' ? currentLang : null) || localStorage.getItem('kocoLang') || 'VN';
+  var reviews = (reviewsData[productKey] || {})[lang] || [];
+  var t = reviewsI18n[lang] || reviewsI18n.VN;
+
+  var titleEl = document.querySelector('#modalReviews .modal-reviews-title');
+  if (titleEl) titleEl.textContent = t.title;
+
+  var countEl = document.getElementById('modalReviewsCount');
+  if (countEl) countEl.textContent = reviews.length + ' ' + t.count;
+
+  var listEl = document.getElementById('modalReviewsList');
+  if (!listEl) return;
+
+  var reviewsSection = document.getElementById('modalReviews');
+  if (reviews.length === 0) {
+    if (reviewsSection) reviewsSection.style.display = 'none';
+    return;
+  }
+  if (reviewsSection) reviewsSection.style.display = '';
+  // Force grid layout via JS to override any CSS specificity issues
+  listEl.style.display = 'grid';
+  listEl.style.gridTemplateColumns = 'repeat(2, 1fr)';
+  listEl.style.gap = '12px';
+
+  listEl.innerHTML = reviews.map(function(r) {
+    var starHtml = '';
+    for (var i = 0; i < (r.rating || 5); i++) starHtml += '<span class="review-star">\u2b50</span>';
+    return '<div class="review-card">' +
+      '<div class="review-card-top">' +
+        '<div class="review-avatar" style="background:' + r.color + '">' + r.initials + '</div>' +
+        '<div class="review-user-info">' +
+          '<div class="review-username">' + r.name + '</div>' +
+          '<div class="review-meta">' +
+            '<div class="review-stars-row">' + starHtml + '</div>' +
+            '<span class="review-date">' + r.date + '</span>' +
+          '</div>' +
+        '</div>' +
+        '<span class="review-prize-badge">\ud83c\udfc5 ' + r.round + '</span>' +
+      '</div>' +
+      '<p class="review-text">\u201c' + r.text + '\u201d</p>' +
+      '<span class="review-verified">' +
+        '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>' +
+        t.verified +
+      '</span>' +
+    '</div>';
+  }).join('');
+}

@@ -37,8 +37,8 @@
       </div>
       <div class="lang-switcher" id="langSwitcher">
         <button class="lang-trigger" id="langTrigger">
-          <span class="lang-flag">🇻🇳</span>
-          <span class="lang-code">VN</span>
+          <span class="lang-flag" id="langFlag">🇻🇳</span>
+          <span class="lang-code" id="langCode">VN</span>
           <svg class="lang-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="lang-dropdown" id="langDropdown">
@@ -230,47 +230,24 @@
 </div>
 
 <script src="script.js"></script>
+<script src="subpage.js"></script>
 <script>
   // Tab switching
-  const tabs = document.querySelectorAll('.orders-tab');
-  const orders = document.querySelectorAll('.order-card');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const filter = tab.dataset.tab;
-      orders.forEach(order => {
-        const groups = order.dataset.tabGroup || '';
-        if (filter === 'all' || groups.includes(filter)) {
-          order.style.display = '';
-        } else {
-          order.style.display = 'none';
-        }
+  (function() {
+    const tabs = document.querySelectorAll('.orders-tab');
+    const orders = document.querySelectorAll('.order-card');
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        tabs.forEach(function(t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        var filter = tab.dataset.tab;
+        orders.forEach(function(order) {
+          var groups = order.dataset.tabGroup || '';
+          order.style.display = (filter === 'all' || groups.includes(filter)) ? '' : 'none';
+        });
       });
     });
-  });
-
-  // Navbar
-  document.querySelectorAll('.lang-option').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.getElementById('langFlag').textContent = btn.dataset.flag;
-      document.getElementById('langCode').textContent = btn.dataset.lang;
-      document.querySelectorAll('.lang-option').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('langSwitcher').classList.remove('open');
-    });
-  });
-  document.getElementById('langTrigger').addEventListener('click', () => {
-    document.getElementById('langSwitcher').classList.toggle('open');
-  });
-  document.getElementById('userAvatarBtn').addEventListener('click', () => {
-    document.getElementById('userDropdown').classList.toggle('show');
-  });
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('#langSwitcher')) document.getElementById('langSwitcher').classList.remove('open');
-    if (!e.target.closest('.nav-user')) document.getElementById('userDropdown').classList.remove('show');
-  });
+  })();
 </script>
 </body>
 </html>

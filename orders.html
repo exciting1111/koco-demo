@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOCO - 我的订单</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="subpage.css" />
+</head>
+<body class="subpage-body">
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/koco-logo.png" alt="KOCO" class="logo-img" />
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link" data-i18n="nav_home">首页</a>
+      <a href="index.html#wish" class="nav-link" data-i18n="nav_wish">心愿购</a>
+      <a href="invite.html" class="nav-link" data-i18n="nav_invite">邀请奖励</a>
+      <a href="#" class="nav-link" data-i18n="nav_download">下载APP</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-notification">
+        <button class="nav-icon-btn" id="notifBell">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="notif-badge">2</span>
+        </button>
+      </div>
+      <div class="nav-stars">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFB800"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span class="star-count">1,250</span>
+      </div>
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-trigger" id="langTrigger">
+          <span class="lang-flag">🇻🇳</span>
+          <span class="lang-code">VN</span>
+          <svg class="lang-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <button class="lang-option active" data-lang="VN" data-flag="🇻🇳">🇻🇳 VN - Tiếng Việt</button>
+          <button class="lang-option" data-lang="CN" data-flag="🇨🇳">🇨🇳 CN - 中文</button>
+          <button class="lang-option" data-lang="ID" data-flag="🇮🇩">🇮🇩 ID - Bahasa</button>
+        </div>
+      </div>
+      <div class="nav-user">
+        <button class="user-avatar-btn" id="userAvatarBtn">
+          <div class="user-avatar">K</div>
+          <svg class="avatar-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="user-dropdown" id="userDropdown">
+          <div class="user-dropdown-header">
+            <div class="user-avatar-lg">K</div>
+            <div class="user-info">
+              <div class="user-name">Koco User</div>
+              <div class="user-email">user@koco.asia</div>
+            </div>
+          </div>
+          <div class="user-dropdown-divider"></div>
+          <a href="profile.html" class="user-dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>个人中心</span></a>
+          <a href="stars.html" class="user-dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>我的星星</span></a>
+          <a href="orders.html" class="user-dropdown-item" style="color:#FF5722;background:#FFF8F5;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#FF5722;"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg><span>我的订单</span></a>
+          <a href="invite.html" class="user-dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>邀请好友</span></a>
+          <div class="user-dropdown-divider"></div>
+          <a href="index.html" class="user-dropdown-item user-dropdown-logout"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg><span>退出登录</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== PAGE HEADER ========== -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <a href="profile.html" class="page-back-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      个人中心
+    </a>
+    <div class="page-header-title">📋 我的订单</div>
+    <div class="page-header-sub">Theo dõi tiến độ tham gia Wish Purchase</div>
+  </div>
+</div>
+
+<!-- ========== CONTENT ========== -->
+<div class="subpage-content">
+
+  <!-- Summary Stats -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;">
+    <div style="background:white;border-radius:16px;padding:14px 10px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+      <div style="font-size:22px;font-weight:900;color:#FF5722;">4</div>
+      <div style="font-size:11px;color:#888;margin-top:2px;">Tất cả</div>
+    </div>
+    <div style="background:white;border-radius:16px;padding:14px 10px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+      <div style="font-size:22px;font-weight:900;color:#FF5722;">2</div>
+      <div style="font-size:11px;color:#888;margin-top:2px;">Đang tham gia</div>
+    </div>
+    <div style="background:white;border-radius:16px;padding:14px 10px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+      <div style="font-size:22px;font-weight:900;color:#4CAF50;">1</div>
+      <div style="font-size:11px;color:#888;margin-top:2px;">Đã thắng</div>
+    </div>
+    <div style="background:white;border-radius:16px;padding:14px 10px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+      <div style="font-size:22px;font-weight:900;color:#1976D2;">1</div>
+      <div style="font-size:11px;color:#888;margin-top:2px;">Tích lũy</div>
+    </div>
+  </div>
+
+  <!-- Tabs + Orders -->
+  <div class="sp-card" style="overflow:visible;">
+    <div class="orders-tabs" id="ordersTabs">
+      <button class="orders-tab active" data-tab="all">Tất cả (4)</button>
+      <button class="orders-tab" data-tab="active">Đang tham gia (2)</button>
+      <button class="orders-tab" data-tab="won">Đã thắng (1)</button>
+      <button class="orders-tab" data-tab="acc">Tích lũy (1)</button>
+    </div>
+  </div>
+
+  <!-- Order: Won -->
+  <div class="order-card" data-tab-group="all won">
+    <div class="order-card-header">
+      <span class="order-id">#WP-2026031501</span>
+      <span class="order-status won">🏆 Đã thắng</span>
+    </div>
+    <div class="order-card-body">
+      <div class="order-product-img-placeholder">📱</div>
+      <div class="order-product-info">
+        <div class="order-product-name">iPhone 17 Pro Max 256GB</div>
+        <div class="order-product-round">Đợt 3/10 · 15/03/2026</div>
+        <div class="order-progress-bar">
+          <div class="order-progress-fill" style="width:100%;"></div>
+        </div>
+        <div class="order-progress-text">100/100 ⭐ · Đã hoàn thành</div>
+      </div>
+    </div>
+    <div class="order-card-footer">
+      <div class="order-stars-used">Đã dùng: <strong>30 ⭐</strong> × 3 lần</div>
+      <button class="order-action-btn filled">Xem chi tiết</button>
+    </div>
+  </div>
+
+  <!-- Order: Active 1 -->
+  <div class="order-card" data-tab-group="all active">
+    <div class="order-card-header">
+      <span class="order-id">#WP-2026032001</span>
+      <span class="order-status active">⏳ Đang tham gia</span>
+    </div>
+    <div class="order-card-body">
+      <div class="order-product-img-placeholder">🎮</div>
+      <div class="order-product-info">
+        <div class="order-product-name">SONY PlayStation 5 Slim</div>
+        <div class="order-product-round">Đợt 1/10 · 20/03/2026</div>
+        <div class="order-progress-bar">
+          <div class="order-progress-fill" style="width:30%;"></div>
+        </div>
+        <div class="order-progress-text">30/100 ⭐ · Còn thiếu 70 ⭐</div>
+      </div>
+    </div>
+    <div class="order-card-footer">
+      <div class="order-stars-used">Đã dùng: <strong>10 ⭐</strong> × 2 lần</div>
+      <button class="order-action-btn" onclick="window.location.href='index.html#wish'">Tham gia thêm</button>
+    </div>
+  </div>
+
+  <!-- Order: Active 2 -->
+  <div class="order-card" data-tab-group="all active">
+    <div class="order-card-header">
+      <span class="order-id">#WP-2026032201</span>
+      <span class="order-status active">⏳ Đang tham gia</span>
+    </div>
+    <div class="order-card-body">
+      <div class="order-product-img-placeholder">🧴</div>
+      <div class="order-product-info">
+        <div class="order-product-name">SK-II Facial Treatment Kit</div>
+        <div class="order-product-round">Đợt 1/10 · 22/03/2026</div>
+        <div class="order-progress-bar">
+          <div class="order-progress-fill" style="width:20%;"></div>
+        </div>
+        <div class="order-progress-text">20/100 ⭐ · Còn thiếu 80 ⭐</div>
+      </div>
+    </div>
+    <div class="order-card-footer">
+      <div class="order-stars-used">Đã dùng: <strong>5 ⭐</strong> × 4 lần</div>
+      <button class="order-action-btn" onclick="window.location.href='index.html#wish'">Tham gia thêm</button>
+    </div>
+  </div>
+
+  <!-- Order: Accumulating -->
+  <div class="order-card" data-tab-group="all acc">
+    <div class="order-card-header">
+      <span class="order-id">#WP-2026031001</span>
+      <span class="order-status accumulating">💰 Đang tích lũy</span>
+    </div>
+    <div class="order-card-body">
+      <div class="order-product-img-placeholder">👜</div>
+      <div class="order-product-info">
+        <div class="order-product-name">LV Neverfull MM Tote Bag</div>
+        <div class="order-product-round">Đợt 2/5 · 10/03/2026</div>
+        <div class="order-progress-bar">
+          <div class="order-progress-fill" style="width:80%;background:linear-gradient(90deg,#1976D2,#42A5F5);"></div>
+        </div>
+        <div class="order-progress-text">80/100 ⭐ · Còn thiếu 20 ⭐ để đủ mua giá gốc</div>
+      </div>
+    </div>
+    <div class="order-card-footer">
+      <div class="order-stars-used">Đã dùng: <strong>50 ⭐</strong> × 1 lần</div>
+      <button class="order-action-btn" onclick="window.location.href='index.html#wish'">Tiếp tục tích lũy</button>
+    </div>
+  </div>
+
+  <!-- Guarantee Info Banner -->
+  <div style="background:linear-gradient(135deg,#E3F2FD,#F3E5F5);border-radius:16px;padding:18px 20px;margin-bottom:16px;display:flex;align-items:flex-start;gap:14px;">
+    <div style="font-size:28px;flex-shrink:0;">🛡️</div>
+    <div>
+      <div style="font-size:14px;font-weight:700;color:#1A1A1A;margin-bottom:4px;">Cơ chế bảo đảm KOCO</div>
+      <div style="font-size:13px;color:#555;line-height:1.6;">Nếu bạn tích lũy đủ 100% giá trị sản phẩm mà chưa trúng, bạn có thể mua sản phẩm với <strong style="color:#FF5722;">giá gốc chính hãng</strong>. Tiền của bạn không bao giờ mất!</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="text-align:center;padding:8px 0 16px;">
+    <a href="index.html#wish" style="display:inline-flex;align-items:center;gap:8px;background:#FF5722;color:white;padding:13px 28px;border-radius:999px;font-size:14px;font-weight:700;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#E64A19'" onmouseout="this.style.background='#FF5722'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      Tham gia thêm sản phẩm mới
+    </a>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+<script>
+  // Tab switching
+  const tabs = document.querySelectorAll('.orders-tab');
+  const orders = document.querySelectorAll('.order-card');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.tab;
+      orders.forEach(order => {
+        const groups = order.dataset.tabGroup || '';
+        if (filter === 'all' || groups.includes(filter)) {
+          order.style.display = '';
+        } else {
+          order.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Navbar
+  document.querySelectorAll('.lang-option').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('langFlag').textContent = btn.dataset.flag;
+      document.getElementById('langCode').textContent = btn.dataset.lang;
+      document.querySelectorAll('.lang-option').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('langSwitcher').classList.remove('open');
+    });
+  });
+  document.getElementById('langTrigger').addEventListener('click', () => {
+    document.getElementById('langSwitcher').classList.toggle('open');
+  });
+  document.getElementById('userAvatarBtn').addEventListener('click', () => {
+    document.getElementById('userDropdown').classList.toggle('show');
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#langSwitcher')) document.getElementById('langSwitcher').classList.remove('open');
+    if (!e.target.closest('.nav-user')) document.getElementById('userDropdown').classList.remove('show');
+  });
+</script>
+</body>
+</html>

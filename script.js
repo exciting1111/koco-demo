@@ -1153,6 +1153,9 @@ function confirmJoin() {
   const subEl  = document.getElementById('joinSuccessSub');
   const confettiWrap = document.getElementById('joinConfettiWrap');
 
+  // Store current product name for "continue" button
+  overlay._productCost = cost;
+
   // Fill i18n text
   textEl.textContent = dict.join_success || 'Tham gia thành công!';
   const subMap = {
@@ -1161,6 +1164,20 @@ function confirmJoin() {
     ID: `${cost} telah dikurangi — progres diperbarui`
   };
   subEl.textContent = subMap[currentLang] || subMap['VN'];
+
+  // Update button i18n text
+  const btnLabels = {
+    VN: { continue: 'Tham gia tiếp', orders: 'Lịch sử', close: 'Đóng' },
+    CN: { continue: '继续参与', orders: '参与记录', close: '关闭' },
+    ID: { continue: 'Lanjutkan', orders: 'Riwayat', close: 'Tutup' }
+  };
+  const labels = btnLabels[currentLang] || btnLabels['VN'];
+  const btnContinue = overlay.querySelector('.btn-continue span');
+  const btnOrders   = overlay.querySelector('.btn-orders span');
+  const btnClose    = overlay.querySelector('.btn-close-success span');
+  if (btnContinue) btnContinue.textContent = labels.continue;
+  if (btnOrders)   btnOrders.textContent   = labels.orders;
+  if (btnClose)    btnClose.textContent    = labels.close;
 
   // Force reflow before adding active class to ensure CSS transition triggers
   overlay.classList.remove('active');
@@ -1181,34 +1198,66 @@ function confirmJoin() {
       confettiWrap.appendChild(el);
     }
   }, 600);
+  // No auto-close: user must click one of the three action buttons
+}
 
-  // After 1.4s: fade out overlay, slide modal down, then show toast
+// Helper: dismiss overlay and close modal, then show toast
+function _dismissSuccess(showToast) {
+  const dict = i18n[currentLang];
+  const overlay = document.getElementById('joinSuccessOverlay');
+  const confettiWrap = document.getElementById('joinConfettiWrap');
+  const cost = overlay._productCost || '';
+
+  overlay.classList.remove('active');
+  const sheet = document.querySelector('#productModal .modal-sheet');
+  if (sheet) sheet.classList.add('exiting');
+
   setTimeout(() => {
-    overlay.classList.remove('active');
-    const sheet = document.querySelector('#productModal .modal-sheet');
-    if (sheet) sheet.classList.add('exiting');
+    closeModal('productModal');
+    if (sheet) sheet.classList.remove('exiting');
+    confettiWrap.innerHTML = '';
 
-    setTimeout(() => {
-      closeModal('productModal');
-      if (sheet) sheet.classList.remove('exiting');
-      overlay.classList.remove('active');
-      confettiWrap.innerHTML = '';
-
-      // Show bottom toast
+    if (showToast) {
       const toast = document.getElementById('joinSuccessToast');
       toast.innerHTML = `🎉 ${dict.join_success || 'Tham gia thành công!'} — ${cost}`;
       toast.classList.remove('hiding');
       toast.classList.add('show');
-
-      // Fade out toast after 2.8s
       setTimeout(() => {
         toast.classList.add('hiding');
-        setTimeout(() => {
-          toast.classList.remove('show', 'hiding');
-        }, 500);
+        setTimeout(() => toast.classList.remove('show', 'hiding'), 500);
       }, 2800);
-    }, 400);
-  }, 1400);
+    }
+  }, 400);
+}
+
+// Button: 关闭 — dismiss overlay + modal, show toast
+function closeSuccess() {
+  _dismissSuccess(true);
+}
+
+// Button: 继续参与 — dismiss overlay, keep modal open for another round
+function continueJoin() {
+  const overlay = document.getElementById('joinSuccessOverlay');
+  const confettiWrap = document.getElementById('joinConfettiWrap');
+  overlay.classList.remove('active');
+  setTimeout(() => { confettiWrap.innerHTML = ''; }, 400);
+}
+
+// Button: 参与记录 — dismiss overlay + modal, then open orders modal
+function openOrdersFromSuccess() {
+  _dismissSuccess(false);
+  setTimeout(() => {
+    // Open the orders modal if available, otherwise scroll to orders section
+    if (typeof openMyOrders === 'function') {
+      openMyOrders();
+    } else {
+      const ordersModal = document.getElementById('myOrdersModal');
+      if (ordersModal) {
+        ordersModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+  }, 500);
 }
 
 function closeProductModal(e) {

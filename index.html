@@ -1069,6 +1069,27 @@
         <div class="join-success-text" id="joinSuccessText">参与成功！</div>
         <div class="join-success-sub" id="joinSuccessSub">已扣除 1 ⭐，进度已更新</div>
         <div class="join-confetti-wrap" id="joinConfettiWrap"></div>
+        <!-- 三个操作按钮 -->
+        <div class="join-success-actions" id="joinSuccessActions">
+          <button class="join-success-btn btn-continue" onclick="continueJoin()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" fill="currentColor"/>
+            </svg>
+            <span data-i18n="success_btn_continue">继续参与</span>
+          </button>
+          <button class="join-success-btn btn-orders" onclick="openOrdersFromSuccess()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="success_btn_orders">参与记录</span>
+          </button>
+          <button class="join-success-btn btn-close-success" onclick="closeSuccess()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span data-i18n="success_btn_close">关闭</span>
+          </button>
+        </div>
       </div>
     </div>
 

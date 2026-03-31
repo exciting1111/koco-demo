@@ -1146,15 +1146,69 @@ function updateCost() {
 }
 
 function confirmJoin() {
-  const toast = document.getElementById('joinSuccessToast');
-  const p = productData[currentProductKey];
-  const lang = currentLang;
-  const dict = i18n[lang];
+  const dict = i18n[currentLang];
   const cost = document.getElementById('modalCost').textContent;
-  toast.innerHTML = `🎉 ${dict.join_success || 'Tham gia thành công!'} ${cost}`;
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 3000);
-  closeModal('productModal');
+  const overlay = document.getElementById('joinSuccessOverlay');
+  const textEl = document.getElementById('joinSuccessText');
+  const subEl  = document.getElementById('joinSuccessSub');
+  const confettiWrap = document.getElementById('joinConfettiWrap');
+
+  // Fill i18n text
+  textEl.textContent = dict.join_success || 'Tham gia thành công!';
+  const subMap = {
+    VN: `Đã trừ ${cost} — tiến độ đã cập nhật`,
+    CN: `已扣除 ${cost}，进度已更新`,
+    ID: `${cost} telah dikurangi — progres diperbarui`
+  };
+  subEl.textContent = subMap[currentLang] || subMap['VN'];
+
+  // Force reflow before adding active class to ensure CSS transition triggers
+  overlay.classList.remove('active');
+  void overlay.offsetWidth; // trigger reflow
+  overlay.classList.add('active');
+
+  // Spawn confetti after checkmark finishes drawing (~0.9s)
+  setTimeout(() => {
+    confettiWrap.innerHTML = '';
+    const colors = ['#FF5722','#FF9800','#FFC107','#4CAF50','#2196F3','#9C27B0','#E91E63'];
+    for (let i = 0; i < 28; i++) {
+      const el = document.createElement('div');
+      el.className = 'confetti-particle';
+      const angle = (i / 28) * 360;
+      const dist = 60 + Math.random() * 80;
+      const tx = `translate(${Math.cos(angle * Math.PI / 180) * dist}px, ${Math.sin(angle * Math.PI / 180) * dist}px)`;
+      el.style.cssText = `background:${colors[i % colors.length]};--tx:${tx};--rot:${Math.random()*720}deg;animation-delay:${Math.random()*0.3}s;animation-duration:${0.8 + Math.random()*0.5}s;`;
+      confettiWrap.appendChild(el);
+    }
+  }, 600);
+
+  // After 1.4s: fade out overlay, slide modal down, then show toast
+  setTimeout(() => {
+    overlay.classList.remove('active');
+    const sheet = document.querySelector('#productModal .modal-sheet');
+    if (sheet) sheet.classList.add('exiting');
+
+    setTimeout(() => {
+      closeModal('productModal');
+      if (sheet) sheet.classList.remove('exiting');
+      overlay.classList.remove('active');
+      confettiWrap.innerHTML = '';
+
+      // Show bottom toast
+      const toast = document.getElementById('joinSuccessToast');
+      toast.innerHTML = `🎉 ${dict.join_success || 'Tham gia thành công!'} — ${cost}`;
+      toast.classList.remove('hiding');
+      toast.classList.add('show');
+
+      // Fade out toast after 2.8s
+      setTimeout(() => {
+        toast.classList.add('hiding');
+        setTimeout(() => {
+          toast.classList.remove('show', 'hiding');
+        }, 500);
+      }, 2800);
+    }, 400);
+  }, 1400);
 }
 
 function closeProductModal(e) {

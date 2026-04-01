@@ -66,6 +66,40 @@ const i18n = {
     koc_visual_earn: '1.000.000₫+',
     koc_visual_earn_label: 'Thu nhập cao nhất',
     koc_visual_rating: 'Đánh giá',
+    // ---- KOC Application Form ----
+    koc_form_title: 'Đăng ký trở thành KOC',
+    koc_form_subtitle: 'Điền thông tin để tham gia chương trình KOC của KOCO',
+    koc_form_name: 'Họ và tên <span class="required">*</span>',
+    koc_form_name_ph: 'Nhập họ và tên',
+    koc_form_email: 'Email <span class="required">*</span>',
+    koc_form_email_ph: 'Nhập email',
+    koc_form_phone: 'Số điện thoại <span class="required">*</span>',
+    koc_form_phone_ph: 'Nhập số điện thoại',
+    koc_form_platform: 'Nền tảng MXH chính <span class="required">*</span>',
+    koc_form_platform_ph: '-- Chọn nền tảng --',
+    koc_form_link: 'Link trang cá nhân',
+    koc_form_link_ph: 'https://tiktok.com/@username',
+    koc_form_followers: 'Số lượng người theo dõi <span class="required">*</span>',
+    koc_form_followers_ph: '-- Chọn khoảng --',
+    koc_form_f1: '< 1.000',
+    koc_form_f2: '1.000 - 10.000',
+    koc_form_f3: '10.000 - 50.000',
+    koc_form_f4: '50.000 - 100.000',
+    koc_form_f5: '100.000+',
+    koc_form_category: 'Lĩnh vực nội dung <span class="required">*</span>',
+    koc_form_category_ph: '-- Chọn lĩnh vực --',
+    koc_form_c1: 'Thời trang',
+    koc_form_c2: 'Làm đẹp',
+    koc_form_c3: 'Công nghệ',
+    koc_form_c4: 'Phong cách sống',
+    koc_form_c5: 'Ẩm thực',
+    koc_form_other: 'Khác',
+    koc_form_reason: 'Tại sao bạn muốn trở thành KOC?',
+    koc_form_reason_ph: 'Chia sẻ lý do bạn muốn tham gia...',
+    koc_form_submit: 'Gửi đăng ký',
+    koc_form_success_title: 'Đăng ký thành công!',
+    koc_form_success_desc: 'Cảm ơn bạn đã đăng ký. Chúng tôi sẽ liên hệ bạn trong 24-48 giờ.',
+    koc_form_close: 'Đóng',
     // ---- Stats (legacy, kept for reference) ----
     stat_users: 'Người dùng',
     stat_value: 'Giá trị sản phẩm',
@@ -446,6 +480,40 @@ const i18n = {
     koc_visual_earn: '¥400+',
     koc_visual_earn_label: '最高收入',
     koc_visual_rating: '评分',
+    // ---- KOC Application Form ----
+    koc_form_title: '申请成为 KOC',
+    koc_form_subtitle: '填写信息加入 KOCO 的 KOC 计划',
+    koc_form_name: '姓名 <span class="required">*</span>',
+    koc_form_name_ph: '请输入姓名',
+    koc_form_email: '邮箱 <span class="required">*</span>',
+    koc_form_email_ph: '请输入邮箱',
+    koc_form_phone: '手机号 <span class="required">*</span>',
+    koc_form_phone_ph: '请输入手机号',
+    koc_form_platform: '主要社交平台 <span class="required">*</span>',
+    koc_form_platform_ph: '-- 选择平台 --',
+    koc_form_link: '个人主页链接',
+    koc_form_link_ph: 'https://tiktok.com/@username',
+    koc_form_followers: '粉丝数量 <span class="required">*</span>',
+    koc_form_followers_ph: '-- 选择范围 --',
+    koc_form_f1: '< 1,000',
+    koc_form_f2: '1,000 - 10,000',
+    koc_form_f3: '10,000 - 50,000',
+    koc_form_f4: '50,000 - 100,000',
+    koc_form_f5: '100,000+',
+    koc_form_category: '内容领域 <span class="required">*</span>',
+    koc_form_category_ph: '-- 选择领域 --',
+    koc_form_c1: '时尚',
+    koc_form_c2: '美妆',
+    koc_form_c3: '科技',
+    koc_form_c4: '生活方式',
+    koc_form_c5: '美食',
+    koc_form_other: '其他',
+    koc_form_reason: '为什么想成为 KOC？',
+    koc_form_reason_ph: '分享你想加入的原因...',
+    koc_form_submit: '提交申请',
+    koc_form_success_title: '申请成功！',
+    koc_form_success_desc: '感谢您的申请。我们将在 24-48 小时内联系您。',
+    koc_form_close: '关闭',
     // ---- Stats (legacy) ----
     stat_users: '用户数',
     stat_value: '商品总价值',
@@ -826,6 +894,40 @@ const i18n = {
     koc_visual_earn: 'Rp400.000+',
     koc_visual_earn_label: 'Penghasilan tertinggi',
     koc_visual_rating: 'Rating',
+    // ---- KOC Application Form ----
+    koc_form_title: 'Daftar jadi KOC',
+    koc_form_subtitle: 'Isi data untuk bergabung program KOC KOCO',
+    koc_form_name: 'Nama lengkap <span class="required">*</span>',
+    koc_form_name_ph: 'Masukkan nama lengkap',
+    koc_form_email: 'Email <span class="required">*</span>',
+    koc_form_email_ph: 'Masukkan email',
+    koc_form_phone: 'Nomor telepon <span class="required">*</span>',
+    koc_form_phone_ph: 'Masukkan nomor telepon',
+    koc_form_platform: 'Platform utama <span class="required">*</span>',
+    koc_form_platform_ph: '-- Pilih platform --',
+    koc_form_link: 'Link profil',
+    koc_form_link_ph: 'https://tiktok.com/@username',
+    koc_form_followers: 'Jumlah pengikut <span class="required">*</span>',
+    koc_form_followers_ph: '-- Pilih rentang --',
+    koc_form_f1: '< 1.000',
+    koc_form_f2: '1.000 - 10.000',
+    koc_form_f3: '10.000 - 50.000',
+    koc_form_f4: '50.000 - 100.000',
+    koc_form_f5: '100.000+',
+    koc_form_category: 'Kategori konten <span class="required">*</span>',
+    koc_form_category_ph: '-- Pilih kategori --',
+    koc_form_c1: 'Fashion',
+    koc_form_c2: 'Kecantikan',
+    koc_form_c3: 'Teknologi',
+    koc_form_c4: 'Gaya hidup',
+    koc_form_c5: 'Kuliner',
+    koc_form_other: 'Lainnya',
+    koc_form_reason: 'Mengapa ingin jadi KOC?',
+    koc_form_reason_ph: 'Ceritakan alasan kamu ingin bergabung...',
+    koc_form_submit: 'Kirim pendaftaran',
+    koc_form_success_title: 'Pendaftaran berhasil!',
+    koc_form_success_desc: 'Terima kasih telah mendaftar. Kami akan menghubungi Anda dalam 24-48 jam.',
+    koc_form_close: 'Tutup',
     // ---- Stats (legacy) ----
     stat_users: 'Pengguna',
     stat_value: 'Nilai produk',
@@ -1156,6 +1258,14 @@ function applyLang(lang) {
     const key = el.getAttribute('data-i18n');
     if (dict[key] !== undefined) {
       el.innerHTML = dict[key];
+    }
+  });
+
+  // Update placeholder translations
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (dict[key] !== undefined) {
+      el.placeholder = dict[key];
     }
   });
 
@@ -2159,6 +2269,66 @@ function renderReviews(productKey) {
     '</div>';
   }).join('');
 }
+
+// ===== KOC APPLICATION FORM =====
+function openKocForm(e) {
+  if (e) e.preventDefault();
+  var modal = document.getElementById('kocFormModal');
+  if (!modal) return;
+  // Reset form state
+  var form = document.getElementById('kocApplicationForm');
+  var success = document.getElementById('kocFormSuccess');
+  if (form) form.style.display = '';
+  if (success) success.style.display = 'none';
+  if (form) form.reset();
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeKocForm() {
+  var modal = document.getElementById('kocFormModal');
+  if (modal) modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function submitKocForm(e) {
+  e.preventDefault();
+  var btn = document.getElementById('kocFormSubmitBtn');
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = '<span class="koc-form-spinner"></span>';
+  }
+  // Simulate submission (demo mode)
+  setTimeout(function() {
+    var form = document.getElementById('kocApplicationForm');
+    var success = document.getElementById('kocFormSuccess');
+    if (form) form.style.display = 'none';
+    if (success) success.style.display = '';
+    // Re-apply i18n to success state
+    var lang = currentLang || 'VN';
+    var dict = i18n[lang];
+    if (dict) {
+      document.querySelectorAll('#kocFormSuccess [data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (dict[key]) el.innerHTML = dict[key];
+      });
+    }
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-right:6px"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="koc_form_submit">' + (dict && dict.koc_form_submit || 'G\u1eedi \u0111\u0103ng k\u00fd') + '</span>';
+    }
+  }, 1500);
+}
+
+// Close KOC form on overlay click
+(function() {
+  var overlay = document.getElementById('kocFormModal');
+  if (overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeKocForm();
+    });
+  }
+})();
 
 // ===== RESTORE SAVED LANGUAGE ON PAGE LOAD =====
 (function() {

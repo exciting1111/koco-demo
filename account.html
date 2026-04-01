@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOCO - Account Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="account.css" />
+</head>
+<body class="account-body">
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="images/koco-logo.png" alt="KOCO" class="logo-img" />
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link" data-i18n="nav_home">Trang chu</a>
+      <a href="index.html#wish" class="nav-link" data-i18n="nav_wish">Wish Purchase</a>
+      <a href="index.html#invite" class="nav-link" data-i18n="nav_invite">Thuong moi ban</a>
+      <a href="#" class="nav-link" data-i18n="nav_download">Tai APP</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-notification">
+        <button class="nav-icon-btn" id="notifBell">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </button>
+      </div>
+      <div class="nav-stars">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFB800"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span class="star-count">100</span>
+      </div>
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-trigger" id="langTrigger">
+          <span class="lang-flag" id="langFlag">🇻🇳</span>
+          <span class="lang-code" id="langCode">VN</span>
+          <svg class="lang-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <button class="lang-option active" data-lang="VN" data-flag="🇻🇳">🇻🇳 VN - Tiếng Việt</button>
+          <button class="lang-option" data-lang="CN" data-flag="🇨🇳">🇨🇳 CN - 中文</button>
+          <button class="lang-option" data-lang="ID" data-flag="🇮🇩">🇮🇩 ID - Bahasa</button>
+        </div>
+      </div>
+      <div class="nav-user">
+        <button class="user-avatar-btn" id="userAvatarBtn">
+          <div class="user-avatar">W</div>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== ACCOUNT CENTER ========== -->
+<div class="ac-container">
+
+  <!-- Left Sidebar -->
+  <aside class="ac-sidebar" id="acSidebar">
+    <div class="ac-user-card">
+      <div class="ac-user-avatar">W</div>
+      <div class="ac-user-info">
+        <div class="ac-user-name">WebUser.7c7318</div>
+        <div class="ac-user-uid">UID 3841</div>
+      </div>
+      <span class="ac-user-badge">Da xac minh</span>
+    </div>
+    <div class="ac-user-invite-code">XZ7FFPKM</div>
+    <div class="ac-user-stats">
+      <div class="ac-stat"><span class="ac-stat-label">So du hien tai</span><span class="ac-stat-value">100 ⭐</span></div>
+      <div class="ac-stat"><span class="ac-stat-label">Don da tham gia</span><span class="ac-stat-value">0</span></div>
+      <div class="ac-stat"><span class="ac-stat-label">Da moi</span><span class="ac-stat-value">0</span></div>
+    </div>
+    <nav class="ac-nav">
+      <a href="#profile" class="ac-nav-item active" data-section="profile">
+        <span class="ac-nav-icon">◉</span>
+        <div class="ac-nav-text">
+          <span class="ac-nav-title">Tai khoan</span>
+          <span class="ac-nav-desc">Thong tin tai khoan</span>
+        </div>
+      </a>
+      <a href="#orders" class="ac-nav-item" data-section="orders">
+        <span class="ac-nav-icon">◎</span>
+        <div class="ac-nav-text">
+          <span class="ac-nav-title">Don hang</span>
+          <span class="ac-nav-desc">Theo doi tien do tham gia, don da trung va cac phien khong trung.</span>
+        </div>
+      </a>
+      <a href="#participation" class="ac-nav-item" data-section="participation">
+        <span class="ac-nav-icon">◌</span>
+        <div class="ac-nav-text">
+          <span class="ac-nav-title">Tham gia</span>
+          <span class="ac-nav-desc">Xem cac ky tham gia Wish Purchase va tien do hien tai cua tung san pham.</span>
+        </div>
+      </a>
+      <a href="#stars" class="ac-nav-item" data-section="stars">
+        <span class="ac-nav-icon">⭐</span>
+        <div class="ac-nav-text">
+          <span class="ac-nav-title">Xu may man</span>
+          <span class="ac-nav-desc">Theo doi so du, cach kiem them xu va lich su bien dong.</span>
+        </div>
+      </a>
+      <a href="#invite" class="ac-nav-item" data-section="invite">
+        <span class="ac-nav-icon">↗</span>
+        <div class="ac-nav-text">
+          <span class="ac-nav-title">Moi ban</span>
+          <span class="ac-nav-desc">Chia se lien ket rieng de nhan thuong va mo khoa them moc qua.</span>
+        </div>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Right Content -->
+  <main class="ac-main">
+
+    <!-- ===== PROFILE SECTION ===== -->
+    <section class="ac-section active" id="sec-profile">
+      <div class="ac-section-label">ACCOUNT CENTER</div>
+      <h1 class="ac-section-title">Trung tam tai khoan</h1>
+      <p class="ac-section-desc">Theo doi ho so, thong tin xac minh va loi moi ngay trong mot noi.</p>
+
+      <!-- User Summary Card -->
+      <div class="ac-summary-card">
+        <div class="ac-summary-left">
+          <div class="ac-summary-avatar">W</div>
+          <div class="ac-summary-info">
+            <div class="ac-summary-name">WebUser.7c7318</div>
+            <div class="ac-summary-email">bileko1764@fengnu.com</div>
+            <div class="ac-summary-badges">
+              <span class="ac-badge vip">Thanh vien VIP · VIP 1</span>
+              <span class="ac-badge verified">Da xac minh</span>
+            </div>
+          </div>
+        </div>
+        <div class="ac-summary-stats">
+          <div class="ac-summary-stat">
+            <div class="ac-summary-stat-label">So du hien tai</div>
+            <div class="ac-summary-stat-value">100</div>
+            <div class="ac-summary-stat-icon">⭐</div>
+          </div>
+          <div class="ac-summary-stat">
+            <div class="ac-summary-stat-label">Don da tham gia</div>
+            <div class="ac-summary-stat-value">0</div>
+          </div>
+          <div class="ac-summary-stat">
+            <div class="ac-summary-stat-label">Da trung</div>
+            <div class="ac-summary-stat-value">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Account Info -->
+      <div class="ac-card">
+        <div class="ac-card-header">
+          <div class="ac-card-label">THONG TIN TAI KHOAN</div>
+          <h2 class="ac-card-title">Thong tin tai khoan</h2>
+        </div>
+        <button class="ac-edit-btn">Chinh sua</button>
+      </div>
+      <div class="ac-info-table">
+        <div class="ac-info-row">
+          <div class="ac-info-label">Ten hien thi</div>
+          <div class="ac-info-value">WebUser.7c7318</div>
+        </div>
+        <div class="ac-info-row">
+          <div class="ac-info-label">Email</div>
+          <div class="ac-info-value">bileko1764@fengnu.com</div>
+        </div>
+        <div class="ac-info-row">
+          <div class="ac-info-label">Ngay sinh</div>
+          <div class="ac-info-value">--</div>
+        </div>
+        <div class="ac-info-row">
+          <div class="ac-info-label">Cap do</div>
+          <div class="ac-info-value">VIP 1</div>
+        </div>
+        <div class="ac-info-row">
+          <div class="ac-info-label">Ma moi</div>
+          <div class="ac-info-value highlight">XZ7FFPKM</div>
+        </div>
+        <div class="ac-info-row">
+          <div class="ac-info-label">Khu vuc</div>
+          <div class="ac-info-value">VN</div>
+        </div>
+        <div class="ac-info-row">
+          <div class="ac-info-label">Trang thai</div>
+          <div class="ac-info-value">Da xac minh</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ORDERS SECTION ===== -->
+    <section class="ac-section" id="sec-orders">
+      <div class="ac-section-label">DON HANG</div>
+      <h1 class="ac-section-title">Don hang cua toi</h1>
+      <p class="ac-section-desc">Theo doi tien do tham gia, don da trung va cac phien khong trung.</p>
+
+      <div class="ac-stats-row">
+        <div class="ac-stats-item"><div class="ac-stats-label">Tat ca</div><div class="ac-stats-number">0</div></div>
+        <div class="ac-stats-item"><div class="ac-stats-label">Da gui hang</div><div class="ac-stats-number">0</div></div>
+        <div class="ac-stats-item"><div class="ac-stats-label">Da hoan thanh</div><div class="ac-stats-number">0</div></div>
+      </div>
+
+      <div class="ac-tabs" id="ordersTabs">
+        <button class="ac-tab active" data-tab="all">Tat ca (0)</button>
+        <button class="ac-tab" data-tab="shipped">Da gui hang (0)</button>
+        <button class="ac-tab" data-tab="completed">Da hoan thanh (0)</button>
+      </div>
+
+      <div class="ac-empty">
+        <div class="ac-empty-icon">📦</div>
+        <div class="ac-empty-text">Chua co don hang nao.</div>
+        <div class="ac-empty-sub">Hay tham gia san pham Wish Purchase dau tien.</div>
+        <a href="index.html#wish" class="ac-empty-btn">Tham gia ngay</a>
+      </div>
+    </section>
+
+    <!-- ===== PARTICIPATION SECTION ===== -->
+    <section class="ac-section" id="sec-participation">
+      <div class="ac-section-label">THAM GIA</div>
+      <h1 class="ac-section-title">Lich su tham gia</h1>
+      <p class="ac-section-desc">Xem cac ky tham gia Wish Purchase va tien do hien tai cua tung san pham.</p>
+
+      <div class="ac-stats-row">
+        <div class="ac-stats-item"><div class="ac-stats-label">Tat ca</div><div class="ac-stats-number">0</div></div>
+        <div class="ac-stats-item"><div class="ac-stats-label">Dang tham gia</div><div class="ac-stats-number">0</div></div>
+        <div class="ac-stats-item"><div class="ac-stats-label">Da trung</div><div class="ac-stats-number">0</div></div>
+        <div class="ac-stats-item"><div class="ac-stats-label">Khong trung</div><div class="ac-stats-number">0</div></div>
+      </div>
+
+      <div class="ac-tabs" id="participationTabs">
+        <button class="ac-tab active" data-tab="all">Tat ca (0)</button>
+        <button class="ac-tab" data-tab="active">Dang tham gia (0)</button>
+        <button class="ac-tab" data-tab="won">Da trung (0)</button>
+        <button class="ac-tab" data-tab="lost">Khong trung (0)</button>
+      </div>
+
+      <div class="ac-empty">
+        <div class="ac-empty-icon">🎯</div>
+        <div class="ac-empty-text">Chua co lich su tham gia nao.</div>
+        <div class="ac-empty-sub">Hay tham gia Wish Purchase de bat dau.</div>
+        <a href="index.html#wish" class="ac-empty-btn">Tham gia ngay</a>
+      </div>
+    </section>
+
+    <!-- ===== STARS SECTION ===== -->
+    <section class="ac-section" id="sec-stars">
+      <div class="ac-section-label">XU MAY MAN</div>
+      <h1 class="ac-section-title">Xu may man</h1>
+      <p class="ac-section-desc">Theo doi so du, cach kiem them xu va lich su bien dong.</p>
+
+      <!-- Balance Card -->
+      <div class="ac-stars-balance">
+        <div class="ac-stars-balance-main">
+          <div class="ac-stars-label">SO DU HIEN CO</div>
+          <div class="ac-stars-amount">100 <span class="ac-stars-icon">⭐</span></div>
+          <div class="ac-stars-sub">Dung xu de tham gia Wish Purchase, moi ban va nhan thuong.</div>
+          <div class="ac-stars-actions">
+            <button class="ac-stars-btn primary">Dung ngay</button>
+            <a href="index.html#invite" class="ac-stars-btn secondary">Kiem them</a>
+          </div>
+        </div>
+        <div class="ac-stars-balance-detail">
+          <div class="ac-stars-detail-item"><span>Tong nhan duoc</span><span>0 ⭐</span></div>
+          <div class="ac-stars-detail-item"><span>Tong da dung</span><span>0 ⭐</span></div>
+          <div class="ac-stars-detail-item"><span>Dang tich luy</span><span>0 ⭐</span></div>
+          <div class="ac-stars-detail-item"><span>Thuong moi kha dung</span><span>0 ⭐</span></div>
+        </div>
+      </div>
+
+      <!-- Earn Ways -->
+      <div class="ac-card">
+        <div class="ac-card-header">
+          <div class="ac-card-label">CACH KIEM XU</div>
+          <h2 class="ac-card-title">Cach kiem xu</h2>
+        </div>
+      </div>
+      <div class="ac-earn-grid">
+        <div class="ac-earn-item">
+          <div class="ac-earn-icon">🎁</div>
+          <div class="ac-earn-title">Dang ky moi</div>
+          <div class="ac-earn-reward">+100</div>
+        </div>
+        <div class="ac-earn-item">
+          <div class="ac-earn-icon">👥</div>
+          <div class="ac-earn-title">Moi ban be</div>
+          <div class="ac-earn-reward">+50</div>
+        </div>
+        <div class="ac-earn-item">
+          <div class="ac-earn-icon">🌟</div>
+          <div class="ac-earn-title">KOC Program</div>
+          <div class="ac-earn-reward">∞</div>
+        </div>
+      </div>
+
+      <!-- Transaction History -->
+      <div class="ac-card" style="margin-top:24px;">
+        <div class="ac-card-header">
+          <div class="ac-card-label">LICH SU GIAO DICH</div>
+          <h2 class="ac-card-title">Bien dong xu</h2>
+        </div>
+        <button class="ac-card-action">Xem tat ca</button>
+      </div>
+      <div class="ac-empty" style="padding:32px 20px;">
+        <div class="ac-empty-icon">📊</div>
+        <div class="ac-empty-text">Chua co lich su xu may man.</div>
+      </div>
+    </section>
+
+    <!-- ===== INVITE SECTION ===== -->
+    <section class="ac-section" id="sec-invite">
+      <div class="ac-section-label">MOI BAN</div>
+      <h1 class="ac-section-title">Moi ban be</h1>
+      <p class="ac-section-desc">Chia se lien ket rieng de nhan thuong va mo khoa them moc qua.</p>
+
+      <!-- Invite Code Card -->
+      <div class="ac-invite-card">
+        <div class="ac-invite-card-header">
+          <div class="ac-card-label">MA MOI CUA BAN</div>
+          <h2 class="ac-card-title" style="color:white;">Moi ban be</h2>
+        </div>
+        <div class="ac-invite-link">https://kocoshop.vip/?code=XZ7FFPKM</div>
+        <div class="ac-invite-code-row">
+          <span class="ac-invite-code">XZ7FFPKM</span>
+          <button class="ac-invite-copy-btn" onclick="navigator.clipboard.writeText('XZ7FFPKM');this.textContent='Da sao chep!';setTimeout(()=>this.textContent='Sao chep',1500)">Sao chep</button>
+        </div>
+        <div class="ac-invite-share-row">
+          <button class="ac-share-btn whatsapp">WhatsApp</button>
+          <button class="ac-share-btn telegram">Telegram</button>
+          <button class="ac-share-btn facebook">Facebook</button>
+        </div>
+      </div>
+
+      <!-- Invite Stats -->
+      <div class="ac-stats-row">
+        <div class="ac-stats-item"><div class="ac-stats-label">Da moi</div><div class="ac-stats-number">0</div></div>
+        <div class="ac-stats-item"><div class="ac-stats-label">Tong thuong</div><div class="ac-stats-number">0 ⭐</div></div>
+      </div>
+
+      <!-- Invite History -->
+      <div class="ac-card" style="margin-top:24px;">
+        <div class="ac-card-header">
+          <div class="ac-card-label">DANH SACH BAN BE</div>
+          <h2 class="ac-card-title">Lich su moi ban</h2>
+        </div>
+      </div>
+      <div class="ac-empty" style="padding:32px 20px;">
+        <div class="ac-empty-icon">👥</div>
+        <div class="ac-empty-text">Chua co ban be nao duoc moi.</div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Mobile sidebar overlay & toggle -->
+<div class="ac-sidebar-overlay"></div>
+<button class="ac-mobile-toggle" aria-label="Menu">☰</button>
+
+<script src="script.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

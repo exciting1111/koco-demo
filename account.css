@@ -521,20 +521,19 @@
   font-size: 24px;
   font-weight: 900;
   color: #1A1A1A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
-.ac-summary-stat-icon {
-  font-size: 14px;
-  margin-top: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.ac-summary-stat-icon img {
+.ac-summary-stat-value img {
   width: 24px;
   height: 24px;
   object-fit: contain;
+  flex-shrink: 0;
   filter: drop-shadow(0 2px 4px rgba(255,152,0,0.4));
+  vertical-align: middle;
 }
 
 /* Info Table */

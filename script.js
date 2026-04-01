@@ -831,6 +831,8 @@ function applyLang(lang) {
   const dict = i18n[lang];
   if (!dict) return;
   currentLang = lang;
+  // Persist language selection across pages
+  try { localStorage.setItem('kocoLang', lang); } catch(e) {}
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
@@ -1767,3 +1769,13 @@ function renderReviews(productKey) {
     '</div>';
   }).join('');
 }
+
+// ===== RESTORE SAVED LANGUAGE ON PAGE LOAD =====
+(function() {
+  var savedLang = '';
+  try { savedLang = localStorage.getItem('kocoLang') || ''; } catch(e) {}
+  if (savedLang && savedLang !== 'VN' && i18n[savedLang]) {
+    // Use setTimeout to ensure DOM is ready and all other init code has run
+    setTimeout(function() { applyLang(savedLang); }, 0);
+  }
+})();

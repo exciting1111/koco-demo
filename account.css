@@ -1157,7 +1157,7 @@
 }
 
 .ac-part-status.won {
-  background: linear-gradient(90deg, #FF5722, #FF9800);
+  background: linear-gradient(90deg, #2E7D32, #43A047);
   color: white;
 }
 
@@ -1206,6 +1206,9 @@
 
 .ac-part-progress-fill.lost {
   background: #BDBDBD;
+}
+.ac-part-progress-fill.won {
+  background: linear-gradient(90deg, #2E7D32, #66BB6A);
 }
 
 .ac-part-closed-tag {
@@ -1282,6 +1285,15 @@
 
 .ac-part-action-btn.secondary:hover {
   background: #FFF3EE;
+}
+.ac-part-action-btn.won {
+  background: linear-gradient(135deg, #2E7D32, #43A047);
+  color: white;
+  border: none;
+}
+.ac-part-action-btn.won:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(46,125,50,0.35);
 }
 
 /* Tab filter: hide cards not matching */

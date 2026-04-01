@@ -316,7 +316,61 @@ const i18n = {
     rdm_ship_success_note: 'Đơn hàng đã được chuyển sang <strong>Đã gửi hàng</strong> trong mục Đơn',
     rdm_pending: 'Chờ giao hàng',
     rdm_redeemed: 'Đã đổi',
-    rdm_virtual_success_note: 'Đơn hàng đã được chuyển sang <strong>Đã hoàn thành</strong> trong mục Đơn hàng.'
+    rdm_virtual_success_note: 'Đơn hàng đã được chuyển sang <strong>Đã hoàn thành</strong> trong mục Đơn hàng.',
+    // ---- Invite Page ----
+    invite_page_title: 'Mời bạn bè',
+    invite_page_sub: 'Mời bạn bè — cả hai cùng nhận thưởng hấp dẫn',
+    invite_hero_title: 'Mời bạn bè, nhận thưởng ngay!',
+    invite_hero_sub: 'Mỗi người bạn mời đăng ký, bạn nhận <strong>50 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></strong> · Bạn bè nhận <strong>100 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></strong> chào mừng',
+    invite_copy_btn: 'Sao chép',
+    invite_stat_invited: 'Bạn đã mời',
+    invite_stat_earned: 'Đã nhận',
+    invite_stat_remaining: 'Còn thiếu (lên VIP 2)',
+    invite_reward_table_title: 'Bảng thưởng mời bạn',
+    invite_tier1_label: 'Đăng ký',
+    invite_tier1_desc: 'Bạn bè nhận khi đăng ký',
+    invite_tier2_label: 'Mời 1 bạn',
+    invite_tier2_desc: 'Bạn nhận mỗi lượt mời',
+    invite_hot: 'HOT',
+    invite_tier3_label: 'Mời 5 bạn',
+    invite_tier3_desc: 'Thưởng cộng thêm khi đạt mốc',
+    invite_tier4_label: 'Mời 10 bạn',
+    invite_tier4_desc: 'Thưởng đặc biệt + lên VIP 2',
+    invite_progress_title: 'Tiến độ mời bạn',
+    invite_progress_count: '3/10 bạn',
+    invite_goal_label: 'Mục tiêu:',
+    invite_friends_unit: 'bạn',
+    invite_milestone_hint: 'Còn 2 bạn nữa để nhận thưởng mốc 5!',
+    invite_milestone_reward: 'Đạt mốc 5 bạn → nhận thêm 300 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />',
+    invite_friends_list_title: 'Bạn bè đã mời (3)',
+    invite_friend1_status: 'Tham gia 24/03/2026 · Đã tham gia Wish Purchase',
+    invite_friend2_status: 'Tham gia 20/03/2026 · Đã tham gia Wish Purchase',
+    invite_friend3_status: 'Tham gia 18/03/2026 · Chưa tham gia Wish Purchase',
+    invite_friend_pending: 'Chờ tham gia',
+    invite_how_title: 'Cách thức hoạt động',
+    invite_step1_title: 'Sao chép link mời của bạn',
+    invite_step1_desc: 'Mỗi tài khoản có một link mời riêng biệt và duy nhất',
+    invite_step2_title: 'Chia sẻ cho bạn bè',
+    invite_step2_desc: 'Gửi qua WhatsApp, Telegram, hoặc bất kỳ kênh nào bạn muốn',
+    invite_step3_title: 'Bạn bè đăng ký & nhận thưởng',
+    invite_step3_desc: 'Bạn bè đăng ký qua link của bạn → cả hai đều nhận Sao ngay lập tức',
+    invite_step4_title: 'Không giới hạn số lượng mời',
+    invite_step4_desc: 'Mời càng nhiều bạn, nhận càng nhiều Sao. Không có giới hạn!',
+    invite_koc_title: 'Trở thành KOC — kiếm nhiều hơn!',
+    invite_koc_desc: 'KOC nhận hoa hồng không giới hạn, thu nhập 1.000.000₫+/tháng',
+    invite_koc_per_ref: 'Mỗi lượt mời',
+    invite_koc_unlimited: 'Không giới hạn',
+    invite_koc_monthly: 'Hàng tháng',
+    // ---- Orders Page ----
+    orders_page_title: 'Đơn hàng của tôi',
+    orders_page_sub: 'Theo dõi tiến độ tham gia Wish Purchase',
+    orders_stat_all: 'Tất cả',
+    orders_stat_active: 'Đang tham gia',
+    orders_stat_won: 'Đã thắng',
+    orders_stat_acc: 'Tích lũy',
+    orders_guarantee_title: 'Cơ chế bảo đảm KOCO',
+    orders_guarantee_desc: 'Nếu bạn tích lũy đủ 100% giá trị sản phẩm mà chưa trúng, bạn có thể mua sản phẩm với <strong style="color:#FF5722;">giá gốc chính hãng</strong>. Tiền của bạn không bao giờ mất!',
+    orders_cta_join_more: 'Tham gia thêm sản phẩm mới'
   },
 
   CN: {
@@ -635,7 +689,61 @@ const i18n = {
     rdm_ship_success_note: '订单已自动转入订单中心的《已发货》',
     rdm_pending: '待发货',
     rdm_redeemed: '已兑换',
-    rdm_virtual_success_note: '订单已自动转入订单中心的《已完成》'
+    rdm_virtual_success_note: '订单已自动转入订单中心的《已完成》',
+    // ---- Invite Page ----
+    invite_page_title: '邀请好友',
+    invite_page_sub: '邀请好友 — 双方都能获得丰厚奖励',
+    invite_hero_title: '邀请好友，立即获奖！',
+    invite_hero_sub: '每邀请一位好友注册，您获得 <strong>50 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></strong> · 好友获得 <strong>100 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></strong> 欢迎礼',
+    invite_copy_btn: '复制',
+    invite_stat_invited: '已邀请好友',
+    invite_stat_earned: '已获得',
+    invite_stat_remaining: '距升 VIP 2 还差',
+    invite_reward_table_title: '邀请奖励表',
+    invite_tier1_label: '注册',
+    invite_tier1_desc: '好友注册时获得',
+    invite_tier2_label: '邀请1位好友',
+    invite_tier2_desc: '每次邀请您都能获得',
+    invite_hot: 'HOT',
+    invite_tier3_label: '邀请5位好友',
+    invite_tier3_desc: '达到里程碑额外奖励',
+    invite_tier4_label: '邀请10位好友',
+    invite_tier4_desc: '特别奖励 + 升级 VIP 2',
+    invite_progress_title: '邀请进度',
+    invite_progress_count: '3/10 位好友',
+    invite_goal_label: '目标：',
+    invite_friends_unit: '位好友',
+    invite_milestone_hint: '再邀请2位好友即可解锁里程碑5奖励！',
+    invite_milestone_reward: '达到5位好友 → 额外获得 300 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />',
+    invite_friends_list_title: '已邀请好友 (3)',
+    invite_friend1_status: '加入于 24/03/2026 · 已参与心愿购',
+    invite_friend2_status: '加入于 20/03/2026 · 已参与心愿购',
+    invite_friend3_status: '加入于 18/03/2026 · 尚未参与心愿购',
+    invite_friend_pending: '等待参与',
+    invite_how_title: '活动说明',
+    invite_step1_title: '复制您的专属邀请链接',
+    invite_step1_desc: '每个账号都有唯一的专属邀请链接',
+    invite_step2_title: '分享给好友',
+    invite_step2_desc: '通过 WhatsApp、Telegram 或任意渠道发送',
+    invite_step3_title: '好友注册并获奖',
+    invite_step3_desc: '好友通过您的链接注册 → 双方立即获得星星',
+    invite_step4_title: '邀请数量不限',
+    invite_step4_desc: '邀请越多好友，获得越多星星，没有上限！',
+    invite_koc_title: '成为 KOC — 赚取更多！',
+    invite_koc_desc: 'KOC 享受无限佣金，月收入 1,000,000₫+',
+    invite_koc_per_ref: '每次邀请',
+    invite_koc_unlimited: '无限制',
+    invite_koc_monthly: '每月',
+    // ---- Orders Page ----
+    orders_page_title: '我的订单',
+    orders_page_sub: '跟踪心愿购参与进度',
+    orders_stat_all: '全部',
+    orders_stat_active: '参与中',
+    orders_stat_won: '已中奖',
+    orders_stat_acc: '积累中',
+    orders_guarantee_title: 'KOCO 保障机制',
+    orders_guarantee_desc: '如果您积累了 100% 的商品价值仍未中奖，您可以以<strong style="color:#FF5722;">正品原价</strong>购买该商品。您的钱永远不会损失！',
+    orders_cta_join_more: '参与更多新商品'
   },
 
   ID: {
@@ -954,7 +1062,61 @@ const i18n = {
     rdm_ship_success_note: 'Pesanan telah dipindahkan ke <strong>Dikirim</strong> di menu Pesanan',
     rdm_pending: 'Menunggu Pengiriman',
     rdm_redeemed: 'Sudah Ditukar',
-    rdm_virtual_success_note: 'Pesanan telah dipindahkan ke <strong>Selesai</strong> di menu Pesanan'
+    rdm_virtual_success_note: 'Pesanan telah dipindahkan ke <strong>Selesai</strong> di menu Pesanan',
+    // ---- Invite Page ----
+    invite_page_title: 'Undang Teman',
+    invite_page_sub: 'Undang teman — keduanya mendapat hadiah menarik',
+    invite_hero_title: 'Undang teman, langsung dapat hadiah!',
+    invite_hero_sub: 'Setiap teman yang mendaftar, kamu dapat <strong>50 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></strong> · Teman dapat <strong>100 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></strong> selamat datang',
+    invite_copy_btn: 'Salin',
+    invite_stat_invited: 'Teman diundang',
+    invite_stat_earned: 'Sudah diterima',
+    invite_stat_remaining: 'Kurang untuk VIP 2',
+    invite_reward_table_title: 'Tabel hadiah undangan',
+    invite_tier1_label: 'Daftar',
+    invite_tier1_desc: 'Teman dapat saat mendaftar',
+    invite_tier2_label: 'Undang 1 teman',
+    invite_tier2_desc: 'Kamu dapat setiap kali mengundang',
+    invite_hot: 'HOT',
+    invite_tier3_label: 'Undang 5 teman',
+    invite_tier3_desc: 'Bonus tambahan saat mencapai target',
+    invite_tier4_label: 'Undang 10 teman',
+    invite_tier4_desc: 'Hadiah spesial + naik ke VIP 2',
+    invite_progress_title: 'Progress undangan',
+    invite_progress_count: '3/10 teman',
+    invite_goal_label: 'Target:',
+    invite_friends_unit: 'teman',
+    invite_milestone_hint: 'Butuh 2 teman lagi untuk hadiah milestone 5!',
+    invite_milestone_reward: 'Capai 5 teman → dapat tambahan 300 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />',
+    invite_friends_list_title: 'Teman yang diundang (3)',
+    invite_friend1_status: 'Bergabung 24/03/2026 · Sudah ikut Wish Purchase',
+    invite_friend2_status: 'Bergabung 20/03/2026 · Sudah ikut Wish Purchase',
+    invite_friend3_status: 'Bergabung 18/03/2026 · Belum ikut Wish Purchase',
+    invite_friend_pending: 'Menunggu bergabung',
+    invite_how_title: 'Cara kerja',
+    invite_step1_title: 'Salin link undangan kamu',
+    invite_step1_desc: 'Setiap akun memiliki link undangan yang unik',
+    invite_step2_title: 'Bagikan ke teman',
+    invite_step2_desc: 'Kirim via WhatsApp, Telegram, atau saluran apapun',
+    invite_step3_title: 'Teman daftar & dapat hadiah',
+    invite_step3_desc: 'Teman daftar lewat link kamu → keduanya langsung dapat Bintang',
+    invite_step4_title: 'Tidak ada batas undangan',
+    invite_step4_desc: 'Semakin banyak teman diundang, semakin banyak Bintang. Tanpa batas!',
+    invite_koc_title: 'Jadi KOC — Penghasilan lebih besar!',
+    invite_koc_desc: 'KOC dapat komisi tak terbatas, penghasilan 1.000.000₫+/bulan',
+    invite_koc_per_ref: 'Per undangan',
+    invite_koc_unlimited: 'Tidak terbatas',
+    invite_koc_monthly: 'Per bulan',
+    // ---- Orders Page ----
+    orders_page_title: 'Pesanan Saya',
+    orders_page_sub: 'Pantau progress partisipasi Wish Purchase',
+    orders_stat_all: 'Semua',
+    orders_stat_active: 'Sedang ikut',
+    orders_stat_won: 'Menang',
+    orders_stat_acc: 'Akumulasi',
+    orders_guarantee_title: 'Jaminan KOCO',
+    orders_guarantee_desc: 'Jika kamu mengumpulkan 100% nilai produk tapi belum menang, kamu bisa membeli produk dengan <strong style="color:#FF5722;">harga asli resmi</strong>. Uangmu tidak akan pernah hilang!',
+    orders_cta_join_more: 'Ikut produk baru lainnya'
   }
 };
 
@@ -967,7 +1129,7 @@ function applyLang(lang) {
   if (!dict) return;
   currentLang = lang;
   // Persist language selection across pages
-  try { localStorage.setItem('kocoLang', lang); } catch(e) {}
+  try { localStorage.setItem('koco_lang', lang); } catch(e) {}
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
@@ -1857,7 +2019,7 @@ const reviewsI18n = {
 };
 
 function renderReviews(productKey) {
-  var lang = (typeof currentLang !== 'undefined' ? currentLang : null) || localStorage.getItem('kocoLang') || 'VN';
+  var lang = (typeof currentLang !== 'undefined' ? currentLang : null) || localStorage.getItem('koco_lang') || 'VN';
   var reviews = (reviewsData[productKey] || {})[lang] || [];
   var t = reviewsI18n[lang] || reviewsI18n.VN;
 
@@ -1883,7 +2045,7 @@ function renderReviews(productKey) {
 
   listEl.innerHTML = reviews.map(function(r) {
     var starHtml = '';
-    for (var i = 0; i < (r.rating || 5); i++) starHtml += '<span class="review-star">\u2b50</span>';
+    for (var i = 0; i < (r.rating || 5); i++) starHtml += '<span class="review-star"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFB800"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>';
     return '<div class="review-card">' +
       '<div class="review-card-top">' +
         '<div class="review-avatar" style="background:' + r.color + '">' + r.initials + '</div>' +
@@ -1908,7 +2070,7 @@ function renderReviews(productKey) {
 // ===== RESTORE SAVED LANGUAGE ON PAGE LOAD =====
 (function() {
   var savedLang = '';
-  try { savedLang = localStorage.getItem('kocoLang') || ''; } catch(e) {}
+  try { savedLang = localStorage.getItem('koco_lang') || ''; } catch(e) {}
   if (savedLang && savedLang !== 'VN' && i18n[savedLang]) {
     // Use setTimeout to ensure DOM is ready and all other init code has run
     setTimeout(function() { applyLang(savedLang); }, 0);

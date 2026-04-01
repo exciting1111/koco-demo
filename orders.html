@@ -61,12 +61,12 @@
             </div>
           </div>
           <div class="user-dropdown-divider"></div>
-          <a href="profile.html" class="user-dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>个人中心</span></a>
-          <a href="stars.html" class="user-dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>我的星星</span></a>
-          <a href="orders.html" class="user-dropdown-item" style="color:#FF5722;background:#FFF8F5;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#FF5722;"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg><span>我的订单</span></a>
-          <a href="invite.html" class="user-dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>邀请好友</span></a>
+          <a href="profile.html" class="user-dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-i18n="menu_profile">个人中心</span></a>
+          <a href="stars.html" class="user-dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span data-i18n="menu_stars">我的星星</span></a>
+          <a href="orders.html" class="user-dropdown-item" style="color:#FF5722;background:#FFF8F5;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#FF5722;"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg><span data-i18n="menu_orders">我的订单</span></a>
+          <a href="invite.html" class="user-dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span data-i18n="menu_invite">邀请好友</span></a>
           <div class="user-dropdown-divider"></div>
-          <a href="index.html" class="user-dropdown-item user-dropdown-logout"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg><span>退出登录</span></a>
+          <a href="index.html" class="user-dropdown-item user-dropdown-logout"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg><span data-i18n="menu_logout">退出登录</span></a>
         </div>
       </div>
     </div>
@@ -78,10 +78,10 @@
   <div class="page-header-inner">
     <a href="profile.html" class="page-back-btn">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-      个人中心
+      <span data-i18n="menu_profile">个人中心</span>
     </a>
-    <div class="page-header-title">📋 我的订单</div>
-    <div class="page-header-sub">Theo dõi tiến độ tham gia Wish Purchase</div>
+    <div class="page-header-title">📋 <span data-i18n="orders_page_title">我的订单</span></div>
+    <div class="page-header-sub" data-i18n="orders_page_sub">Theo dõi tiến độ tham gia Wish Purchase</div>
   </div>
 </div>
 
@@ -92,19 +92,19 @@
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;">
     <div style="background:white;border-radius:16px;padding:14px 10px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
       <div style="font-size:22px;font-weight:900;color:#FF5722;">4</div>
-      <div style="font-size:11px;color:#888;margin-top:2px;">Tất cả</div>
+      <div style="font-size:11px;color:#888;margin-top:2px;" data-i18n="orders_stat_all">Tất cả</div>
     </div>
     <div style="background:white;border-radius:16px;padding:14px 10px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
       <div style="font-size:22px;font-weight:900;color:#FF5722;">2</div>
-      <div style="font-size:11px;color:#888;margin-top:2px;">Đang tham gia</div>
+      <div style="font-size:11px;color:#888;margin-top:2px;" data-i18n="orders_stat_active">Đang tham gia</div>
     </div>
     <div style="background:white;border-radius:16px;padding:14px 10px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
       <div style="font-size:22px;font-weight:900;color:#4CAF50;">1</div>
-      <div style="font-size:11px;color:#888;margin-top:2px;">Đã thắng</div>
+      <div style="font-size:11px;color:#888;margin-top:2px;" data-i18n="orders_stat_won">Đã thắng</div>
     </div>
     <div style="background:white;border-radius:16px;padding:14px 10px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
       <div style="font-size:22px;font-weight:900;color:#1976D2;">1</div>
-      <div style="font-size:11px;color:#888;margin-top:2px;">Tích lũy</div>
+      <div style="font-size:11px;color:#888;margin-top:2px;" data-i18n="orders_stat_acc">Tích lũy</div>
     </div>
   </div>
 
@@ -132,11 +132,11 @@
         <div class="order-progress-bar">
           <div class="order-progress-fill" style="width:100%;"></div>
         </div>
-        <div class="order-progress-text">100/100 ⭐ · Đã hoàn thành</div>
+        <div class="order-progress-text">100/100 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> · Đã hoàn thành</div>
       </div>
     </div>
     <div class="order-card-footer">
-      <div class="order-stars-used">Đã dùng: <strong>30 ⭐</strong> × 3 lần</div>
+      <div class="order-stars-used">Đã dùng: <strong>30 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></strong> × 3 lần</div>
       <button class="order-action-btn filled">Xem chi tiết</button>
     </div>
   </div>
@@ -155,11 +155,11 @@
         <div class="order-progress-bar">
           <div class="order-progress-fill" style="width:30%;"></div>
         </div>
-        <div class="order-progress-text">30/100 ⭐ · Còn thiếu 70 ⭐</div>
+        <div class="order-progress-text">30/100 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> · Còn thiếu 70 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></div>
       </div>
     </div>
     <div class="order-card-footer">
-      <div class="order-stars-used">Đã dùng: <strong>10 ⭐</strong> × 2 lần</div>
+      <div class="order-stars-used">Đã dùng: <strong>10 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></strong> × 2 lần</div>
       <button class="order-action-btn" onclick="window.location.href='index.html#wish'">Tham gia thêm</button>
     </div>
   </div>
@@ -178,11 +178,11 @@
         <div class="order-progress-bar">
           <div class="order-progress-fill" style="width:20%;"></div>
         </div>
-        <div class="order-progress-text">20/100 ⭐ · Còn thiếu 80 ⭐</div>
+        <div class="order-progress-text">20/100 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> · Còn thiếu 80 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></div>
       </div>
     </div>
     <div class="order-card-footer">
-      <div class="order-stars-used">Đã dùng: <strong>5 ⭐</strong> × 4 lần</div>
+      <div class="order-stars-used">Đã dùng: <strong>5 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></strong> × 4 lần</div>
       <button class="order-action-btn" onclick="window.location.href='index.html#wish'">Tham gia thêm</button>
     </div>
   </div>
@@ -201,11 +201,11 @@
         <div class="order-progress-bar">
           <div class="order-progress-fill" style="width:80%;background:linear-gradient(90deg,#1976D2,#42A5F5);"></div>
         </div>
-        <div class="order-progress-text">80/100 ⭐ · Còn thiếu 20 ⭐ để đủ mua giá gốc</div>
+        <div class="order-progress-text">80/100 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> · Còn thiếu 20 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> để đủ mua giá gốc</div>
       </div>
     </div>
     <div class="order-card-footer">
-      <div class="order-stars-used">Đã dùng: <strong>50 ⭐</strong> × 1 lần</div>
+      <div class="order-stars-used">Đã dùng: <strong>50 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></strong> × 1 lần</div>
       <button class="order-action-btn" onclick="window.location.href='index.html#wish'">Tiếp tục tích lũy</button>
     </div>
   </div>
@@ -214,8 +214,8 @@
   <div style="background:linear-gradient(135deg,#E3F2FD,#F3E5F5);border-radius:16px;padding:18px 20px;margin-bottom:16px;display:flex;align-items:flex-start;gap:14px;">
     <div style="font-size:28px;flex-shrink:0;">🛡️</div>
     <div>
-      <div style="font-size:14px;font-weight:700;color:#1A1A1A;margin-bottom:4px;">Cơ chế bảo đảm KOCO</div>
-      <div style="font-size:13px;color:#555;line-height:1.6;">Nếu bạn tích lũy đủ 100% giá trị sản phẩm mà chưa trúng, bạn có thể mua sản phẩm với <strong style="color:#FF5722;">giá gốc chính hãng</strong>. Tiền của bạn không bao giờ mất!</div>
+      <div style="font-size:14px;font-weight:700;color:#1A1A1A;margin-bottom:4px;" data-i18n="orders_guarantee_title">Cơ chế bảo đảm KOCO</div>
+      <div style="font-size:13px;color:#555;line-height:1.6;" data-i18n="orders_guarantee_desc">Nếu bạn tích lũy đủ 100% giá trị sản phẩm mà chưa trúng, bạn có thể mua sản phẩm với <strong style="color:#FF5722;">giá gốc chính hãng</strong>. Tiền của bạn không bao giờ mất!</div>
     </div>
   </div>
 
@@ -223,7 +223,7 @@
   <div style="text-align:center;padding:8px 0 16px;">
     <a href="index.html#wish" style="display:inline-flex;align-items:center;gap:8px;background:#FF5722;color:white;padding:13px 28px;border-radius:999px;font-size:14px;font-weight:700;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#E64A19'" onmouseout="this.style.background='#FF5722'">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-      Tham gia thêm sản phẩm mới
+      <span data-i18n="orders_cta_join_more">Tham gia thêm sản phẩm mới</span>
     </a>
   </div>
 

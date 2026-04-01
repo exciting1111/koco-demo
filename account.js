@@ -146,7 +146,7 @@
     // ---- Apply saved language ----
     var savedLang = '';
     try {
-      savedLang = localStorage.getItem('kocoLang') || localStorage.getItem('koco_lang') || 'VN';
+      savedLang = localStorage.getItem('koco_lang') || 'VN';
     } catch(e) { savedLang = 'VN'; }
 
     if (typeof applyLang === 'function' && savedLang && savedLang !== 'VN') {
@@ -183,7 +183,6 @@
         _origApply(lang);
         updateTabLabels(lang);
         try {
-          localStorage.setItem('kocoLang', lang);
           localStorage.setItem('koco_lang', lang);
         } catch(e) {}
       };
@@ -439,7 +438,7 @@
       // Re-apply language to newly rendered elements
       if (typeof applyLang === 'function') {
         var lang = '';
-        try { lang = localStorage.getItem('kocoLang') || localStorage.getItem('koco_lang') || 'VN'; } catch(e) {}
+        try { lang = localStorage.getItem('koco_lang') || 'VN'; } catch(e) {}
         if (lang) applyLang(lang);
       }
     }
@@ -458,7 +457,7 @@
         btn.removeAttribute('data-action');
         // Update text based on type
         var lang = '';
-        try { lang = localStorage.getItem('kocoLang') || localStorage.getItem('koco_lang') || 'VN'; } catch(e) {}
+        try { lang = localStorage.getItem('koco_lang') || 'VN'; } catch(e) {}
         if (type === 'virtual') {
           btn.textContent = lang === 'CN' ? '已兑换' : (lang === 'ID' ? 'Sudah ditukar' : 'Đã đổi thưởng');
         } else {

@@ -61,12 +61,12 @@
             </div>
           </div>
           <div class="user-dropdown-divider"></div>
-          <a href="profile.html" class="user-dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>个人中心</span></a>
-          <a href="stars.html" class="user-dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>我的星星</span></a>
-          <a href="orders.html" class="user-dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg><span>我的订单</span></a>
-          <a href="invite.html" class="user-dropdown-item" style="color:#FF5722;background:#FFF8F5;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#FF5722;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>邀请好友</span></a>
+          <a href="profile.html" class="user-dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-i18n="menu_profile">个人中心</span></a>
+          <a href="stars.html" class="user-dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span data-i18n="menu_stars">我的星星</span></a>
+          <a href="orders.html" class="user-dropdown-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg><span data-i18n="menu_orders">我的订单</span></a>
+          <a href="invite.html" class="user-dropdown-item" style="color:#FF5722;background:#FFF8F5;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#FF5722;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span data-i18n="menu_invite">邀请好友</span></a>
           <div class="user-dropdown-divider"></div>
-          <a href="index.html" class="user-dropdown-item user-dropdown-logout"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg><span>退出登录</span></a>
+          <a href="index.html" class="user-dropdown-item user-dropdown-logout"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg><span data-i18n="menu_logout">退出登录</span></a>
         </div>
       </div>
     </div>
@@ -78,10 +78,10 @@
   <div class="page-header-inner">
     <a href="index.html" class="page-back-btn">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-      首页
+      <span data-i18n="nav_home">首页</span>
     </a>
-    <div class="page-header-title">👥 邀请好友</div>
-    <div class="page-header-sub">Mời bạn bè — cả hai cùng nhận thưởng hấp dẫn</div>
+    <div class="page-header-title">👥 <span data-i18n="invite_page_title">邀请好友</span></div>
+    <div class="page-header-sub" data-i18n="invite_page_sub">Mời bạn bè — cả hai cùng nhận thưởng hấp dẫn</div>
   </div>
 </div>
 
@@ -90,11 +90,11 @@
 
   <!-- Invite Hero Card -->
   <div class="invite-hero-card">
-    <div class="invite-hero-title">Mời bạn bè, nhận thưởng ngay!</div>
-    <div class="invite-hero-sub">Mỗi người bạn mời đăng ký, bạn nhận <strong>50 ⭐</strong> · Bạn bè nhận <strong>100 ⭐</strong> chào mừng</div>
+    <div class="invite-hero-title" data-i18n="invite_hero_title">Mời bạn bè, nhận thưởng ngay!</div>
+    <div class="invite-hero-sub" data-i18n="invite_hero_sub">Mỗi người bạn mời đăng ký, bạn nhận <strong>50 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></strong> · Bạn bè nhận <strong>100 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></strong> chào mừng</div>
     <div class="invite-link-box">
       <span class="invite-link-text" id="inviteLink">https://koco.asia/ref/KOCO2026</span>
-      <button class="invite-copy-btn" id="copyBtn" onclick="copyInviteLink()">Sao chép</button>
+      <button class="invite-copy-btn" id="copyBtn" onclick="copyInviteLink()" data-i18n="invite_copy_btn">Sao chép</button>
     </div>
     <div class="invite-share-btns">
       <button class="invite-share-btn whatsapp" onclick="shareWhatsApp()">
@@ -107,7 +107,7 @@
       </button>
       <button class="invite-share-btn copy" onclick="copyInviteLink()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        Sao chép
+        <span data-i18n="invite_copy_btn">Sao chép</span>
       </button>
     </div>
   </div>
@@ -116,15 +116,15 @@
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
     <div style="background:white;border-radius:16px;padding:16px 12px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
       <div style="font-size:26px;font-weight:900;color:#FF5722;">3</div>
-      <div style="font-size:11px;color:#888;margin-top:2px;">Bạn đã mời</div>
+      <div style="font-size:11px;color:#888;margin-top:2px;" data-i18n="invite_stat_invited">Bạn đã mời</div>
     </div>
     <div style="background:white;border-radius:16px;padding:16px 12px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
-      <div style="font-size:26px;font-weight:900;color:#FF5722;">150 ⭐</div>
-      <div style="font-size:11px;color:#888;margin-top:2px;">Đã nhận</div>
+      <div style="font-size:26px;font-weight:900;color:#FF5722;">150 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></div>
+      <div style="font-size:11px;color:#888;margin-top:2px;" data-i18n="invite_stat_earned">Đã nhận</div>
     </div>
     <div style="background:white;border-radius:16px;padding:16px 12px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
       <div style="font-size:26px;font-weight:900;color:#4CAF50;">7</div>
-      <div style="font-size:11px;color:#888;margin-top:2px;">Còn thiếu (lên VIP 2)</div>
+      <div style="font-size:11px;color:#888;margin-top:2px;" data-i18n="invite_stat_remaining">Còn thiếu (lên VIP 2)</div>
     </div>
   </div>
 
@@ -135,31 +135,31 @@
         <div class="sp-card-title-icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        Bảng thưởng mời bạn
+        <span data-i18n="invite_reward_table_title">Bảng thưởng mời bạn</span>
       </div>
     </div>
     <div class="reward-tiers">
       <div class="reward-tier-item">
-        <div class="reward-tier-label">Đăng ký</div>
-        <div class="reward-tier-value">100 ⭐</div>
-        <div class="reward-tier-desc">Bạn bè nhận khi đăng ký</div>
+        <div class="reward-tier-label" data-i18n="invite_tier1_label">Đăng ký</div>
+        <div class="reward-tier-value">100 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></div>
+        <div class="reward-tier-desc" data-i18n="invite_tier1_desc">Bạn bè nhận khi đăng ký</div>
       </div>
       <div class="reward-tier-item">
-        <div class="reward-tier-label">Mời 1 bạn</div>
-        <div class="reward-tier-value">+50 ⭐</div>
-        <div class="reward-tier-desc">Bạn nhận mỗi lượt mời</div>
+        <div class="reward-tier-label" data-i18n="invite_tier2_label">Mời 1 bạn</div>
+        <div class="reward-tier-value">+50 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></div>
+        <div class="reward-tier-desc" data-i18n="invite_tier2_desc">Bạn nhận mỗi lượt mời</div>
       </div>
       <div class="reward-tier-item highlight">
-        <div class="reward-tier-hot">HOT</div>
-        <div class="reward-tier-label">Mời 5 bạn</div>
-        <div class="reward-tier-value">+300 ⭐</div>
-        <div class="reward-tier-desc">Thưởng cộng thêm khi đạt mốc</div>
+        <div class="reward-tier-hot" data-i18n="invite_hot">HOT</div>
+        <div class="reward-tier-label" data-i18n="invite_tier3_label">Mời 5 bạn</div>
+        <div class="reward-tier-value">+300 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></div>
+        <div class="reward-tier-desc" data-i18n="invite_tier3_desc">Thưởng cộng thêm khi đạt mốc</div>
       </div>
       <div class="reward-tier-item highlight">
         <div class="reward-tier-hot">VIP</div>
-        <div class="reward-tier-label">Mời 10 bạn</div>
-        <div class="reward-tier-value">+1,000 ⭐</div>
-        <div class="reward-tier-desc">Thưởng đặc biệt + lên VIP 2</div>
+        <div class="reward-tier-label" data-i18n="invite_tier4_label">Mời 10 bạn</div>
+        <div class="reward-tier-value">+1,000 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></div>
+        <div class="reward-tier-desc" data-i18n="invite_tier4_desc">Thưởng đặc biệt + lên VIP 2</div>
       </div>
     </div>
   </div>
@@ -171,14 +171,14 @@
         <div class="sp-card-title-icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
-        Tiến độ mời bạn
+        <span data-i18n="invite_progress_title">Tiến độ mời bạn</span>
       </div>
-      <span style="font-size:13px;color:#FF5722;font-weight:700;">3/10 bạn</span>
+      <span style="font-size:13px;color:#FF5722;font-weight:700;" data-i18n="invite_progress_count">3/10 bạn</span>
     </div>
     <div class="milestone-bar">
-      <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
-        <span style="font-size:13px;color:#555;">Đã mời: <strong style="color:#FF5722;">3 bạn</strong></span>
-        <span style="font-size:13px;color:#555;">Mục tiêu: <strong>10 bạn</strong></span>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <span style="font-size:13px;font-weight:700;color:#FF5722;" data-i18n="invite_progress_count">3/10 bạn</span>
+        <span style="font-size:13px;color:#555;"><span data-i18n="invite_goal_label">Mục tiêu:</span> <strong>10 <span data-i18n="invite_friends_unit">bạn</span></strong></span>
       </div>
       <div class="milestone-track">
         <div class="milestone-fill" style="width:30%;"></div>
@@ -200,8 +200,8 @@
       <div style="margin-top:16px;background:#FFF3EE;border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px;">
         <span style="font-size:20px;">🎯</span>
         <div>
-          <div style="font-size:13px;font-weight:700;color:#FF5722;">Còn 2 bạn nữa để nhận thưởng mốc 5!</div>
-          <div style="font-size:12px;color:#888;margin-top:2px;">Đạt mốc 5 bạn → nhận thêm 300 ⭐</div>
+          <div style="font-size:13px;font-weight:700;color:#FF5722;" data-i18n="invite_milestone_hint">Còn 2 bạn nữa để nhận thưởng mốc 5!</div>
+          <div style="font-size:12px;color:#888;margin-top:2px;" data-i18n="invite_milestone_reward">Đạt mốc 5 bạn → nhận thêm 300 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></div>
         </div>
       </div>
     </div>
@@ -214,7 +214,7 @@
         <div class="sp-card-title-icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
         </div>
-        Bạn bè đã mời (3)
+        <span data-i18n="invite_friends_list_title">Bạn bè đã mời (3)</span>
       </div>
     </div>
     <div>
@@ -222,25 +222,25 @@
         <div class="invite-friend-avatar" style="background:linear-gradient(135deg,#2196F3,#03A9F4);">N</div>
         <div class="invite-friend-info">
           <div class="invite-friend-name">Nguyen Van A</div>
-          <div class="invite-friend-date">Tham gia 24/03/2026 · Đã tham gia Wish Purchase</div>
+          <div class="invite-friend-date" data-i18n="invite_friend1_status">Tham gia 24/03/2026 · Đã tham gia Wish Purchase</div>
         </div>
-        <div class="invite-friend-reward">+50 ⭐</div>
+        <div class="invite-friend-reward">+50 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></div>
       </div>
       <div class="invite-friend-item">
         <div class="invite-friend-avatar" style="background:linear-gradient(135deg,#E91E63,#F06292);">T</div>
         <div class="invite-friend-info">
           <div class="invite-friend-name">Tran Thi B</div>
-          <div class="invite-friend-date">Tham gia 20/03/2026 · Đã tham gia Wish Purchase</div>
+          <div class="invite-friend-date" data-i18n="invite_friend2_status">Tham gia 20/03/2026 · Đã tham gia Wish Purchase</div>
         </div>
-        <div class="invite-friend-reward">+50 ⭐</div>
+        <div class="invite-friend-reward">+50 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></div>
       </div>
       <div class="invite-friend-item">
         <div class="invite-friend-avatar" style="background:linear-gradient(135deg,#4CAF50,#8BC34A);">L</div>
         <div class="invite-friend-info">
           <div class="invite-friend-name">Le Van C</div>
-          <div class="invite-friend-date">Tham gia 18/03/2026 · Chưa tham gia Wish Purchase</div>
+          <div class="invite-friend-date" data-i18n="invite_friend3_status">Tham gia 18/03/2026 · Chưa tham gia Wish Purchase</div>
         </div>
-        <div style="font-size:12px;color:#888;font-weight:600;">Chờ tham gia</div>
+        <div style="font-size:12px;color:#888;font-weight:600;" data-i18n="invite_friend_pending">Chờ tham gia</div>
       </div>
     </div>
   </div>
@@ -252,7 +252,7 @@
         <div class="sp-card-title-icon">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         </div>
-        Cách thức hoạt động
+        <span data-i18n="invite_how_title">Cách thức hoạt động</span>
       </div>
     </div>
     <div style="padding:16px 20px;">
@@ -260,29 +260,29 @@
         <div style="display:flex;align-items:flex-start;gap:14px;">
           <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#FF5722,#FF9800);color:white;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
           <div>
-            <div style="font-size:14px;font-weight:700;color:#1A1A1A;margin-bottom:3px;">Sao chép link mời của bạn</div>
-            <div style="font-size:13px;color:#888;">Mỗi tài khoản có một link mời riêng biệt và duy nhất</div>
+            <div style="font-size:14px;font-weight:700;color:#1A1A1A;margin-bottom:3px;" data-i18n="invite_step1_title">Sao chép link mời của bạn</div>
+            <div style="font-size:13px;color:#888;" data-i18n="invite_step1_desc">Mỗi tài khoản có một link mời riêng biệt và duy nhất</div>
           </div>
         </div>
         <div style="display:flex;align-items:flex-start;gap:14px;">
           <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#FF5722,#FF9800);color:white;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
           <div>
-            <div style="font-size:14px;font-weight:700;color:#1A1A1A;margin-bottom:3px;">Chia sẻ cho bạn bè</div>
-            <div style="font-size:13px;color:#888;">Gửi qua WhatsApp, Telegram, hoặc bất kỳ kênh nào bạn muốn</div>
+            <div style="font-size:14px;font-weight:700;color:#1A1A1A;margin-bottom:3px;" data-i18n="invite_step2_title">Chia sẻ cho bạn bè</div>
+            <div style="font-size:13px;color:#888;" data-i18n="invite_step2_desc">Gửi qua WhatsApp, Telegram, hoặc bất kỳ kênh nào bạn muốn</div>
           </div>
         </div>
         <div style="display:flex;align-items:flex-start;gap:14px;">
           <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#FF5722,#FF9800);color:white;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
           <div>
-            <div style="font-size:14px;font-weight:700;color:#1A1A1A;margin-bottom:3px;">Bạn bè đăng ký & nhận thưởng</div>
-            <div style="font-size:13px;color:#888;">Bạn bè đăng ký qua link của bạn → cả hai đều nhận Sao ngay lập tức</div>
+            <div style="font-size:14px;font-weight:700;color:#1A1A1A;margin-bottom:3px;" data-i18n="invite_step3_title">Bạn bè đăng ký &amp; nhận thưởng</div>
+            <div style="font-size:13px;color:#888;" data-i18n="invite_step3_desc">Bạn bè đăng ký qua link của bạn → cả hai đều nhận Sao ngay lập tức</div>
           </div>
         </div>
         <div style="display:flex;align-items:flex-start;gap:14px;">
           <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#4CAF50,#8BC34A);color:white;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✓</div>
           <div>
-            <div style="font-size:14px;font-weight:700;color:#1A1A1A;margin-bottom:3px;">Không giới hạn số lượng mời</div>
-            <div style="font-size:13px;color:#888;">Mời càng nhiều bạn, nhận càng nhiều Sao. Không có giới hạn!</div>
+            <div style="font-size:14px;font-weight:700;color:#1A1A1A;margin-bottom:3px;" data-i18n="invite_step4_title">Không giới hạn số lượng mời</div>
+            <div style="font-size:13px;color:#888;" data-i18n="invite_step4_desc">Mời càng nhiều bạn, nhận càng nhiều Sao. Không có giới hạn!</div>
           </div>
         </div>
       </div>
@@ -294,25 +294,25 @@
     <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
       <div style="font-size:36px;">🌟</div>
       <div>
-        <div style="font-size:16px;font-weight:800;">Trở thành KOC — kiếm nhiều hơn!</div>
-        <div style="font-size:13px;opacity:0.75;margin-top:3px;">KOC nhận hoa hồng không giới hạn, thu nhập 1.000.000₫+/tháng</div>
+        <div style="font-size:16px;font-weight:800;" data-i18n="invite_koc_title">Trở thành KOC — kiếm nhiều hơn!</div>
+        <div style="font-size:13px;opacity:0.75;margin-top:3px;" data-i18n="invite_koc_desc">KOC nhận hoa hồng không giới hạn, thu nhập 1.000.000₫+/tháng</div>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
       <div style="background:rgba(255,255,255,0.08);border-radius:12px;padding:12px;text-align:center;">
-        <div style="font-size:18px;font-weight:900;color:#FFB800;">+50 ⭐</div>
-        <div style="font-size:11px;opacity:0.65;margin-top:2px;">Mỗi lượt mời</div>
+        <div style="font-size:18px;font-weight:900;color:#FFB800;">+50 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /></div>
+        <div style="font-size:11px;opacity:0.65;margin-top:2px;" data-i18n="invite_koc_per_ref">Mỗi lượt mời</div>
       </div>
       <div style="background:rgba(255,152,0,0.2);border-radius:12px;padding:12px;text-align:center;border:1px solid rgba(255,152,0,0.4);">
         <div style="font-size:18px;font-weight:900;color:#FFB800;">∞</div>
-        <div style="font-size:11px;opacity:0.65;margin-top:2px;">Không giới hạn</div>
+        <div style="font-size:11px;opacity:0.65;margin-top:2px;" data-i18n="invite_koc_unlimited">Không giới hạn</div>
       </div>
       <div style="background:rgba(255,255,255,0.08);border-radius:12px;padding:12px;text-align:center;">
         <div style="font-size:18px;font-weight:900;color:#FFB800;">1M₫+</div>
-        <div style="font-size:11px;opacity:0.65;margin-top:2px;">Hàng tháng</div>
+        <div style="font-size:11px;opacity:0.65;margin-top:2px;" data-i18n="invite_koc_monthly">Hàng tháng</div>
       </div>
     </div>
-    <a href="index.html#koc" style="display:block;text-align:center;padding:13px;background:linear-gradient(90deg,#FF5722,#FF9800);color:white;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;">
+    <a href="index.html#koc" style="display:block;text-align:center;padding:13px;background:linear-gradient(90deg,#FF5722,#FF9800);color:white;border-radius:12px;font-size:14px;font-weight:700;text-decoration:none;" data-i18n="koc_cta">
       Đăng ký KOC ngay →
     </a>
   </div>
@@ -326,11 +326,14 @@
     var link = document.getElementById('inviteLink').textContent;
     navigator.clipboard.writeText(link).then(function() {
       var btn = document.getElementById('copyBtn');
-      btn.textContent = '✓ Đã sao chép!';
+      var lang = localStorage.getItem('koco_lang') || 'VN';
+      var copiedText = lang === 'CN' ? '✓ 已复制!' : (lang === 'ID' ? '✓ Disalin!' : '✓ Đã sao chép!');
+      btn.textContent = copiedText;
       btn.style.background = '#E8F5E9';
       btn.style.color = '#388E3C';
       setTimeout(function() {
-        btn.textContent = 'Sao chép';
+        var resetText = lang === 'CN' ? '复制' : (lang === 'ID' ? 'Salin' : 'Sao chép');
+        btn.textContent = resetText;
         btn.style.background = '';
         btn.style.color = '';
       }, 2000);
@@ -339,13 +342,23 @@
     });
   }
   function shareWhatsApp() {
-    var text = encodeURIComponent('Tham gia KOCO ngay! Cơ hội nhận iPhone 17 Pro Max chỉ từ 40.000₫. Đăng ký qua link của mình: https://koco.asia/ref/KOCO2026');
-    window.open('https://wa.me/?text=' + text, '_blank');
+    var lang = localStorage.getItem('koco_lang') || 'VN';
+    var text = lang === 'CN'
+      ? '加入KOCO！只需¥4就有机会赢得iPhone 17 Pro Max。通过我的链接注册：https://koco.asia/ref/KOCO2026'
+      : (lang === 'ID'
+        ? 'Bergabung dengan KOCO sekarang! Kesempatan mendapatkan iPhone 17 Pro Max mulai dari Rp4.000. Daftar lewat link saya: https://koco.asia/ref/KOCO2026'
+        : 'Tham gia KOCO ngay! Cơ hội nhận iPhone 17 Pro Max chỉ từ 40.000₫. Đăng ký qua link của mình: https://koco.asia/ref/KOCO2026');
+    window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
   }
   function shareTelegram() {
-    var text = encodeURIComponent('Tham gia KOCO ngay! Cơ hội nhận iPhone 17 Pro Max chỉ từ 40.000₫.');
+    var lang = localStorage.getItem('koco_lang') || 'VN';
+    var text = lang === 'CN'
+      ? '加入KOCO！只需¥4就有机会赢得iPhone 17 Pro Max。'
+      : (lang === 'ID'
+        ? 'Bergabung dengan KOCO! Kesempatan mendapatkan iPhone 17 Pro Max mulai dari Rp4.000.'
+        : 'Tham gia KOCO ngay! Cơ hội nhận iPhone 17 Pro Max chỉ từ 40.000₫.');
     var url = encodeURIComponent('https://koco.asia/ref/KOCO2026');
-    window.open('https://t.me/share/url?url=' + url + '&text=' + text, '_blank');
+    window.open('https://t.me/share/url?url=' + url + '&text=' + encodeURIComponent(text), '_blank');
   }
 </script>
 </body>

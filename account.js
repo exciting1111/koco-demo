@@ -6,6 +6,12 @@
   var orders = [];
 
   function initAccount() {
+    // ---- Patch i18n dict for keys not yet in script.js cache ----
+    if (typeof i18n !== 'undefined') {
+      if (!i18n.VN.ac_redeem) i18n.VN.ac_redeem = 'Đổi thưởng';
+      if (!i18n.CN.ac_redeem) i18n.CN.ac_redeem = '兑换奖品';
+      if (!i18n.ID.ac_redeem) i18n.ID.ac_redeem = 'Tukar hadiah';
+    }
 
     // ---- Section Navigation ----
     var navItems = document.querySelectorAll('.ac-nav-item');

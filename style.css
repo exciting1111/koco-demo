@@ -2597,6 +2597,16 @@ a {
   transition: all 0.2s;
   white-space: nowrap;
   font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.wish-cat svg {
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+.wish-cat.active svg {
+  opacity: 1;
 }
 .wish-cat:hover { background: rgba(255,255,255,0.3); color: #fff; }
 .wish-cat.active {
@@ -2616,6 +2626,12 @@ a {
   border-radius: 50px;
   backdrop-filter: blur(6px);
   z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.product-badge svg {
+  flex-shrink: 0;
 }
 .product-badge.hot { background: rgba(255,80,0,0.85); color: #fff; }
 .product-badge.ending { background: rgba(80,40,0,0.75); color: #fff; }
@@ -3335,46 +3351,4 @@ a {
   .join-success-circle { width: 80px; height: 80px; }
   .join-checkmark { width: 80px; height: 80px; }
   .join-success-text { font-size: 18px; }
-}
-
-/* ===== INLINE LUCKY STAR IMAGE ===== */
-.star-img-inline {
-  width: 1em;
-  height: 1em;
-  object-fit: contain;
-  vertical-align: -0.15em;
-  display: inline-block;
-  flex-shrink: 0;
-}
-
-/* Larger star in big number contexts */
-.ac-stars-amount .star-img-inline,
-.modal-stars-fraction .star-img-inline,
-.modal-progress-remain .star-img-inline,
-.modal-calc-val .star-img-inline {
-  width: 1.1em;
-  height: 1.1em;
-  vertical-align: -0.2em;
-}
-
-/* Star in buttons */
-.star-btn .star-img-inline {
-  width: 0.9em;
-  height: 0.9em;
-  vertical-align: -0.1em;
-}
-
-/* Star in join button */
-.modal-join-btn .star-img-inline {
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.15em;
-}
-
-/* Star in product card need-stars text */
-.product-need .star-img-inline,
-.rh-value .star-img-inline {
-  width: 0.9em;
-  height: 0.9em;
-  vertical-align: -0.1em;
 }

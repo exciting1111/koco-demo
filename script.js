@@ -294,7 +294,29 @@ const i18n = {
     ac_tab_all: 'Tất cả',
     ac_tab_participating: 'Đang tham gia',
     ac_tab_won: 'Đã trúng',
-    ac_tab_not_won: 'Không trúng'
+    ac_tab_not_won: 'Không trúng',
+    // ---- Redeem Modals ----
+    rdm_congrats: 'CHÚC MỪNG!',
+    rdm_virtual_title: 'Mã thẻ của bạn',
+    rdm_virtual_desc: 'Sao chép mã bên dưới và sử dụng trên trang chính thức của nhà cung cấp.',
+    rdm_copy: '📋 Sao chép',
+    rdm_copied: 'Đã sao chép!',
+    rdm_view_orders: 'Xem đơn hàng',
+    rdm_physical_title: 'Nhập địa chỉ giao hàng',
+    rdm_physical_desc: 'Vui lòng điền đầy đủ thông tin giao hàng để nhận sản phẩm.',
+    rdm_ship_name: 'Họ tên người nhận',
+    rdm_ship_phone: 'Số điện thoại',
+    rdm_ship_address: 'Địa chỉ',
+    rdm_ship_city: 'Tỉnh / Thành',
+    rdm_ship_zip: 'Mã bưu chính',
+    rdm_ship_note: 'Ghi chú (tùy chọn)',
+    rdm_submit: 'Đặt hàng ngay',
+    rdm_ship_success_title: 'Đặt hàng thành công!',
+    rdm_ship_success_desc: 'Chúng tôi đã nhận được địa chỉ của bạn và sẽ tiến hành giao hàng trong 3–5 ngày làm việc.',
+    rdm_ship_success_note: 'Đơn hàng đã được chuyển sang <strong>Đã gửi hàng</strong> trong mục Đơn',
+    rdm_pending: 'Chờ giao hàng',
+    rdm_redeemed: 'Đã đổi',
+    rdm_virtual_success_note: 'Đơn hàng đã được chuyển sang <strong>Đã hoàn thành</strong> trong mục Đơn hàng.'
   },
 
   CN: {
@@ -591,7 +613,29 @@ const i18n = {
     ac_tab_all: '全部',
     ac_tab_participating: '参与中',
     ac_tab_won: '已中奖',
-    ac_tab_not_won: '未中奖'
+    ac_tab_not_won: '未中奖',
+    // ---- Redeem Modals ----
+    rdm_congrats: '恭喜中奖！',
+    rdm_virtual_title: '您的卡密',
+    rdm_virtual_desc: '复制下方的卡密，并在对应平台兑换使用。',
+    rdm_copy: '📋 复制卡密',
+    rdm_copied: '复制成功！',
+    rdm_view_orders: '查看订单',
+    rdm_physical_title: '填写收货地址',
+    rdm_physical_desc: '请填写完整的收货信息，我们将尽快安排发货。',
+    rdm_ship_name: '收件人姓名',
+    rdm_ship_phone: '手机号码',
+    rdm_ship_address: '详细地址',
+    rdm_ship_city: '省份 / 城市',
+    rdm_ship_zip: '邮政编码',
+    rdm_ship_note: '备注（选填）',
+    rdm_submit: '确认下单',
+    rdm_ship_success_title: '下单成功！',
+    rdm_ship_success_desc: '我们已收到您的收货地址，将在 3–5 个工作日内安排发货。',
+    rdm_ship_success_note: '订单已自动转入订单中心的《已发货》',
+    rdm_pending: '待发货',
+    rdm_redeemed: '已兑换',
+    rdm_virtual_success_note: '订单已自动转入订单中心的《已完成》'
   },
 
   ID: {
@@ -888,7 +932,29 @@ const i18n = {
     ac_tab_all: 'Semua',
     ac_tab_participating: 'Sedang Ikut',
     ac_tab_won: 'Menang',
-    ac_tab_not_won: 'Tidak Menang'
+    ac_tab_not_won: 'Tidak Menang',
+    // ---- Redeem Modals ----
+    rdm_congrats: 'SELAMAT MENANG!',
+    rdm_virtual_title: 'Kode Kartu Anda',
+    rdm_virtual_desc: 'Salin kode di bawah dan gunakan di platform resmi penyedia.',
+    rdm_copy: '📋 Salin Kode',
+    rdm_copied: 'Berhasil disalin!',
+    rdm_view_orders: 'Lihat Pesanan',
+    rdm_physical_title: 'Masukkan Alamat Pengiriman',
+    rdm_physical_desc: 'Mohon isi informasi pengiriman lengkap untuk menerima produk.',
+    rdm_ship_name: 'Nama Penerima',
+    rdm_ship_phone: 'Nomor Telepon',
+    rdm_ship_address: 'Alamat Lengkap',
+    rdm_ship_city: 'Provinsi / Kota',
+    rdm_ship_zip: 'Kode Pos',
+    rdm_ship_note: 'Catatan (opsional)',
+    rdm_submit: 'Pesan Sekarang',
+    rdm_ship_success_title: 'Pesanan Berhasil!',
+    rdm_ship_success_desc: 'Kami telah menerima alamat Anda dan akan memproses pengiriman dalam 3–5 hari kerja.',
+    rdm_ship_success_note: 'Pesanan telah dipindahkan ke <strong>Dikirim</strong> di menu Pesanan',
+    rdm_pending: 'Menunggu Pengiriman',
+    rdm_redeemed: 'Sudah Ditukar',
+    rdm_virtual_success_note: 'Pesanan telah dipindahkan ke <strong>Selesai</strong> di menu Pesanan'
   }
 };
 

@@ -559,7 +559,7 @@
       <button class="redeem-copy-btn" id="copyCodeBtn2" data-i18n="rdm_copy">📋 Sao chép</button>
     </div>
     <div class="redeem-copied-tip" id="copiedTip" data-i18n="rdm_copied">Sao chép thành công!</div>
-    <p class="redeem-note" data-i18n="rdm_virtual_note">Đơn hàng đã được chuyển sang <strong data-i18n="rdm_completed">Đã hoàn thành</strong> trong mục Đơn hàng.</p>
+    <p class="redeem-note" data-i18n="rdm_virtual_success_note">Đơn hàng đã được chuyển sang <strong>Đã hoàn thành</strong> trong mục Đơn hàng.</p>
     <button class="redeem-confirm-btn" id="virtualConfirmBtn" data-i18n="rdm_view_orders">Xem đơn hàng</button>
   </div>
 </div>
@@ -575,29 +575,29 @@
     <div class="redeem-product-name" id="physicalProductName">iPhone 17 Pro Max</div>
     <form class="redeem-form" id="shippingForm">
       <div class="redeem-form-row">
-        <label data-i18n="rdm_name">ọ tên người nhận</label>
+        <label data-i18n="rdm_ship_name">ọ tên người nhận</label>
         <input type="text" id="shipName" placeholder="Nguyễn Văn A" required />
       </div>
       <div class="redeem-form-row">
-        <label data-i18n="rdm_phone">Số điện thoại</label>
+        <label data-i18n="rdm_ship_phone">Số điện thoại</label>
         <input type="tel" id="shipPhone" placeholder="0901 234 567" required />
       </div>
       <div class="redeem-form-row">
-        <label data-i18n="rdm_address">Địa chỉ</label>
+        <label data-i18n="rdm_ship_address">Địa chỉ</label>
         <input type="text" id="shipAddress" placeholder="Số nhà, đường, phường/xã" required />
       </div>
       <div class="redeem-form-row two-col">
         <div>
-          <label data-i18n="rdm_city">Tỉnh / Thành phố</label>
+          <label data-i18n="rdm_ship_city">Tỉnh / Thành phố</label>
           <input type="text" id="shipCity" placeholder="Hà Nội" required />
         </div>
         <div>
-          <label data-i18n="rdm_zip">Mã bưu chính</label>
+          <label data-i18n="rdm_ship_zip">Mã bưu chính</label>
           <input type="text" id="shipZip" placeholder="100000" />
         </div>
       </div>
       <div class="redeem-form-row">
-        <label data-i18n="rdm_note">Ghi chú (tùy chọn)</label>
+        <label data-i18n="rdm_ship_note">Ghi chú (tùy chọn)</label>
         <textarea id="shipNote" placeholder="Yêu cầu đặc biệt..."></textarea>
       </div>
       <button type="submit" class="redeem-confirm-btn" data-i18n="rdm_submit">Đặt hàng ngay</button>
@@ -612,12 +612,12 @@
     <div class="redeem-icon">✅</div>
     <h2 class="redeem-title" data-i18n="rdm_ship_success_title">Đặt hàng thành công!</h2>
     <p class="redeem-desc" data-i18n="rdm_ship_success_desc">Chúng tôi đã nhận được địa chỉ của bạn và sẽ tiến hành giao hàng trong 3–5 ngày làm việc.</p>
-    <p class="redeem-note" data-i18n="rdm_ship_note">Đơn hàng đã được chuyển sang <strong data-i18n="rdm_shipped">Đã gửi hàng</strong> trong mục Đơn hàng.</p>
+    <p class="redeem-note" data-i18n="rdm_ship_success_note">Đơn hàng đã được chuyển sang <strong>Đã gửi hàng</strong> trong mục Đơn hàng.</p>
     <button class="redeem-confirm-btn" id="shippingSuccessViewBtn" data-i18n="rdm_view_orders">Xem đơn hàng</button>
   </div>
 </div>
 
-<script src="script.js?v=5"></script>
+<script src="script.js?v=6"></script>
 <script src="account.js?v=6"></script>
 </body>
 </html>

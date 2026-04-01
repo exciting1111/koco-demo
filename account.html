@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="account.css" />
+  <link rel="stylesheet" href="account.css?v=5" />
 </head>
 <body class="account-body">
 
@@ -198,19 +198,21 @@
       <h1 class="ac-section-title" data-i18n="ac_orders_title">Đơn hàng của tôi</h1>
       <p class="ac-section-desc" data-i18n="ac_orders_desc">Theo dõi tiến độ tham gia, đơn đã trúng và các phiên không trúng.</p>
 
-      <div class="ac-stats-row">
-        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_all">Tất cả</div><div class="ac-stats-number">0</div></div>
-        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_shipped">Đã gửi hàng</div><div class="ac-stats-number">0</div></div>
-        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_completed">Đã hoàn thành</div><div class="ac-stats-number">0</div></div>
+      <div class="ac-stats-row" id="ordersStatsRow">
+        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_all">Tất cả</div><div class="ac-stats-number" id="ordersStatAll">0</div></div>
+        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_shipped">Đã gửi hàng</div><div class="ac-stats-number" id="ordersStatShipped">0</div></div>
+        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_completed">Đã hoàn thành</div><div class="ac-stats-number" id="ordersStatCompleted">0</div></div>
       </div>
 
       <div class="ac-tabs" id="ordersTabs">
-        <button class="ac-tab active" data-tab="all" data-i18n="ac_tab_all">Tất cả (0)</button>
-        <button class="ac-tab" data-tab="shipped" data-i18n="ac_tab_shipped">Đã gửi hàng (0)</button>
-        <button class="ac-tab" data-tab="completed" data-i18n="ac_tab_completed">Đã hoàn thành (0)</button>
+        <button class="ac-tab active" data-tab="all"><span id="ordersTabLabelAll">Tất cả</span> <span class="ac-tab-count" id="ordersTabAll">(0)</span></button>
+        <button class="ac-tab" data-tab="shipped"><span id="ordersTabLabelShipped">Đã gửi hàng</span> <span class="ac-tab-count" id="ordersTabShipped">(0)</span></button>
+        <button class="ac-tab" data-tab="completed"><span id="ordersTabLabelCompleted">Đã hoàn thành</span> <span class="ac-tab-count" id="ordersTabCompleted">(0)</span></button>
       </div>
 
-      <div class="ac-empty">
+      <div id="ordersList" class="ac-part-list"></div>
+
+      <div class="ac-empty" id="ordersEmpty">
         <div class="ac-empty-icon">📦</div>
         <div class="ac-empty-text" data-i18n="ac_orders_empty">Chưa có đơn hàng nào.</div>
         <div class="ac-empty-sub" data-i18n="ac_orders_empty_sub">Hãy tham gia sản phẩm Wish Purchase đầu tiên.</div>
@@ -225,17 +227,17 @@
       <p class="ac-section-desc" data-i18n="ac_part_desc">Xem các kỳ tham gia Wish Purchase và tiến độ hiện tại của từng sản phẩm.</p>
 
       <div class="ac-stats-row">
-        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_all">Tất cả</div><div class="ac-stats-number">4</div></div>
+        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_all">Tất cả</div><div class="ac-stats-number">5</div></div>
         <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_participating">Đang tham gia</div><div class="ac-stats-number">2</div></div>
-        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_won">Đã trúng</div><div class="ac-stats-number">1</div></div>
+        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_won">Đã trúng</div><div class="ac-stats-number">2</div></div>
         <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_not_won">Không trúng</div><div class="ac-stats-number">1</div></div>
       </div>
 
       <div class="ac-tabs" id="participationTabs">
-        <button class="ac-tab active" data-tab="all"><span data-i18n="ac_tab_all">Tất cả</span> <span class="ac-tab-count">(4)</span></button>
-        <button class="ac-tab" data-tab="active"><span data-i18n="ac_tab_participating">Đang tham gia</span> <span class="ac-tab-count">(2)</span></button>
-        <button class="ac-tab" data-tab="won"><span data-i18n="ac_tab_won">Đã trúng</span> <span class="ac-tab-count">(1)</span></button>
-        <button class="ac-tab" data-tab="lost"><span data-i18n="ac_tab_not_won">Không trúng</span> <span class="ac-tab-count">(1)</span></button>
+    <button class="ac-tab active" data-tab="all"><span id="partTabLabelAll">Tất cả</span> <span class="ac-tab-count" id="partTabAll">(5)</span></button>
+        <button class="ac-tab" data-tab="active"><span id="partTabLabelActive">Đang tham gia</span> <span class="ac-tab-count" id="partTabActive">(2)</span></button>
+        <button class="ac-tab" data-tab="won"><span id="partTabLabelWon">Đã trúng</span> <span class="ac-tab-count" id="partTabWon">(2)</span></button>
+        <button class="ac-tab" data-tab="lost"><span id="partTabLabelLost">Không trúng</span> <span class="ac-tab-count" id="partTabLost">(1)</span></button>
       </div>
 
       <!-- Participation Records List -->
@@ -352,7 +354,44 @@
           </div>
         </div>
 
-        <!-- Record 4: Won - Apple Gift Card -->
+        <!-- Record 4: Won - iPhone 17 Pro Max (Physical) -->
+        <div class="ac-part-card" data-status="won">
+          <div class="ac-part-img-wrap">
+            <img src="images/iphone17-dark.jpg" alt="iPhone 17 Pro Max" class="ac-part-img" />
+          </div>
+          <div class="ac-part-body">
+            <div class="ac-part-top">
+              <div class="ac-part-info">
+                <span class="ac-part-category" data-i18n="ac_cat_electronics">Điện tử</span>
+                <h3 class="ac-part-name">iPhone 17 Pro Max</h3>
+                <div class="ac-part-meta">
+                  <span data-i18n="ac_round">Kỳ</span> <strong>3/10</strong>
+                  &nbsp;·&nbsp;
+                  <span data-i18n="ac_joined_at">Tham gia</span> <strong>15/03/2026</strong>
+                </div>
+              </div>
+              <span class="ac-part-status won" data-i18n="ac_status_won">Đã trúng</span>
+            </div>
+            <div class="ac-part-progress-wrap">
+              <div class="ac-part-progress-label">
+                <span data-i18n="ac_round_progress">Tiến độ kỳ</span>
+                <span class="ac-part-progress-val">1000 / 1000 ⭐ &nbsp;<strong>100%</strong> <span class="ac-part-closed-tag" data-i18n="ac_round_closed">Đã kết thúc</span></span>
+              </div>
+              <div class="ac-part-progress-bar"><div class="ac-part-progress-fill won" style="width:100%"></div></div>
+            </div>
+            <div class="ac-part-footer">
+              <div class="ac-part-cost">
+                <span data-i18n="ac_cost">Chi phí</span>: <strong>10 ⭐</strong>
+              </div>
+              <div class="ac-part-win-rate">
+                <span data-i18n="ac_win_rate">Tỷ lệ thắng</span>: <strong class="highlight">0.1%</strong>
+              </div>
+              <button class="ac-part-action-btn won" data-i18n="ac_redeem" data-action="redeem" data-type="physical" data-product="iPhone 17 Pro Max">Đổi thưởng</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Record 5: Won - Apple Gift Card -->
         <div class="ac-part-card" data-status="won">
           <div class="ac-part-img-wrap">
             <img src="images/apple_gift_card.jpg" alt="Apple Gift Card 500K" class="ac-part-img" />
@@ -384,7 +423,7 @@
               <div class="ac-part-win-rate">
                 <span data-i18n="ac_win_rate">Tỷ lệ thắng</span>: <strong class="highlight">0.5%</strong>
               </div>
-              <a href="index.html#wish" class="ac-part-action-btn won" data-i18n="ac_join_more">Tham gia thêm</a>
+              <button class="ac-part-action-btn won" data-i18n="ac_redeem" data-action="redeem" data-type="virtual" data-product="Apple Gift Card 500K" data-code="APPL-X7K2-M9NP-3QWR">Đổi thưởng</button>
             </div>
           </div>
         </div>
@@ -506,7 +545,79 @@
 <div class="ac-sidebar-overlay"></div>
 <button class="ac-mobile-toggle" aria-label="Menu">☰</button>
 
-<script src="script.js?v=4"></script>
-<script src="account.js?v=3"></script>
+<!-- ===== VIRTUAL REDEEM MODAL (Card Code) ===== -->
+<div class="redeem-overlay" id="redeemVirtualModal">
+  <div class="redeem-modal">
+    <button class="redeem-close" id="closeVirtualModal">&times;</button>
+    <div class="redeem-icon">🎉</div>
+    <div class="redeem-label" data-i18n="rdm_congrats">CHÚC MẬNG!</div>
+    <h2 class="redeem-title" data-i18n="rdm_virtual_title">Mã thẻ của bạn</h2>
+    <p class="redeem-desc" data-i18n="rdm_virtual_desc">Sao chép mã bên dưới và sử dụng trên trang chính thức của nhà cung cấp.</p>
+    <div class="redeem-product-name" id="virtualProductName">Apple Gift Card 500K</div>
+    <div class="redeem-code-box">
+      <span class="redeem-code-value" id="virtualCodeValue">APPL-X7K2-M9NP-3QWR</span>
+      <button class="redeem-copy-btn" id="copyCodeBtn2" data-i18n="rdm_copy">📋 Sao chép</button>
+    </div>
+    <div class="redeem-copied-tip" id="copiedTip" data-i18n="rdm_copied">Sao chép thành công!</div>
+    <p class="redeem-note" data-i18n="rdm_virtual_note">Đơn hàng đã được chuyển sang <strong data-i18n="rdm_completed">Đã hoàn thành</strong> trong mục Đơn hàng.</p>
+    <button class="redeem-confirm-btn" id="virtualConfirmBtn" data-i18n="rdm_view_orders">Xem đơn hàng</button>
+  </div>
+</div>
+
+<!-- ===== PHYSICAL REDEEM MODAL (Shipping Address) ===== -->
+<div class="redeem-overlay" id="redeemPhysicalModal">
+  <div class="redeem-modal">
+    <button class="redeem-close" id="closePhysicalModal">&times;</button>
+    <div class="redeem-icon">📦</div>
+    <div class="redeem-label" data-i18n="rdm_congrats">CHÚC MẬNG!</div>
+    <h2 class="redeem-title" data-i18n="rdm_physical_title">Nhập địa chỉ giao hàng</h2>
+    <p class="redeem-desc" data-i18n="rdm_physical_desc">Vui lòng điền đầy đủ thông tin giao hàng để nhận sản phẩm.</p>
+    <div class="redeem-product-name" id="physicalProductName">iPhone 17 Pro Max</div>
+    <form class="redeem-form" id="shippingForm">
+      <div class="redeem-form-row">
+        <label data-i18n="rdm_name">ọ tên người nhận</label>
+        <input type="text" id="shipName" placeholder="Nguyễn Văn A" required />
+      </div>
+      <div class="redeem-form-row">
+        <label data-i18n="rdm_phone">Số điện thoại</label>
+        <input type="tel" id="shipPhone" placeholder="0901 234 567" required />
+      </div>
+      <div class="redeem-form-row">
+        <label data-i18n="rdm_address">Địa chỉ</label>
+        <input type="text" id="shipAddress" placeholder="Số nhà, đường, phường/xã" required />
+      </div>
+      <div class="redeem-form-row two-col">
+        <div>
+          <label data-i18n="rdm_city">Tỉnh / Thành phố</label>
+          <input type="text" id="shipCity" placeholder="Hà Nội" required />
+        </div>
+        <div>
+          <label data-i18n="rdm_zip">Mã bưu chính</label>
+          <input type="text" id="shipZip" placeholder="100000" />
+        </div>
+      </div>
+      <div class="redeem-form-row">
+        <label data-i18n="rdm_note">Ghi chú (tùy chọn)</label>
+        <textarea id="shipNote" placeholder="Yêu cầu đặc biệt..."></textarea>
+      </div>
+      <button type="submit" class="redeem-confirm-btn" data-i18n="rdm_submit">Đặt hàng ngay</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===== SHIPPING SUCCESS MODAL ===== -->
+<div class="redeem-overlay" id="shippingSuccessModal">
+  <div class="redeem-modal">
+    <button class="redeem-close" id="closeShippingSuccess">&times;</button>
+    <div class="redeem-icon">✅</div>
+    <h2 class="redeem-title" data-i18n="rdm_ship_success_title">Đặt hàng thành công!</h2>
+    <p class="redeem-desc" data-i18n="rdm_ship_success_desc">Chúng tôi đã nhận được địa chỉ của bạn và sẽ tiến hành giao hàng trong 3–5 ngày làm việc.</p>
+    <p class="redeem-note" data-i18n="rdm_ship_note">Đơn hàng đã được chuyển sang <strong data-i18n="rdm_shipped">Đã gửi hàng</strong> trong mục Đơn hàng.</p>
+    <button class="redeem-confirm-btn" id="shippingSuccessViewBtn" data-i18n="rdm_view_orders">Xem đơn hàng</button>
+  </div>
+</div>
+
+<script src="script.js?v=5"></script>
+<script src="account.js?v=5"></script>
 </body>
 </html>

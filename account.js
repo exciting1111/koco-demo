@@ -2,27 +2,27 @@
 (function() {
   'use strict';
 
+  // ---- In-memory orders store (simulates backend state) ----
+  var orders = [];
+
   function initAccount() {
 
     // ---- Section Navigation ----
-    const navItems = document.querySelectorAll('.ac-nav-item');
-    const sections = document.querySelectorAll('.ac-section');
-    const sidebar = document.getElementById('acSidebar');
-    const overlay = document.querySelector('.ac-sidebar-overlay');
+    var navItems = document.querySelectorAll('.ac-nav-item');
+    var sections = document.querySelectorAll('.ac-section');
+    var sidebar = document.getElementById('acSidebar');
+    var overlay = document.querySelector('.ac-sidebar-overlay');
 
     function switchSection(sectionId) {
-      // Update nav active state
       navItems.forEach(function(item) {
         item.classList.toggle('active', item.getAttribute('data-section') === sectionId);
       });
-      // Show/hide sections
       sections.forEach(function(sec) {
         sec.classList.toggle('active', sec.id === 'sec-' + sectionId);
       });
-      // Close mobile sidebar
       closeMobileSidebar();
-      // Scroll to top of content
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (sectionId === 'orders') renderOrders('all');
     }
 
     navItems.forEach(function(item) {
@@ -31,13 +31,11 @@
         var section = this.getAttribute('data-section');
         if (section) {
           switchSection(section);
-          // Update URL hash
           history.replaceState(null, '', '#' + section);
         }
       });
     });
 
-    // Handle initial hash
     var hash = window.location.hash.replace('#', '');
     if (hash && document.getElementById('sec-' + hash)) {
       switchSection(hash);
@@ -52,18 +50,16 @@
           });
           this.classList.add('active');
 
-          // If this is the participation tabs, filter the cards
           if (tabContainer.id === 'participationTabs') {
             var selectedTab = this.getAttribute('data-tab');
-            var cards = document.querySelectorAll('#partList .ac-part-card');
-            cards.forEach(function(card) {
+            document.querySelectorAll('#partList .ac-part-card').forEach(function(card) {
               var status = card.getAttribute('data-status');
-              if (selectedTab === 'all') {
-                card.classList.remove('hide');
-              } else {
-                card.classList.toggle('hide', status !== selectedTab);
-              }
+              card.classList.toggle('hide', selectedTab !== 'all' && status !== selectedTab);
             });
+          }
+
+          if (tabContainer.id === 'ordersTabs') {
+            renderOrders(this.getAttribute('data-tab'));
           }
         });
       });
@@ -93,10 +89,7 @@
         }
       });
     }
-
-    if (overlay) {
-      overlay.addEventListener('click', closeMobileSidebar);
-    }
+    if (overlay) overlay.addEventListener('click', closeMobileSidebar);
 
     // ---- Language Switcher ----
     var langSwitcherEl = document.getElementById('langSwitcher');
@@ -105,7 +98,6 @@
     if (langTriggerEl && langSwitcherEl) {
       var newTrigger = langTriggerEl.cloneNode(true);
       langTriggerEl.parentNode.replaceChild(newTrigger, langTriggerEl);
-
       newTrigger.addEventListener('click', function(e) {
         e.stopPropagation();
         langSwitcherEl.classList.toggle('open');
@@ -115,52 +107,29 @@
     document.querySelectorAll('.lang-option').forEach(function(btn) {
       var newBtn = btn.cloneNode(true);
       btn.parentNode.replaceChild(newBtn, btn);
-
       newBtn.addEventListener('click', function() {
         var lang = this.getAttribute('data-lang');
         if (!lang) return;
-        if (typeof applyLang === 'function') {
-          applyLang(lang);
-        } else {
-          var flagEl = document.getElementById('langFlag');
-          var codeEl = document.getElementById('langCode');
-          if (flagEl) flagEl.textContent = this.getAttribute('data-flag') || '';
-          if (codeEl) codeEl.textContent = lang;
-          document.querySelectorAll('.lang-option').forEach(function(b) {
-            b.classList.toggle('active', b.getAttribute('data-lang') === lang);
-          });
-        }
+        if (typeof applyLang === 'function') applyLang(lang);
         if (langSwitcherEl) langSwitcherEl.classList.remove('open');
       });
     });
 
-    // ---- User Avatar (no dropdown on account page, just link back) ----
     var userAvatarBtn = document.getElementById('userAvatarBtn');
     if (userAvatarBtn) {
       userAvatarBtn.addEventListener('click', function(e) {
         e.stopPropagation();
-        // Already on account page, scroll to top
         switchSection('profile');
         history.replaceState(null, '', '#profile');
       });
     }
 
-    // ---- Notification Bell ----
-    var notifBell = document.getElementById('notifBell');
-    if (notifBell) {
-      notifBell.addEventListener('click', function(e) {
-        e.stopPropagation();
-      });
-    }
-
-    // ---- Close dropdowns on outside click ----
     document.addEventListener('click', function(e) {
       if (!e.target.closest('#langSwitcher') && langSwitcherEl) {
         langSwitcherEl.classList.remove('open');
       }
     });
 
-    // ---- Navbar scroll effect ----
     var navbar = document.getElementById('navbar');
     if (navbar) {
       window.addEventListener('scroll', function() {
@@ -168,7 +137,7 @@
       });
     }
 
-    // ---- Apply saved language (read from both possible keys) ----
+    // ---- Apply saved language ----
     var savedLang = '';
     try {
       savedLang = localStorage.getItem('kocoLang') || localStorage.getItem('koco_lang') || 'VN';
@@ -178,18 +147,323 @@
       applyLang(savedLang);
     }
 
-    // Wrap applyLang to always persist language to localStorage
+    // Tab label translations (bypasses applyLang to avoid (0) duplication)
+    var tabLabels = {
+      VN: { all: 'Tất cả', shipped: 'Đã gửi hàng', completed: 'Đã hoàn thành', active: 'Đang tham gia', won: 'Đã trúng', lost: 'Không trúng' },
+      CN: { all: '全部', shipped: '已发货', completed: '已完成', active: '参与中', won: '已中奖', lost: '未中奖' },
+      ID: { all: 'Semua', shipped: 'Sudah dikirim', completed: 'Selesai', active: 'Sedang ikut', won: 'Menang', lost: 'Tidak menang' }
+    };
+
+    function updateTabLabels(lang) {
+      var t = tabLabels[lang] || tabLabels['VN'];
+      var map = {
+        ordersTabLabelAll: t.all,
+        ordersTabLabelShipped: t.shipped,
+        ordersTabLabelCompleted: t.completed,
+        partTabLabelAll: t.all,
+        partTabLabelActive: t.active,
+        partTabLabelWon: t.won,
+        partTabLabelLost: t.lost
+      };
+      Object.keys(map).forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.textContent = map[id];
+      });
+    }
+
     if (typeof applyLang === 'function') {
       var _origApply = applyLang;
       window.applyLang = function(lang) {
         _origApply(lang);
+        updateTabLabels(lang);
         try {
           localStorage.setItem('kocoLang', lang);
           localStorage.setItem('koco_lang', lang);
         } catch(e) {}
       };
     }
-  }
+
+    // Apply tab labels for saved language on init
+    updateTabLabels(savedLang || 'VN');
+
+    // ================================================================
+    // ---- REDEEM FLOW ----
+    // ================================================================
+
+    // Helper: open / close overlay modals
+    function openModal(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    function closeModal(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Close buttons
+    var closeVirtual = document.getElementById('closeVirtualModal');
+    if (closeVirtual) closeVirtual.addEventListener('click', function() { closeModal('redeemVirtualModal'); });
+
+    var closePhysical = document.getElementById('closePhysicalModal');
+    if (closePhysical) closePhysical.addEventListener('click', function() { closeModal('redeemPhysicalModal'); });
+
+    var closeShipSuccess = document.getElementById('closeShippingSuccess');
+    if (closeShipSuccess) closeShipSuccess.addEventListener('click', function() { closeModal('shippingSuccessModal'); });
+
+    // Close on overlay click
+    ['redeemVirtualModal', 'redeemPhysicalModal', 'shippingSuccessModal'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.addEventListener('click', function(e) {
+          if (e.target === el) closeModal(id);
+        });
+      }
+    });
+
+    // Copy card code button
+    var copyBtn2 = document.getElementById('copyCodeBtn2');
+    var copiedTip = document.getElementById('copiedTip');
+    if (copyBtn2) {
+      copyBtn2.addEventListener('click', function() {
+        var code = document.getElementById('virtualCodeValue');
+        if (code) {
+          navigator.clipboard.writeText(code.textContent).catch(function() {
+            var ta = document.createElement('textarea');
+            ta.value = code.textContent;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          });
+        }
+        if (copiedTip) {
+          copiedTip.classList.add('show');
+          setTimeout(function() { copiedTip.classList.remove('show'); }, 2000);
+        }
+      });
+    }
+
+    // "View orders" button in virtual modal
+    var virtualConfirmBtn = document.getElementById('virtualConfirmBtn');
+    if (virtualConfirmBtn) {
+      virtualConfirmBtn.addEventListener('click', function() {
+        closeModal('redeemVirtualModal');
+        switchSection('orders');
+        history.replaceState(null, '', '#orders');
+        // Activate "completed" tab
+        setTimeout(function() {
+          var completedTab = document.querySelector('#ordersTabs [data-tab="completed"]');
+          if (completedTab) completedTab.click();
+        }, 100);
+      });
+    }
+
+    // Shipping form submit
+    var shippingForm = document.getElementById('shippingForm');
+    if (shippingForm) {
+      shippingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var productName = document.getElementById('physicalProductName').textContent;
+        var name = document.getElementById('shipName').value;
+        var phone = document.getElementById('shipPhone').value;
+        var address = document.getElementById('shipAddress').value;
+        var city = document.getElementById('shipCity').value;
+        var zip = document.getElementById('shipZip').value;
+        var note = document.getElementById('shipNote').value;
+
+        // Create shipped order
+        addOrder({
+          type: 'shipped',
+          product: productName,
+          img: 'images/iphone17-dark.jpg',
+          category: 'Điện tử',
+          date: getTodayStr(),
+          address: name + ', ' + phone + ', ' + address + ', ' + city + (zip ? ' ' + zip : ''),
+          note: note
+        });
+
+        // Mark participation card as redeemed
+        markParticipationRedeemed(productName, 'physical');
+
+        closeModal('redeemPhysicalModal');
+        shippingForm.reset();
+        openModal('shippingSuccessModal');
+      });
+    }
+
+    // "View orders" button in shipping success modal
+    var shipSuccessViewBtn = document.getElementById('shippingSuccessViewBtn');
+    if (shipSuccessViewBtn) {
+      shipSuccessViewBtn.addEventListener('click', function() {
+        closeModal('shippingSuccessModal');
+        switchSection('orders');
+        history.replaceState(null, '', '#orders');
+        setTimeout(function() {
+          var shippedTab = document.querySelector('#ordersTabs [data-tab="shipped"]');
+          if (shippedTab) shippedTab.click();
+        }, 100);
+      });
+    }
+
+    // Delegate: handle redeem button clicks on participation cards
+    var partList = document.getElementById('partList');
+    if (partList) {
+      partList.addEventListener('click', function(e) {
+        var btn = e.target.closest('[data-action="redeem"]');
+        if (!btn) return;
+
+        var productType = btn.getAttribute('data-type');
+        var productName = btn.getAttribute('data-product');
+        var cardCode = btn.getAttribute('data-code') || '';
+
+        if (productType === 'virtual') {
+          // Show virtual modal with card code
+          var nameEl = document.getElementById('virtualProductName');
+          var codeEl = document.getElementById('virtualCodeValue');
+          if (nameEl) nameEl.textContent = productName;
+          if (codeEl) codeEl.textContent = cardCode;
+          if (copiedTip) copiedTip.classList.remove('show');
+
+          // Create completed order immediately
+          addOrder({
+            type: 'completed',
+            product: productName,
+            img: 'images/apple_gift_card.jpg',
+            category: 'Thẻ nạp',
+            date: getTodayStr(),
+            code: cardCode
+          });
+
+          // Mark participation card as redeemed
+          markParticipationRedeemed(productName, 'virtual');
+
+          openModal('redeemVirtualModal');
+
+        } else if (productType === 'physical') {
+          // Show physical modal with shipping form
+          var physNameEl = document.getElementById('physicalProductName');
+          if (physNameEl) physNameEl.textContent = productName;
+          openModal('redeemPhysicalModal');
+        }
+      });
+    }
+
+    // ================================================================
+    // ---- ORDERS RENDERING ----
+    // ================================================================
+
+    function getTodayStr() {
+      var d = new Date();
+      return ('0' + d.getDate()).slice(-2) + '/' + ('0' + (d.getMonth()+1)).slice(-2) + '/' + d.getFullYear();
+    }
+
+    function addOrder(order) {
+      orders.push(order);
+      renderOrders('all');
+      updateOrdersStats();
+    }
+
+    function updateOrdersStats() {
+      var all = orders.length;
+      var shipped = orders.filter(function(o) { return o.type === 'shipped'; }).length;
+      var completed = orders.filter(function(o) { return o.type === 'completed'; }).length;
+
+      var elAll = document.getElementById('ordersStatAll');
+      var elShipped = document.getElementById('ordersStatShipped');
+      var elCompleted = document.getElementById('ordersStatCompleted');
+      var tabAll = document.getElementById('ordersTabAll');
+      var tabShipped = document.getElementById('ordersTabShipped');
+      var tabCompleted = document.getElementById('ordersTabCompleted');
+
+      if (elAll) elAll.textContent = all;
+      if (elShipped) elShipped.textContent = shipped;
+      if (elCompleted) elCompleted.textContent = completed;
+      if (tabAll) tabAll.textContent = '(' + all + ')';
+      if (tabShipped) tabShipped.textContent = '(' + shipped + ')';
+      if (tabCompleted) tabCompleted.textContent = '(' + completed + ')';
+    }
+
+    function renderOrders(filter) {
+      var list = document.getElementById('ordersList');
+      var emptyEl = document.getElementById('ordersEmpty');
+      if (!list) return;
+
+      var filtered = filter === 'all' ? orders : orders.filter(function(o) { return o.type === filter; });
+
+      if (filtered.length === 0) {
+        list.innerHTML = '';
+        if (emptyEl) emptyEl.style.display = '';
+        return;
+      }
+      if (emptyEl) emptyEl.style.display = 'none';
+
+      list.innerHTML = filtered.map(function(order) {
+        var statusClass = order.type === 'shipped' ? 'active' : 'won';
+        var statusI18n = order.type === 'shipped' ? 'ac_shipped' : 'ac_completed';
+        var statusVN = order.type === 'shipped' ? 'Đã gửi hàng' : 'Đã hoàn thành';
+        var extraInfo = '';
+        if (order.type === 'shipped' && order.address) {
+          extraInfo = '<div class="order-address"><span class="order-addr-icon">📍</span>' + order.address + '</div>';
+        }
+        if (order.type === 'completed' && order.code) {
+          extraInfo = '<div class="order-code-row"><span class="order-code-label" data-i18n="rdm_card_code">Mã thẻ</span>: <strong class="order-code-val">' + order.code + '</strong></div>';
+        }
+        return '<div class="ac-part-card order-card" data-status="' + order.type + '">' +
+          '<div class="ac-part-img-wrap"><img src="' + order.img + '" alt="' + order.product + '" class="ac-part-img" /></div>' +
+          '<div class="ac-part-body">' +
+            '<div class="ac-part-top">' +
+              '<div class="ac-part-info">' +
+                '<span class="ac-part-category">' + order.category + '</span>' +
+                '<h3 class="ac-part-name">' + order.product + '</h3>' +
+                '<div class="ac-part-meta"><span data-i18n="ac_joined_at">Tham gia</span> <strong>' + order.date + '</strong></div>' +
+              '</div>' +
+              '<span class="ac-part-status ' + statusClass + '" data-i18n="' + statusI18n + '">' + statusVN + '</span>' +
+            '</div>' +
+            extraInfo +
+          '</div>' +
+        '</div>';
+      }).join('');
+
+      // Re-apply language to newly rendered elements
+      if (typeof applyLang === 'function') {
+        var lang = '';
+        try { lang = localStorage.getItem('kocoLang') || localStorage.getItem('koco_lang') || 'VN'; } catch(e) {}
+        if (lang) applyLang(lang);
+      }
+    }
+
+    // Mark participation card button as redeemed (disable + change text)
+    function markParticipationRedeemed(productName, type) {
+      var cards = document.querySelectorAll('#partList .ac-part-card[data-status="won"]');
+      cards.forEach(function(card) {
+        var nameEl = card.querySelector('.ac-part-name');
+        if (!nameEl || nameEl.textContent.trim() !== productName) return;
+        var btn = card.querySelector('[data-action="redeem"]');
+        if (!btn) return;
+        btn.disabled = true;
+        btn.style.opacity = '0.5';
+        btn.style.cursor = 'default';
+        btn.removeAttribute('data-action');
+        // Update text based on type
+        var lang = '';
+        try { lang = localStorage.getItem('kocoLang') || localStorage.getItem('koco_lang') || 'VN'; } catch(e) {}
+        if (type === 'virtual') {
+          btn.textContent = lang === 'CN' ? '已兑换' : (lang === 'ID' ? 'Sudah ditukar' : 'Đã đổi thưởng');
+        } else {
+          btn.textContent = lang === 'CN' ? '待发货' : (lang === 'ID' ? 'Menunggu pengiriman' : 'Đang giao hàng');
+          btn.style.background = 'linear-gradient(135deg, #1565C0, #1976D2)';
+          btn.style.opacity = '1';
+        }
+      });
+    }
+
+  } // end initAccount
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initAccount);

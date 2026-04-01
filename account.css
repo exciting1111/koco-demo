@@ -525,7 +525,16 @@
 
 .ac-summary-stat-icon {
   font-size: 14px;
-  margin-top: 2px;
+  margin-top: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ac-summary-stat-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(255,152,0,0.4));
 }
 
 /* Info Table */
@@ -1643,4 +1652,26 @@
   .redeem-form-row.two-col {
     grid-template-columns: 1fr;
   }
+}
+
+/* ===== INLINE LUCKY STAR IMAGE (account pages) ===== */
+.star-img-inline {
+  width: 1em;
+  height: 1em;
+  object-fit: contain;
+  vertical-align: -0.15em;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.ac-stars-amount .star-img-inline {
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: -0.2em;
+}
+
+.ac-stats-number .star-img-inline {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
 }

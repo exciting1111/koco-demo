@@ -11,7 +11,7 @@ const i18n = {
     // ---- Notification Dropdown ----
     notif_title: 'Thông báo',
     notif_read_all: 'Đánh dấu đã đọc',
-    notif_msg1: 'Chúc mừng! Bạn nhận được 100 ⭐ quà đăng ký',
+    notif_msg1: 'Chúc mừng! Bạn nhận được 100 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> quà đăng ký',
     notif_msg2: 'iPhone 17 Pro Max kỳ 4 đã quay số',
     notif_msg3: 'KOCO Mall sắp ra mắt, hãy chờ đón',
     notif_view_all: 'Xem tất cả thông báo',
@@ -40,7 +40,7 @@ const i18n = {
     slide3_badge: 'Ưu đãi Early Bird có hạn',
     slide3_title: 'Mời bạn bè<br/><span style="color:#FFE066; font-style:italic;">kiếm thưởng</span><br/>Lên đến <span style="color:#FFE066; font-style:italic;">1.000.000₫!</span>',
     slide3_sub: 'Mỗi người bạn mời, cả hai đều nhận thưởng hấp dẫn.',
-    slide3_sub2: 'Mời 10 bạn, nhận ngay 1.000 ⭐ thưởng.',
+    slide3_sub2: 'Mời 10 bạn, nhận ngay 1.000 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> thưởng.',
     slide3_cta: 'Mời bạn bè ngay →',
     slide3_ref1: 'Đăng ký nhận',
     slide3_ref2: 'Mời 1 bạn',
@@ -79,9 +79,9 @@ const i18n = {
     product_round_1_1: 'Kỳ 1/1',
     product_participants_0: '0 người tham gia',
     product_participants_2: '2 người tham gia',
-    product_need_2: 'Còn thiếu 2⭐',
-    product_need_70: 'Còn thiếu 70⭐',
-    product_need_0: 'Còn thiếu 0⭐',
+    product_need_2: 'Còn thiếu 2<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />',
+    product_need_70: 'Còn thiếu 70<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />',
+    product_need_0: 'Còn thiếu 0<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />',
     btn_join: 'Tham gia ngay',
     cat_health: 'Sức khỏe',
     cat_fashion: 'Thời trang',
@@ -112,7 +112,7 @@ const i18n = {
     scenario1_title: 'Trúng ngay lần đầu',
     scenario1_price: '40.000₫',
     scenario1_desc: 'Lần đầu tham gia, chỉ bỏ ra 40.000₫ đã trúng ngay iPhone 17 Pro Max.',
-    scenario2_tag: '⭐ Bình thường',
+    scenario2_tag: '<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> Bình thường',
     scenario2_title: 'Trúng sau 50 lần',
     scenario2_price: '2.000.000₫',
     scenario2_desc: 'Tham gia 50 lần, tổng chi 2.000.000₫, cuối cùng trúng iPhone.',
@@ -154,8 +154,8 @@ const i18n = {
     // ---- Toast Notifications ----
     notif_toast1_title: '🎉 Chúc mừng!',
     notif_toast1_msg: 'Nguyễn V.A. vừa trúng iPhone 17 Pro Max với 40.000₫!',
-    notif_toast2_title: '⭐ Thông báo',
-    notif_toast2_msg: 'Còn 23 suất Early Bird! Đăng ký ngay để nhận 100 ⭐',
+    notif_toast2_title: '<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> Thông báo',
+    notif_toast2_msg: 'Còn 23 suất Early Bird! Đăng ký ngay để nhận 100 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />',
     // ---- Wish Purchase UI ----
     my_orders: 'Lịch sử tham gia',
     search_placeholder: 'Tìm kiếm sản phẩm...',
@@ -175,7 +175,7 @@ const i18n = {
     modal_my_stars: 'Sao của tôi',
     modal_progress: 'Tiến độ vòng này',
     modal_need: 'Đầu tư thêm để đầy vòng',
-    modal_join_amount: 'Chọn số ⭐ tham gia:',
+    modal_join_amount: 'Chọn số <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> tham gia:',
     modal_cost: 'Chi phí:',
     modal_cta_join: 'Tham gia ngay',
     modal_disclaimer: 'Sao sẽ được trừ khi xác nhận. Xem điều khoản.',
@@ -330,7 +330,7 @@ const i18n = {
     // ---- Notification Dropdown ----
     notif_title: '消息通知',
     notif_read_all: '全部已读',
-    notif_msg1: '恭喜！您获得了 100 ⭐ 注册奖励',
+    notif_msg1: '恭喜！您获得了 100 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> 注册奖励',
     notif_msg2: 'iPhone 17 Pro Max 第4期已开奖',
     notif_msg3: 'KOCO 商城即将上线，敬请期待',
     notif_view_all: '查看全部消息',
@@ -359,7 +359,7 @@ const i18n = {
     slide3_badge: 'Early Bird 限时优惠',
     slide3_title: '邀请好友<br/><span style="color:#FFE066; font-style:italic;">赚取奖励</span><br/>最高 <span style="color:#FFE066; font-style:italic;">¥400！</span>',
     slide3_sub: '每邀请一位好友，双方都能获得丰厚奖励。',
-    slide3_sub2: '邀请10位好友，立即获得 1,000 ⭐ 奖励。',
+    slide3_sub2: '邀请10位好友，立即获得 1,000 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> 奖励。',
     slide3_cta: '立即邀请好友 →',
     slide3_ref1: '注册领取',
     slide3_ref2: '邀请1位',
@@ -398,9 +398,9 @@ const i18n = {
     product_round_1_1: '第1/1期',
     product_participants_0: '0人参与',
     product_participants_2: '2人参与',
-    product_need_2: '还差2⭐',
-    product_need_70: '还差70⭐',
-    product_need_0: '还差0⭐',
+    product_need_2: '还差2<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />',
+    product_need_70: '还差70<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />',
+    product_need_0: '还差0<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />',
     btn_join: '立即参与',
     cat_health: '营养保健',
     cat_fashion: '换季服装',
@@ -431,7 +431,7 @@ const i18n = {
     scenario1_title: '第一次就中奖',
     scenario1_price: '¥4',
     scenario1_desc: '首次参与，仅花 ¥4 就直接中奖 iPhone 17 Pro Max（价值 ¥9,999）。',
-    scenario2_tag: '⭐ 普通',
+    scenario2_tag: '<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> 普通',
     scenario2_title: '第50次中奖',
     scenario2_price: '¥200',
     scenario2_desc: '参与50次，累计花费约 ¥200，最终中奖 iPhone 17 Pro Max。',
@@ -473,8 +473,8 @@ const i18n = {
     // ---- Toast Notifications ----
     notif_toast1_title: '🎉 恭喜！',
     notif_toast1_msg: '张小明刚刚以 ¥4 中奖 iPhone 17 Pro Max！',
-    notif_toast2_title: '⭐ 通知',
-    notif_toast2_msg: '还剥23个早鸟名额！立即注册领取 100 ⭐',
+    notif_toast2_title: '<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> 通知',
+    notif_toast2_msg: '还剥23个早鸟名额！立即注册领取 100 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />',
     // ---- Wish Purchase UI ----
     my_orders: '我的参与记录',
     search_placeholder: '搜索商品...',
@@ -494,7 +494,7 @@ const i18n = {
     modal_my_stars: '我的星星',
     modal_progress: '本期进度',
     modal_need: '再投入即可充满本期',
-    modal_join_amount: '选择参与星星数：',
+    modal_join_amount: '选择参与<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />数：',
     modal_cost: '花费：',
     modal_cta_join: '立即参与',
     modal_disclaimer: '确认后星星将被扣除。查看条款。',
@@ -649,7 +649,7 @@ const i18n = {
     // ---- Notification Dropdown ----
     notif_title: 'Notifikasi',
     notif_read_all: 'Tandai dibaca',
-    notif_msg1: 'Selamat! Anda mendapat 100 ⭐ bonus pendaftaran',
+    notif_msg1: 'Selamat! Anda mendapat 100 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> bonus pendaftaran',
     notif_msg2: 'iPhone 17 Pro Max periode 4 sudah diundi',
     notif_msg3: 'KOCO Mall segera hadir, nantikan!',
     notif_view_all: 'Lihat semua notifikasi',
@@ -678,7 +678,7 @@ const i18n = {
     slide3_badge: 'Promo Early Bird terbatas',
     slide3_title: 'Ajak teman<br/><span style="color:#FFE066; font-style:italic;">raih hadiah</span><br/>Hingga <span style="color:#FFE066; font-style:italic;">Rp400.000!</span>',
     slide3_sub: 'Setiap teman yang kamu ajak, keduanya dapat hadiah.',
-    slide3_sub2: 'Ajak 10 teman, langsung dapat 1.000 ⭐.',
+    slide3_sub2: 'Ajak 10 teman, langsung dapat 1.000 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />.',
     slide3_cta: 'Ajak teman sekarang →',
     slide3_ref1: 'Daftar dapat',
     slide3_ref2: 'Ajak 1 teman',
@@ -717,9 +717,9 @@ const i18n = {
     product_round_1_1: 'Putaran 1/1',
     product_participants_0: '0 peserta',
     product_participants_2: '2 peserta',
-    product_need_2: 'Kurang 2⭐',
-    product_need_70: 'Kurang 70⭐',
-    product_need_0: 'Kurang 0⭐',
+    product_need_2: 'Kurang 2<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />',
+    product_need_70: 'Kurang 70<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />',
+    product_need_0: 'Kurang 0<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />',
     btn_join: 'Ikut sekarang',
     cat_health: 'Kesehatan',
     cat_fashion: 'Fashion',
@@ -750,7 +750,7 @@ const i18n = {
     scenario1_title: 'Menang di percobaan pertama',
     scenario1_price: 'Rp4.000',
     scenario1_desc: 'Pertama kali ikut, hanya keluar Rp4.000 langsung menang iPhone 17 Pro Max (senilai Rp25.749.000).',
-    scenario2_tag: '⭐ Biasa',
+    scenario2_tag: '<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> Biasa',
     scenario2_title: 'Menang setelah 50 kali',
     scenario2_price: 'Rp200.000',
     scenario2_desc: 'Ikut 50 kali, total Rp200.000, akhirnya menang iPhone 17 Pro Max.',
@@ -792,8 +792,8 @@ const i18n = {
     // ---- Toast Notifications ----
     notif_toast1_title: '🎉 Selamat!',
     notif_toast1_msg: 'Budi S. baru saja menang iPhone 17 Pro Max dengan Rp4.000!',
-    notif_toast2_title: '⭐ Pemberitahuan',
-    notif_toast2_msg: 'Tersisa 23 slot Early Bird! Daftar sekarang untuk dapat 100 ⭐',
+    notif_toast2_title: '<img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> Pemberitahuan',
+    notif_toast2_msg: 'Tersisa 23 slot Early Bird! Daftar sekarang untuk dapat 100 <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />',
     // ---- Wish Purchase UI ----
     my_orders: 'Riwayat Partisipasi',
     search_placeholder: 'Cari produk...',
@@ -813,7 +813,7 @@ const i18n = {
     modal_my_stars: 'Bintang Saya',
     modal_progress: 'Progres putaran ini',
     modal_need: 'Tambah bintang untuk memenuhi putaran',
-    modal_join_amount: 'Pilih jumlah ⭐:',
+    modal_join_amount: 'Pilih jumlah <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />:',
     modal_cost: 'Biaya:',
     modal_cta_join: 'Ikut sekarang',
     modal_disclaimer: 'Bintang akan dipotong setelah konfirmasi. Lihat syarat.',
@@ -1477,8 +1477,8 @@ function openProduct(key) {
   // Remain label
   const remainLabel = dict.modal_need_more
     ? dict.modal_need_more.replace('{n}', remainStars.toLocaleString())
-    : `cần thêm ${remainStars.toLocaleString()} ⭐`;
-  document.getElementById('modalRemainStars').textContent = remainLabel;
+    : `cần thêm ${remainStars.toLocaleString()} <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />`;
+  document.getElementById('modalRemainStars').innerHTML = remainLabel;
 
   // Reset star selection
   selectedStars = 1;
@@ -1504,7 +1504,7 @@ function updateCost() {
   if (!p) return;
 
   // Cost: display as star count only (no currency)
-  document.getElementById('modalCost').textContent = selectedStars + ' ⭐';
+  document.getElementById('modalCost').innerHTML = selectedStars + ' <img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" />';
 
   // Calculate win probability
   const totalStars = p.totalStars || 100;
@@ -1537,7 +1537,7 @@ function confirmJoin() {
     CN: `已扣除 ${cost}，进度已更新`,
     ID: `${cost} telah dikurangi — progres diperbarui`
   };
-  subEl.textContent = subMap[currentLang] || subMap['VN'];
+  subEl.innerHTML = subMap[currentLang] || subMap['VN'];
 
   // Update button i18n text
   const btnLabels = {

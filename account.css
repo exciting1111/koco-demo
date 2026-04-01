@@ -165,8 +165,20 @@
   font-size: 16px;
   flex-shrink: 0;
   margin-top: 2px;
-  width: 20px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+}
+.ac-nav-icon svg {
+  color: #999;
+  transition: color 0.2s;
+}
+.ac-nav-item.active .ac-nav-icon svg,
+.ac-nav-item:hover .ac-nav-icon svg {
+  color: #FF5722;
 }
 
 .ac-nav-text {
@@ -376,6 +388,9 @@
 .ac-empty-icon {
   font-size: 48px;
   margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ac-empty-text {
@@ -689,6 +704,14 @@
 .ac-earn-icon {
   font-size: 28px;
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: #FFF3EE;
+  border-radius: 14px;
+  margin: 0 auto 10px;
 }
 
 .ac-earn-title {
@@ -1400,6 +1423,9 @@
 .redeem-icon {
   font-size: 48px;
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .redeem-label {

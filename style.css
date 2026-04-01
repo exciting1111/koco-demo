@@ -2934,6 +2934,9 @@ a {
   border-radius: 50px;
   white-space: nowrap;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 .order-status.won { background: #e8f5e9; color: #2e7d32; }
 .order-status.active { background: #fff3e0; color: #e65100; }

@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+
+    <!-- ===== NAVIGATION ICONS ===== -->
+
+    <!-- Home / Trang chủ -->
+    <symbol id="icon-home" viewBox="0 0 24 24" fill="none">
+      <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M9 21V13h6v8" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Wish Purchase / Heart-star hybrid -->
+    <symbol id="icon-wish" viewBox="0 0 24 24" fill="none">
+      <path d="M12 3.5l1.8 4.1 4.5.4-3.3 2.9.9 4.4L12 13l-3.9 2.3.9-4.4L5.7 8l4.5-.4L12 3.5z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M12 21c-4.5-3-8-6.5-8-10a4 4 0 018-1.5A4 4 0 0120 11c0 3.5-3.5 7-8 10z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" fill="currentColor" opacity="0.12"/>
+    </symbol>
+
+    <!-- Invite / Gift -->
+    <symbol id="icon-invite" viewBox="0 0 24 24" fill="none">
+      <rect x="3" y="10" width="18" height="11" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M12 10V21M3 14h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M12 10H7.5a2.5 2.5 0 010-5C10 5 12 10 12 10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M12 10h4.5a2.5 2.5 0 000-5C14 5 12 10 12 10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Download App / Mobile -->
+    <symbol id="icon-app" viewBox="0 0 24 24" fill="none">
+      <rect x="5" y="2" width="14" height="20" rx="3" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="12" cy="18" r="1" fill="currentColor"/>
+      <path d="M9 7l3 3 3-3M12 10V5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Bell / Notification -->
+    <symbol id="icon-bell" viewBox="0 0 24 24" fill="none">
+      <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- User / Account -->
+    <symbol id="icon-user" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- ===== ACCOUNT CENTER SIDEBAR ICONS ===== -->
+
+    <!-- Profile / Account info -->
+    <symbol id="icon-profile" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M4 21v-1a8 8 0 0116 0v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M16 11l1.5 1.5L20 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Orders / Package -->
+    <symbol id="icon-orders" viewBox="0 0 24 24" fill="none">
+      <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Participation / History -->
+    <symbol id="icon-history" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M3.5 7.5A9 9 0 013 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Lucky Stars / Coin -->
+    <symbol id="icon-stars" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2l2.4 6.6H21l-5.4 4 2 6.4L12 15l-5.6 4 2-6.4L3 8.6h6.6L12 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="currentColor" opacity="0.12"/>
+    </symbol>
+
+    <!-- Invite Friends / Share -->
+    <symbol id="icon-share" viewBox="0 0 24 24" fill="none">
+      <circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M8.59 13.51l6.83 3.98M15.41 6.51L8.59 10.49" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- ===== STATUS / BADGE ICONS ===== -->
+
+    <!-- Trophy / Won -->
+    <symbol id="icon-trophy" viewBox="0 0 24 24" fill="none">
+      <path d="M8 21h8M12 17v4M7 4H4v3a4 4 0 004 4h8a4 4 0 004-4V4h-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M7 4h10v5a5 5 0 01-10 0V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Shield / Safe -->
+    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none">
+      <path d="M12 3L4 7v5c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V7L12 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="currentColor" opacity="0.1"/>
+      <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Check / Success -->
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="currentColor" opacity="0.1"/>
+      <path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Clock / Pending -->
+    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Gift / Redeem -->
+    <symbol id="icon-gift" viewBox="0 0 24 24" fill="none">
+      <rect x="3" y="10" width="18" height="11" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M12 10V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M3 14h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M12 10H7.5a2.5 2.5 0 010-5C10 5 12 10 12 10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M12 10h4.5a2.5 2.5 0 000-5C14 5 12 10 12 10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Truck / Shipping -->
+    <symbol id="icon-truck" viewBox="0 0 24 24" fill="none">
+      <path d="M1 3h13v13H1zM14 8h4l3 3v5h-7V8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <circle cx="5.5" cy="18.5" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="18.5" cy="18.5" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+    </symbol>
+
+    <!-- Card / Payment -->
+    <symbol id="icon-card" viewBox="0 0 24 24" fill="none">
+      <rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M2 10h20" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M6 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Copy / Clipboard -->
+    <symbol id="icon-copy" viewBox="0 0 24 24" fill="none">
+      <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Chart / Stats -->
+    <symbol id="icon-chart" viewBox="0 0 24 24" fill="none">
+      <path d="M18 20V10M12 20V4M6 20v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- People / Community -->
+    <symbol id="icon-people" viewBox="0 0 24 24" fill="none">
+      <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M2 21v-1a7 7 0 0114 0v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M22 21v-1a7 7 0 00-5.27-6.77" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Sparkle / Magic -->
+    <symbol id="icon-sparkle" viewBox="0 0 24 24" fill="none">
+      <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12M5.64 18.36l2.12-2.12M16.24 7.76l2.12-2.12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8" fill="currentColor" opacity="0.15"/>
+    </symbol>
+
+    <!-- Arrow Up-Right / External link -->
+    <symbol id="icon-arrow-up-right" viewBox="0 0 24 24" fill="none">
+      <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Dice / Lucky draw -->
+    <symbol id="icon-dice" viewBox="0 0 24 24" fill="none">
+      <rect x="2" y="2" width="20" height="20" rx="3" stroke="currentColor" stroke-width="1.8"/>
+      <circle cx="8" cy="8" r="1.5" fill="currentColor"/>
+      <circle cx="16" cy="8" r="1.5" fill="currentColor"/>
+      <circle cx="8" cy="16" r="1.5" fill="currentColor"/>
+      <circle cx="16" cy="16" r="1.5" fill="currentColor"/>
+      <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+    </symbol>
+
+    <!-- Confetti / Celebration -->
+    <symbol id="icon-celebrate" viewBox="0 0 24 24" fill="none">
+      <path d="M3 21l7-7M3 21l4-1-3-3zM14 3l-4 4 3 3 4-4-3-3z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M14 3l3 3M17 6l2-2M19 8l2-1M18 10l1 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Lock / Verified -->
+    <symbol id="icon-verified" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2l8 3v7c0 5-3.5 9.7-8 11C7.5 21.7 4 17 4 12V5l8-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="currentColor" opacity="0.1"/>
+      <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Wallet / Balance -->
+    <symbol id="icon-wallet" viewBox="0 0 24 24" fill="none">
+      <path d="M20 7H4a2 2 0 00-2 2v9a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M16 3H8L4 7h16l-4-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <circle cx="17" cy="13" r="1.5" fill="currentColor"/>
+    </symbol>
+
+    <!-- Megaphone / Announcement -->
+    <symbol id="icon-megaphone" viewBox="0 0 24 24" fill="none">
+      <path d="M3 11v2a1 1 0 001 1h1l2 5h2l-1-5h9l2 2V7l-2 2H8L6 7H4a1 1 0 00-1 1v3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    </symbol>
+
+  </defs>
+</svg>

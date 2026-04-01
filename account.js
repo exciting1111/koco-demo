@@ -415,7 +415,7 @@
         var statusVN = order.type === 'shipped' ? 'Đã gửi hàng' : 'Đã hoàn thành';
         var extraInfo = '';
         if (order.type === 'shipped' && order.address) {
-          extraInfo = '<div class="order-address"><span class="order-addr-icon">📍</span>' + order.address + '</div>';
+          extraInfo = '<div class="order-address"><span class="order-addr-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" style="color:#FF5722;vertical-align:middle"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg></span>' + order.address + '</div>';
         }
         if (order.type === 'completed' && order.code) {
           extraInfo = '<div class="order-code-row"><span class="order-code-label" data-i18n="rdm_card_code">Mã thẻ</span>: <strong class="order-code-val">' + order.code + '</strong></div>';

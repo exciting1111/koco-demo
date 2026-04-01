@@ -8,9 +8,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="account.css?v=5" />
+  <link rel="stylesheet" href="account.css?v=6" />
 </head>
 <body class="account-body">
+<!-- SVG Icon Sprite -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" id="icon-sprite">
+  <symbol id="icon-profile" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M4 21v-1a8 8 0 0116 0v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 11l1.5 1.5L20 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-orders" viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="icon-history" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-stars" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 6.6H21l-5.4 4 2 6.4L12 15l-5.6 4 2-6.4L3 8.6h6.6L12 2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="currentColor" opacity="0.15"/></symbol>
+  <symbol id="icon-share" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51L8.59 10.49" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="icon-bell" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="icon-gift" viewBox="0 0 24 24" fill="none"><rect x="3" y="10" width="18" height="11" rx="1.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 10V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M3 14h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 10H7.5a2.5 2.5 0 010-5C10 5 12 10 12 10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 10h4.5a2.5 2.5 0 000-5C14 5 12 10 12 10z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-people" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.8"/><path d="M2 21v-1a7 7 0 0114 0v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M16 3.13a4 4 0 010 7.75" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M22 21v-1a7 7 0 00-5.27-6.77" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="icon-sparkle" viewBox="0 0 24 24" fill="none"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.64 5.64l2.12 2.12M16.24 16.24l2.12 2.12M5.64 18.36l2.12-2.12M16.24 7.76l2.12-2.12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8" fill="currentColor" opacity="0.15"/></symbol>
+  <symbol id="icon-package" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-chart" viewBox="0 0 24 24" fill="none"><path d="M18 20V10M12 20V4M6 20v-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="icon-celebrate" viewBox="0 0 24 24" fill="none"><path d="M3 21l7-7M3 21l4-1-3-3zM14 3l-4 4 3 3 4-4-3-3z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 3l3 3M17 6l2-2M19 8l2-1M18 10l1 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="icon-truck" viewBox="0 0 24 24" fill="none"><path d="M1 3h13v13H1z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 8h4l3 3v5h-7V8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="5.5" cy="18.5" r="2.5" stroke="currentColor" stroke-width="1.8"/><circle cx="18.5" cy="18.5" r="2.5" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="icon-check-circle" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8" fill="currentColor" opacity="0.1"/><path d="M8 12l3 3 5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="icon-copy" viewBox="0 0 24 24" fill="none"><rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="icon-menu" viewBox="0 0 24 24" fill="none"><path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
 
 <!-- ========== NAVBAR ========== -->
 <nav class="navbar" id="navbar">
@@ -27,11 +46,11 @@
     <div class="nav-right">
       <div class="nav-notification">
         <button class="nav-icon-btn" id="notifBell">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <svg width="22" height="22"><use href="#icon-bell"/></svg>
         </button>
       </div>
       <div class="nav-stars">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="#FFB800"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <img src="images/lucky-star-icon.png" alt="star" class="nav-star-img" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;" />
         <span class="star-count">100</span>
       </div>
       <div class="lang-switcher" id="langSwitcher">
@@ -76,35 +95,35 @@
     </div>
     <nav class="ac-nav">
       <a href="#profile" class="ac-nav-item active" data-section="profile">
-        <span class="ac-nav-icon">◉</span>
+        <span class="ac-nav-icon"><svg width="20" height="20"><use href="#icon-profile"/></svg></span>
         <div class="ac-nav-text">
           <span class="ac-nav-title" data-i18n="ac_nav_profile">Tài khoản</span>
           <span class="ac-nav-desc" data-i18n="ac_nav_profile_desc">Thông tin tài khoản</span>
         </div>
       </a>
       <a href="#orders" class="ac-nav-item" data-section="orders">
-        <span class="ac-nav-icon">◎</span>
+        <span class="ac-nav-icon"><svg width="20" height="20"><use href="#icon-orders"/></svg></span>
         <div class="ac-nav-text">
           <span class="ac-nav-title" data-i18n="ac_nav_orders">Đơn hàng</span>
           <span class="ac-nav-desc" data-i18n="ac_nav_orders_desc">Theo dõi tiến độ tham gia, đơn đã trúng và các phiên không trúng.</span>
         </div>
       </a>
       <a href="#participation" class="ac-nav-item" data-section="participation">
-        <span class="ac-nav-icon">◌</span>
+        <span class="ac-nav-icon"><svg width="20" height="20"><use href="#icon-history"/></svg></span>
         <div class="ac-nav-text">
           <span class="ac-nav-title" data-i18n="ac_nav_participation">Tham gia</span>
           <span class="ac-nav-desc" data-i18n="ac_nav_participation_desc">Xem các kỳ tham gia Wish Purchase và tiến độ hiện tại của từng sản phẩm.</span>
         </div>
       </a>
       <a href="#stars" class="ac-nav-item" data-section="stars">
-        <span class="ac-nav-icon">⭐</span>
+        <span class="ac-nav-icon"><img src="images/lucky-star-icon.png" alt="star" style="width:20px;height:20px;object-fit:contain;display:block;" /></span>
         <div class="ac-nav-text">
           <span class="ac-nav-title" data-i18n="ac_nav_stars">Xu may mắn</span>
           <span class="ac-nav-desc" data-i18n="ac_nav_stars_desc">Theo dõi số dư, cách kiếm thêm xu và lịch sử biến động.</span>
         </div>
       </a>
       <a href="#invite" class="ac-nav-item" data-section="invite">
-        <span class="ac-nav-icon">↗</span>
+        <span class="ac-nav-icon"><svg width="20" height="20"><use href="#icon-share"/></svg></span>
         <div class="ac-nav-text">
           <span class="ac-nav-title" data-i18n="ac_nav_invite">Mời bạn</span>
           <span class="ac-nav-desc" data-i18n="ac_nav_invite_desc">Chia sẻ liên kết riêng để nhận thưởng và mở khóa thêm mốc quà.</span>
@@ -139,7 +158,7 @@
           <div class="ac-summary-stat">
             <div class="ac-summary-stat-label" data-i18n="ac_balance">Số dư hiện tại</div>
             <div class="ac-summary-stat-value">100</div>
-            <div class="ac-summary-stat-icon">⭐</div>
+            <div class="ac-summary-stat-icon"><img src="images/lucky-star-icon.png" alt="star" style="width:22px;height:22px;object-fit:contain;" /></div>
           </div>
           <div class="ac-summary-stat">
             <div class="ac-summary-stat-label" data-i18n="ac_participated">Đơn đã tham gia</div>
@@ -213,7 +232,7 @@
       <div id="ordersList" class="ac-part-list"></div>
 
       <div class="ac-empty" id="ordersEmpty">
-        <div class="ac-empty-icon">📦</div>
+        <div class="ac-empty-icon"><svg width="48" height="48" style="color:#ccc"><use href="#icon-package"/></svg></div>
         <div class="ac-empty-text" data-i18n="ac_orders_empty">Chưa có đơn hàng nào.</div>
         <div class="ac-empty-sub" data-i18n="ac_orders_empty_sub">Hãy tham gia sản phẩm Wish Purchase đầu tiên.</div>
         <a href="index.html#wish" class="ac-empty-btn" data-i18n="ac_join_now">Tham gia ngay</a>
@@ -441,7 +460,7 @@
       <div class="ac-stars-balance">
         <div class="ac-stars-balance-main">
           <div class="ac-stars-label" data-i18n="ac_current_balance">SỐ DƯ HIỆN CÓ</div>
-          <div class="ac-stars-amount">100 <span class="ac-stars-icon">⭐</span></div>
+          <div class="ac-stars-amount">100 <span class="ac-stars-icon"><img src="images/lucky-star-icon.png" alt="star" style="width:36px;height:36px;object-fit:contain;vertical-align:middle;" /></span></div>
           <div class="ac-stars-sub" data-i18n="ac_stars_sub">Dùng xu để tham gia Wish Purchase, mời bạn và nhận thưởng.</div>
           <div class="ac-stars-actions">
             <button class="ac-stars-btn primary" data-i18n="ac_use_now">Dùng ngay</button>
@@ -449,10 +468,10 @@
           </div>
         </div>
         <div class="ac-stars-balance-detail">
-          <div class="ac-stars-detail-item"><span data-i18n="ac_total_earned">Tổng nhận được</span><span>0 ⭐</span></div>
-          <div class="ac-stars-detail-item"><span data-i18n="ac_total_used">Tổng đã dùng</span><span>0 ⭐</span></div>
-          <div class="ac-stars-detail-item"><span data-i18n="ac_accumulating">Đang tích lũy</span><span>0 ⭐</span></div>
-          <div class="ac-stars-detail-item"><span data-i18n="ac_invite_reward_available">Thưởng mời khả dụng</span><span>0 ⭐</span></div>
+          <div class="ac-stars-detail-item"><span data-i18n="ac_total_earned">Tổng nhận được</span><span>0 <img src="images/lucky-star-icon.png" alt="★" style="width:14px;height:14px;object-fit:contain;vertical-align:middle;"/></span></div>
+          <div class="ac-stars-detail-item"><span data-i18n="ac_total_used">Tổng đã dùng</span><span>0 <img src="images/lucky-star-icon.png" alt="★" style="width:14px;height:14px;object-fit:contain;vertical-align:middle;"/></span></div>
+          <div class="ac-stars-detail-item"><span data-i18n="ac_accumulating">Đang tích lũy</span><span>0 <img src="images/lucky-star-icon.png" alt="★" style="width:14px;height:14px;object-fit:contain;vertical-align:middle;"/></span></div>
+          <div class="ac-stars-detail-item"><span data-i18n="ac_invite_reward_available">Thưởng mời khả dụng</span><span>0 <img src="images/lucky-star-icon.png" alt="★" style="width:14px;height:14px;object-fit:contain;vertical-align:middle;"/></span></div>
         </div>
       </div>
 
@@ -465,17 +484,17 @@
       </div>
       <div class="ac-earn-grid">
         <div class="ac-earn-item">
-          <div class="ac-earn-icon">🎁</div>
+          <div class="ac-earn-icon"><svg width="32" height="32" style="color:#FF5722"><use href="#icon-gift"/></svg></div>
           <div class="ac-earn-title" data-i18n="ac_earn_register">Đăng ký mới</div>
           <div class="ac-earn-reward">+100</div>
         </div>
         <div class="ac-earn-item">
-          <div class="ac-earn-icon">👥</div>
+          <div class="ac-earn-icon"><svg width="32" height="32" style="color:#6C63FF"><use href="#icon-people"/></svg></div>
           <div class="ac-earn-title" data-i18n="ac_earn_invite">Mời bạn bè</div>
           <div class="ac-earn-reward">+50</div>
         </div>
         <div class="ac-earn-item">
-          <div class="ac-earn-icon">🌟</div>
+          <div class="ac-earn-icon"><img src="images/lucky-star-icon.png" alt="star" style="width:32px;height:32px;object-fit:contain;" /></div>
           <div class="ac-earn-title">KOC Program</div>
           <div class="ac-earn-reward">∞</div>
         </div>
@@ -490,7 +509,7 @@
         <button class="ac-card-action" data-i18n="ac_view_all">Xem tất cả</button>
       </div>
       <div class="ac-empty" style="padding:32px 20px;">
-        <div class="ac-empty-icon">📊</div>
+        <div class="ac-empty-icon"><svg width="48" height="48" style="color:#ccc"><use href="#icon-chart"/></svg></div>
         <div class="ac-empty-text" data-i18n="ac_stars_empty">Chưa có lịch sử xu may mắn.</div>
       </div>
     </section>
@@ -533,7 +552,7 @@
         </div>
       </div>
       <div class="ac-empty" style="padding:32px 20px;">
-        <div class="ac-empty-icon">👥</div>
+        <div class="ac-empty-icon"><svg width="48" height="48" style="color:#ccc"><use href="#icon-people"/></svg></div>
         <div class="ac-empty-text" data-i18n="ac_invite_empty">Chưa có bạn bè nào được mời.</div>
       </div>
     </section>
@@ -543,20 +562,20 @@
 
 <!-- Mobile sidebar overlay & toggle -->
 <div class="ac-sidebar-overlay"></div>
-<button class="ac-mobile-toggle" aria-label="Menu">☰</button>
+<button class="ac-mobile-toggle" aria-label="Menu"><svg width="22" height="22"><use href="#icon-menu"/></svg></button>
 
 <!-- ===== VIRTUAL REDEEM MODAL (Card Code) ===== -->
 <div class="redeem-overlay" id="redeemVirtualModal">
   <div class="redeem-modal">
     <button class="redeem-close" id="closeVirtualModal">&times;</button>
-    <div class="redeem-icon">🎉</div>
+    <div class="redeem-icon"><svg width="52" height="52" style="color:#FF5722"><use href="#icon-celebrate"/></svg></div>
     <div class="redeem-label" data-i18n="rdm_congrats">CHÚC MẬNG!</div>
     <h2 class="redeem-title" data-i18n="rdm_virtual_title">Mã thẻ của bạn</h2>
     <p class="redeem-desc" data-i18n="rdm_virtual_desc">Sao chép mã bên dưới và sử dụng trên trang chính thức của nhà cung cấp.</p>
     <div class="redeem-product-name" id="virtualProductName">Apple Gift Card 500K</div>
     <div class="redeem-code-box">
       <span class="redeem-code-value" id="virtualCodeValue">APPL-X7K2-M9NP-3QWR</span>
-      <button class="redeem-copy-btn" id="copyCodeBtn2" data-i18n="rdm_copy">📋 Sao chép</button>
+      <button class="redeem-copy-btn" id="copyCodeBtn2" data-i18n="rdm_copy"><svg width="16" height="16" style="vertical-align:middle;margin-right:4px"><use href="#icon-copy"/></svg> Sao chép</button>
     </div>
     <div class="redeem-copied-tip" id="copiedTip" data-i18n="rdm_copied">Sao chép thành công!</div>
     <p class="redeem-note" data-i18n="rdm_virtual_success_note">Đơn hàng đã được chuyển sang <strong>Đã hoàn thành</strong> trong mục Đơn hàng.</p>
@@ -568,7 +587,7 @@
 <div class="redeem-overlay" id="redeemPhysicalModal">
   <div class="redeem-modal">
     <button class="redeem-close" id="closePhysicalModal">&times;</button>
-    <div class="redeem-icon">📦</div>
+    <div class="redeem-icon"><svg width="52" height="52" style="color:#FF5722"><use href="#icon-truck"/></svg></div>
     <div class="redeem-label" data-i18n="rdm_congrats">CHÚC MẬNG!</div>
     <h2 class="redeem-title" data-i18n="rdm_physical_title">Nhập địa chỉ giao hàng</h2>
     <p class="redeem-desc" data-i18n="rdm_physical_desc">Vui lòng điền đầy đủ thông tin giao hàng để nhận sản phẩm.</p>
@@ -609,7 +628,7 @@
 <div class="redeem-overlay" id="shippingSuccessModal">
   <div class="redeem-modal">
     <button class="redeem-close" id="closeShippingSuccess">&times;</button>
-    <div class="redeem-icon">✅</div>
+    <div class="redeem-icon"><svg width="52" height="52" style="color:#22C55E"><use href="#icon-check-circle"/></svg></div>
     <h2 class="redeem-title" data-i18n="rdm_ship_success_title">Đặt hàng thành công!</h2>
     <p class="redeem-desc" data-i18n="rdm_ship_success_desc">Chúng tôi đã nhận được địa chỉ của bạn và sẽ tiến hành giao hàng trong 3–5 ngày làm việc.</p>
     <p class="redeem-note" data-i18n="rdm_ship_success_note">Đơn hàng đã được chuyển sang <strong>Đã gửi hàng</strong> trong mục Đơn hàng.</p>
@@ -617,7 +636,7 @@
   </div>
 </div>
 
-<script src="script.js?v=6"></script>
-<script src="account.js?v=6"></script>
+<script src="script.js?v=7"></script>
+<script src="account.js?v=7"></script>
 </body>
 </html>

@@ -154,17 +154,25 @@
       });
     }
 
-    // ---- Apply saved language ----
-    var savedLang = localStorage.getItem('koco_lang') || 'VN';
-    if (typeof applyLang === 'function' && savedLang !== 'VN') {
+    // ---- Apply saved language (read from both possible keys) ----
+    var savedLang = '';
+    try {
+      savedLang = localStorage.getItem('kocoLang') || localStorage.getItem('koco_lang') || 'VN';
+    } catch(e) { savedLang = 'VN'; }
+
+    if (typeof applyLang === 'function' && savedLang && savedLang !== 'VN') {
       applyLang(savedLang);
     }
 
+    // Wrap applyLang to always persist language to localStorage
     if (typeof applyLang === 'function') {
-      var _orig = applyLang;
+      var _origApply = applyLang;
       window.applyLang = function(lang) {
-        _orig(lang);
-        try { localStorage.setItem('koco_lang', lang); } catch(e) {}
+        _origApply(lang);
+        try {
+          localStorage.setItem('kocoLang', lang);
+          localStorage.setItem('koco_lang', lang);
+        } catch(e) {}
       };
     }
   }

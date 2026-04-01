@@ -370,7 +370,14 @@ const i18n = {
     orders_stat_acc: 'Tích lũy',
     orders_guarantee_title: 'Cơ chế bảo đảm KOCO',
     orders_guarantee_desc: 'Nếu bạn tích lũy đủ 100% giá trị sản phẩm mà chưa trúng, bạn có thể mua sản phẩm với <strong style="color:#FF5722;">giá gốc chính hãng</strong>. Tiền của bạn không bao giờ mất!',
-    orders_cta_join_more: 'Tham gia thêm sản phẩm mới'
+    orders_cta_join_more: 'Tham gia thêm sản phẩm mới',
+    // ---- Win Modal ----
+    win_title: 'Xin chúc mừng!',
+    win_subtitle: 'Bạn đã trúng thưởng Wish Purchase!',
+    win_round: 'Đợt 3/10',
+    win_verified: 'Đã xác nhận trúng thưởng',
+    win_claim: 'Xem chi tiết & Nhận thưởng',
+    win_later: 'Để sau'
   },
 
   CN: {
@@ -743,7 +750,14 @@ const i18n = {
     orders_stat_acc: '积累中',
     orders_guarantee_title: 'KOCO 保障机制',
     orders_guarantee_desc: '如果您积累了 100% 的商品价值仍未中奖，您可以以<strong style="color:#FF5722;">正品原价</strong>购买该商品。您的钱永远不会损失！',
-    orders_cta_join_more: '参与更多新商品'
+    orders_cta_join_more: '参加更多新商品',
+    // ---- Win Modal ----
+    win_title: '恭喜中奖！',
+    win_subtitle: '您已在心愿购中赢得大奖！',
+    win_round: '第3/10期',
+    win_verified: '已确认中奖',
+    win_claim: '查看详情 & 领取奖品',
+    win_later: '稍后再说'
   },
 
   ID: {
@@ -1116,7 +1130,14 @@ const i18n = {
     orders_stat_acc: 'Akumulasi',
     orders_guarantee_title: 'Jaminan KOCO',
     orders_guarantee_desc: 'Jika kamu mengumpulkan 100% nilai produk tapi belum menang, kamu bisa membeli produk dengan <strong style="color:#FF5722;">harga asli resmi</strong>. Uangmu tidak akan pernah hilang!',
-    orders_cta_join_more: 'Ikut produk baru lainnya'
+    orders_cta_join_more: 'Ikut produk baru lainnya',
+    // ---- Win Modal ----
+    win_title: 'Selamat!',
+    win_subtitle: 'Anda memenangkan Wish Purchase!',
+    win_round: 'Putaran 3/10',
+    win_verified: 'Kemenangan dikonfirmasi',
+    win_claim: 'Lihat Detail & Klaim Hadiah',
+    win_later: 'Nanti saja'
   }
 };
 
@@ -1467,6 +1488,8 @@ function showLoggedIn() {
   // Close mobile menu
   document.getElementById('navLinks')?.classList.remove('show');
   document.getElementById('navHamburger')?.classList.remove('active');
+  // Show win notification after 2 seconds
+  setTimeout(showWinModal, 2000);
 }
 
 function showLoggedOut() {
@@ -1496,6 +1519,47 @@ if (btnLogout) btnLogout.addEventListener('click', function(e) {
 if (mobileBtnLogout) mobileBtnLogout.addEventListener('click', function(e) {
   e.preventDefault();
   showLoggedOut();
+});
+
+// ===== WIN NOTIFICATION MODAL =====
+function showWinModal() {
+  const winModal = document.getElementById('winModal');
+  if (winModal) {
+    winModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeWinModal() {
+  const winModal = document.getElementById('winModal');
+  if (winModal) {
+    winModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+// Close button
+document.getElementById('winModalClose')?.addEventListener('click', closeWinModal);
+// "Later" button
+document.getElementById('winBtnLater')?.addEventListener('click', closeWinModal);
+// Click overlay to close
+document.getElementById('winModal')?.addEventListener('click', function(e) {
+  if (e.target === this) closeWinModal();
+});
+// "Claim" button -> open orders modal with "won" filter
+document.getElementById('winBtnClaim')?.addEventListener('click', function() {
+  closeWinModal();
+  // Open orders modal
+  const ordersModal = document.getElementById('myOrdersModal');
+  if (ordersModal) {
+    ordersModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // Auto-click the "won" tab to filter
+    setTimeout(function() {
+      const wonTab = document.querySelector('.orders-tab[onclick*="won"]');
+      if (wonTab) wonTab.click();
+    }, 100);
+  }
 });
 
 // ===== MOBILE HAMBURGER =====

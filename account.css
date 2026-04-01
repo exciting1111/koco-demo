@@ -1047,3 +1047,286 @@
     flex-wrap: wrap;
   }
 }
+
+/* ===== PARTICIPATION RECORD CARDS ===== */
+
+.ac-part-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ac-part-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.ac-part-card:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+  transform: translateY(-2px);
+}
+
+/* Left image column */
+.ac-part-img-wrap {
+  width: 120px;
+  flex-shrink: 0;
+  background: #F5F5F5;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ac-part-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Right body */
+.ac-part-body {
+  flex: 1;
+  min-width: 0;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Top row: info + status badge */
+.ac-part-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ac-part-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.ac-part-category {
+  font-size: 11px;
+  font-weight: 700;
+  color: #FF5722;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.ac-part-name {
+  font-size: 17px;
+  font-weight: 800;
+  color: #1A1A1A;
+  margin: 0 0 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ac-part-meta {
+  font-size: 12px;
+  color: #999;
+}
+
+.ac-part-meta strong {
+  color: #555;
+}
+
+/* Status badge */
+.ac-part-status {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ac-part-status.active {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+
+.ac-part-status.won {
+  background: linear-gradient(90deg, #FF5722, #FF9800);
+  color: white;
+}
+
+.ac-part-status.lost {
+  background: #F5F5F5;
+  color: #999;
+}
+
+/* Progress bar */
+.ac-part-progress-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ac-part-progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #888;
+}
+
+.ac-part-progress-val {
+  font-size: 12px;
+  color: #555;
+}
+
+.ac-part-progress-val strong {
+  color: #FF5722;
+}
+
+.ac-part-progress-bar {
+  height: 6px;
+  background: #F0F0F0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.ac-part-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FF5722, #FF9800);
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+.ac-part-progress-fill.lost {
+  background: #BDBDBD;
+}
+
+.ac-part-closed-tag {
+  font-size: 10px;
+  font-weight: 700;
+  background: #EEEEEE;
+  color: #888;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 6px;
+}
+
+/* Footer row */
+.ac-part-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+  border-top: 1px solid #F5F5F5;
+}
+
+.ac-part-cost,
+.ac-part-win-rate,
+.ac-part-accumulate {
+  font-size: 12px;
+  color: #888;
+  flex: 1;
+  min-width: 80px;
+}
+
+.ac-part-cost strong,
+.ac-part-win-rate strong {
+  color: #333;
+}
+
+.ac-part-win-rate strong.highlight {
+  color: #FF5722;
+}
+
+.ac-part-accumulate {
+  font-size: 11px;
+  color: #FF9800;
+  font-weight: 600;
+}
+
+.ac-part-action-btn {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, #FF5722, #FF9800);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s;
+  box-shadow: 0 3px 10px rgba(255,87,34,0.25);
+  flex-shrink: 0;
+}
+
+.ac-part-action-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(255,87,34,0.35);
+}
+
+.ac-part-action-btn.secondary {
+  background: white;
+  color: #FF5722;
+  border: 1.5px solid #FF5722;
+  box-shadow: none;
+}
+
+.ac-part-action-btn.secondary:hover {
+  background: #FFF3EE;
+}
+
+/* Tab filter: hide cards not matching */
+.ac-part-card[data-status="active"].hide,
+.ac-part-card[data-status="won"].hide,
+.ac-part-card[data-status="lost"].hide {
+  display: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 680px) {
+  .ac-part-card {
+    flex-direction: column;
+  }
+
+  .ac-part-img-wrap {
+    width: 100%;
+    height: 160px;
+  }
+
+  .ac-part-body {
+    padding: 14px 16px;
+  }
+
+  .ac-part-name {
+    font-size: 15px;
+  }
+
+  .ac-part-footer {
+    gap: 10px;
+  }
+
+  .ac-part-cost,
+  .ac-part-win-rate {
+    min-width: 60px;
+  }
+}
+
+@media (max-width: 400px) {
+  .ac-part-img-wrap {
+    height: 130px;
+  }
+
+  .ac-part-action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -225,25 +225,134 @@
       <p class="ac-section-desc" data-i18n="ac_part_desc">Xem các kỳ tham gia Wish Purchase và tiến độ hiện tại của từng sản phẩm.</p>
 
       <div class="ac-stats-row">
-        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_all">Tất cả</div><div class="ac-stats-number">0</div></div>
-        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_participating">Đang tham gia</div><div class="ac-stats-number">0</div></div>
+        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_all">Tất cả</div><div class="ac-stats-number">3</div></div>
+        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_participating">Đang tham gia</div><div class="ac-stats-number">2</div></div>
         <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_won">Đã trúng</div><div class="ac-stats-number">0</div></div>
-        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_not_won">Không trúng</div><div class="ac-stats-number">0</div></div>
+        <div class="ac-stats-item"><div class="ac-stats-label" data-i18n="ac_not_won">Không trúng</div><div class="ac-stats-number">1</div></div>
       </div>
 
       <div class="ac-tabs" id="participationTabs">
-        <button class="ac-tab active" data-tab="all" data-i18n="ac_tab_all">Tất cả (0)</button>
-        <button class="ac-tab" data-tab="active" data-i18n="ac_tab_participating">Đang tham gia (0)</button>
+        <button class="ac-tab active" data-tab="all" data-i18n="ac_tab_all">Tất cả (3)</button>
+        <button class="ac-tab" data-tab="active" data-i18n="ac_tab_participating">Đang tham gia (2)</button>
         <button class="ac-tab" data-tab="won" data-i18n="ac_tab_won">Đã trúng (0)</button>
-        <button class="ac-tab" data-tab="lost" data-i18n="ac_tab_not_won">Không trúng (0)</button>
+        <button class="ac-tab" data-tab="lost" data-i18n="ac_tab_not_won">Không trúng (1)</button>
       </div>
 
-      <div class="ac-empty">
-        <div class="ac-empty-icon">🎯</div>
-        <div class="ac-empty-text" data-i18n="ac_part_empty">Chưa có lịch sử tham gia nào.</div>
-        <div class="ac-empty-sub" data-i18n="ac_part_empty_sub">Hãy tham gia Wish Purchase để bắt đầu.</div>
-        <a href="index.html#wish" class="ac-empty-btn" data-i18n="ac_join_now">Tham gia ngay</a>
-      </div>
+      <!-- Participation Records List -->
+      <div class="ac-part-list" id="partList">
+
+        <!-- Record 1: Active - iWatch -->
+        <div class="ac-part-card" data-status="active">
+          <div class="ac-part-img-wrap">
+            <img src="images/airpods.jpg" alt="iWatch Series 10" class="ac-part-img" />
+          </div>
+          <div class="ac-part-body">
+            <div class="ac-part-top">
+              <div class="ac-part-info">
+                <span class="ac-part-category" data-i18n="ac_cat_electronics">Điện tử</span>
+                <h3 class="ac-part-name">iWatch Series 10</h3>
+                <div class="ac-part-meta">
+                  <span data-i18n="ac_round">Kỳ</span> <strong>11/999</strong>
+                  &nbsp;·&nbsp;
+                  <span data-i18n="ac_joined_at">Tham gia</span> <strong>01/04/2026</strong>
+                </div>
+              </div>
+              <span class="ac-part-status active" data-i18n="ac_status_active">Đang tham gia</span>
+            </div>
+            <div class="ac-part-progress-wrap">
+              <div class="ac-part-progress-label">
+                <span data-i18n="ac_round_progress">Tiến độ kỳ</span>
+                <span class="ac-part-progress-val">1 / 5 ⭐ &nbsp;<strong>20%</strong></span>
+              </div>
+              <div class="ac-part-progress-bar"><div class="ac-part-progress-fill" style="width:20%"></div></div>
+            </div>
+            <div class="ac-part-footer">
+              <div class="ac-part-cost">
+                <span data-i18n="ac_cost">Chi phí</span>: <strong>1 ⭐</strong>
+              </div>
+              <div class="ac-part-win-rate">
+                <span data-i18n="ac_win_rate">Tỷ lệ thắng</span>: <strong class="highlight">20.0%</strong>
+              </div>
+              <a href="index.html#wish" class="ac-part-action-btn" data-i18n="ac_join_more">Tham gia thêm</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Record 2: Active - iPhone 17 Pro Max -->
+        <div class="ac-part-card" data-status="active">
+          <div class="ac-part-img-wrap">
+            <img src="images/iphone17-dark.jpg" alt="iPhone 17 Pro Max" class="ac-part-img" />
+          </div>
+          <div class="ac-part-body">
+            <div class="ac-part-top">
+              <div class="ac-part-info">
+                <span class="ac-part-category" data-i18n="ac_cat_electronics">Điện tử</span>
+                <h3 class="ac-part-name">iPhone 17 Pro Max</h3>
+                <div class="ac-part-meta">
+                  <span data-i18n="ac_round">Kỳ</span> <strong>5/10</strong>
+                  &nbsp;·&nbsp;
+                  <span data-i18n="ac_joined_at">Tham gia</span> <strong>30/03/2026</strong>
+                </div>
+              </div>
+              <span class="ac-part-status active" data-i18n="ac_status_active">Đang tham gia</span>
+            </div>
+            <div class="ac-part-progress-wrap">
+              <div class="ac-part-progress-label">
+                <span data-i18n="ac_round_progress">Tiến độ kỳ</span>
+                <span class="ac-part-progress-val">320 / 1000 ⭐ &nbsp;<strong>32%</strong></span>
+              </div>
+              <div class="ac-part-progress-bar"><div class="ac-part-progress-fill" style="width:32%"></div></div>
+            </div>
+            <div class="ac-part-footer">
+              <div class="ac-part-cost">
+                <span data-i18n="ac_cost">Chi phí</span>: <strong>10 ⭐</strong>
+              </div>
+              <div class="ac-part-win-rate">
+                <span data-i18n="ac_win_rate">Tỷ lệ thắng</span>: <strong class="highlight">1.0%</strong>
+              </div>
+              <a href="index.html#wish" class="ac-part-action-btn" data-i18n="ac_join_more">Tham gia thêm</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Record 3: Lost - Dyson V15 -->
+        <div class="ac-part-card" data-status="lost">
+          <div class="ac-part-img-wrap">
+            <img src="images/dyson.jpg" alt="Dyson V15 Detect" class="ac-part-img" />
+          </div>
+          <div class="ac-part-body">
+            <div class="ac-part-top">
+              <div class="ac-part-info">
+                <span class="ac-part-category" data-i18n="ac_cat_home">Gia dụng</span>
+                <h3 class="ac-part-name">Dyson V15 Detect</h3>
+                <div class="ac-part-meta">
+                  <span data-i18n="ac_round">Kỳ</span> <strong>3/999</strong>
+                  &nbsp;·&nbsp;
+                  <span data-i18n="ac_joined_at">Tham gia</span> <strong>25/03/2026</strong>
+                </div>
+              </div>
+              <span class="ac-part-status lost" data-i18n="ac_status_lost">Không trúng</span>
+            </div>
+            <div class="ac-part-progress-wrap">
+              <div class="ac-part-progress-label">
+                <span data-i18n="ac_round_progress">Tiến độ kỳ</span>
+                <span class="ac-part-progress-val">500 / 500 ⭐ &nbsp;<strong>100%</strong> <span class="ac-part-closed-tag" data-i18n="ac_round_closed">Đã kết thúc</span></span>
+              </div>
+              <div class="ac-part-progress-bar"><div class="ac-part-progress-fill lost" style="width:100%"></div></div>
+            </div>
+            <div class="ac-part-footer">
+              <div class="ac-part-cost">
+                <span data-i18n="ac_cost">Chi phí</span>: <strong>5 ⭐</strong>
+              </div>
+              <div class="ac-part-accumulate">
+                <span data-i18n="ac_accumulate_note">Xu đã tích lũy sang kỳ tiếp theo</span>
+              </div>
+              <a href="index.html#wish" class="ac-part-action-btn secondary" data-i18n="ac_join_next">Tham gia kỳ mới</a>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end ac-part-list -->
     </section>
 
     <!-- ===== STARS SECTION ===== -->

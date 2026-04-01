@@ -51,6 +51,20 @@
             t.classList.remove('active');
           });
           this.classList.add('active');
+
+          // If this is the participation tabs, filter the cards
+          if (tabContainer.id === 'participationTabs') {
+            var selectedTab = this.getAttribute('data-tab');
+            var cards = document.querySelectorAll('#partList .ac-part-card');
+            cards.forEach(function(card) {
+              var status = card.getAttribute('data-status');
+              if (selectedTab === 'all') {
+                card.classList.remove('hide');
+              } else {
+                card.classList.toggle('hide', status !== selectedTab);
+              }
+            });
+          }
         });
       });
     });

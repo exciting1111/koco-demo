@@ -271,7 +271,29 @@ const i18n = {
     ac_total_reward: 'Tổng thưởng',
     ac_friends_label: 'DANH SÁCH BẠN BÈ',
     ac_friends_title: 'Lịch sử mời bạn',
-    ac_invite_empty: 'Chưa có bạn bè nào được mời.'
+    ac_invite_empty: 'Chưa có bạn bè nào được mời.',
+    // ---- Participation Record Cards ----
+    ac_cat_electronics: 'Điện tử',
+    ac_cat_home: 'Gia dụng',
+    ac_cat_luxury: 'Hàng hiệu',
+    ac_cat_beauty: 'Làm đẹp',
+    ac_cat_digital: 'Thẻ nạp',
+    ac_round: 'Kỳ',
+    ac_joined_at: 'Tham gia',
+    ac_status_active: 'Đang tham gia',
+    ac_status_won: 'Đã trúng',
+    ac_status_lost: 'Không trúng',
+    ac_round_progress: 'Tiến độ kỳ',
+    ac_round_closed: 'Đã kết thúc',
+    ac_cost: 'Chi phí',
+    ac_win_rate: 'Tỷ lệ thắng',
+    ac_join_more: 'Tham gia thêm',
+    ac_join_next: 'Tham gia kỳ mới',
+    ac_accumulate_note: 'Xu đã tích lũy sang kỳ tiếp theo',
+    ac_tab_all: 'Tất cả',
+    ac_tab_participating: 'Đang tham gia',
+    ac_tab_won: 'Đã trúng',
+    ac_tab_not_won: 'Không trúng'
   },
 
   CN: {
@@ -545,7 +567,29 @@ const i18n = {
     ac_total_reward: '总奖励',
     ac_friends_label: '好友列表',
     ac_friends_title: '邀请记录',
-    ac_invite_empty: '暂无已邀请好友。'
+    ac_invite_empty: '暂无已邀请好友。',
+    // ---- Participation Record Cards ----
+    ac_cat_electronics: '电子产品',
+    ac_cat_home: '家用电器',
+    ac_cat_luxury: '奢侈品',
+    ac_cat_beauty: '美妆',
+    ac_cat_digital: '充值卡',
+    ac_round: '期次',
+    ac_joined_at: '参与日期',
+    ac_status_active: '参与中',
+    ac_status_won: '已中奖',
+    ac_status_lost: '未中奖',
+    ac_round_progress: '本期进度',
+    ac_round_closed: '已结束',
+    ac_cost: '消耗',
+    ac_win_rate: '中奖概率',
+    ac_join_more: '继续参与',
+    ac_join_next: '参与下一期',
+    ac_accumulate_note: '星星已累积至下一期',
+    ac_tab_all: '全部',
+    ac_tab_participating: '参与中',
+    ac_tab_won: '已中奖',
+    ac_tab_not_won: '未中奖'
   },
 
   ID: {
@@ -819,7 +863,29 @@ const i18n = {
     ac_total_reward: 'Total hadiah',
     ac_friends_label: 'DAFTAR TEMAN',
     ac_friends_title: 'Riwayat undangan',
-    ac_invite_empty: 'Belum ada teman yang diajak.'
+    ac_invite_empty: 'Belum ada teman yang diajak.',
+    // ---- Participation Record Cards ----
+    ac_cat_electronics: 'Elektronik',
+    ac_cat_home: 'Peralatan Rumah',
+    ac_cat_luxury: 'Barang Mewah',
+    ac_cat_beauty: 'Kecantikan',
+    ac_cat_digital: 'Kartu Digital',
+    ac_round: 'Putaran',
+    ac_joined_at: 'Bergabung',
+    ac_status_active: 'Sedang Ikut',
+    ac_status_won: 'Menang',
+    ac_status_lost: 'Tidak Menang',
+    ac_round_progress: 'Progress Putaran',
+    ac_round_closed: 'Selesai',
+    ac_cost: 'Biaya',
+    ac_win_rate: 'Peluang Menang',
+    ac_join_more: 'Ikut Lagi',
+    ac_join_next: 'Ikut Putaran Baru',
+    ac_accumulate_note: 'Koin terakumulasi ke putaran berikutnya',
+    ac_tab_all: 'Semua',
+    ac_tab_participating: 'Sedang Ikut',
+    ac_tab_won: 'Menang',
+    ac_tab_not_won: 'Tidak Menang'
   }
 };
 

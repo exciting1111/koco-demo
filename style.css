@@ -3150,6 +3150,10 @@ a {
   align-items: center;
   gap: 16px;
   position: relative;
+  width: 100%;
+  max-width: 480px;
+  padding: 48px 40px 40px;
+  box-sizing: border-box;
 }
 .join-success-circle {
   width: 96px;
@@ -3277,25 +3281,26 @@ a {
 /* Right-corner close button for success overlay */
 .join-success-close-btn {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 36px;
-  height: 36px;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: none;
-  background: rgba(0, 0, 0, 0.06);
-  color: #555;
+  background: transparent;
+  color: #bbb;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.18s ease, color 0.18s ease;
   z-index: 10;
   flex-shrink: 0;
+  line-height: 1;
 }
 .join-success-close-btn:hover {
-  background: rgba(0, 0, 0, 0.12);
-  color: #222;
+  background: rgba(255, 87, 34, 0.08);
+  color: #FF5722;
 }
 @media (max-width: 480px) {
   .join-success-actions {

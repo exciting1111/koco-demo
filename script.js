@@ -1446,27 +1446,56 @@ const navAuth = document.getElementById('navAuth');
 const navUser = document.getElementById('navUser');
 const navStars = document.getElementById('navStars');
 const btnMyOrders = document.getElementById('btnMyOrders');
+// Mobile menu elements
+const mobileMenuUser = document.getElementById('mobileMenuUser');
+const mobileMenuAuth = document.getElementById('mobileMenuAuth');
+const mobileMenuLinks = document.getElementById('mobileMenuLinks');
+const mobileBtnLogin = document.getElementById('mobileBtnLogin');
+const mobileBtnRegister = document.getElementById('mobileBtnRegister');
+const mobileBtnLogout = document.getElementById('mobileBtnLogout');
 
 function showLoggedIn() {
+  // Desktop
   if (navAuth) navAuth.style.display = 'none';
   if (navUser) navUser.style.display = 'flex';
   if (navStars) navStars.style.display = 'flex';
   if (btnMyOrders) btnMyOrders.style.display = 'flex';
+  // Mobile menu
+  if (mobileMenuUser) mobileMenuUser.style.display = 'flex';
+  if (mobileMenuAuth) mobileMenuAuth.style.display = 'none';
+  if (mobileMenuLinks) mobileMenuLinks.style.display = 'block';
+  // Close mobile menu
+  document.getElementById('navLinks')?.classList.remove('show');
+  document.getElementById('navHamburger')?.classList.remove('active');
 }
 
 function showLoggedOut() {
+  // Desktop
   if (navAuth) navAuth.style.display = 'flex';
   if (navUser) navUser.style.display = 'none';
   if (navStars) navStars.style.display = 'none';
   if (btnMyOrders) btnMyOrders.style.display = 'none';
+  // Mobile menu
+  if (mobileMenuUser) mobileMenuUser.style.display = 'none';
+  if (mobileMenuAuth) mobileMenuAuth.style.display = 'flex';
+  if (mobileMenuLinks) mobileMenuLinks.style.display = 'none';
+  // Close mobile menu
+  document.getElementById('navLinks')?.classList.remove('show');
+  document.getElementById('navHamburger')?.classList.remove('active');
 }
 
 if (btnLogin) btnLogin.addEventListener('click', showLoggedIn);
 if (btnRegister) btnRegister.addEventListener('click', showLoggedIn);
+if (mobileBtnLogin) mobileBtnLogin.addEventListener('click', showLoggedIn);
+if (mobileBtnRegister) mobileBtnRegister.addEventListener('click', showLoggedIn);
 if (btnLogout) btnLogout.addEventListener('click', function(e) {
   e.preventDefault();
   showLoggedOut();
   userDropdown?.classList.remove('show');
+});
+if (mobileBtnLogout) mobileBtnLogout.addEventListener('click', function(e) {
+  e.preventDefault();
+  showLoggedOut();
 });
 
 // ===== MOBILE HAMBURGER =====

@@ -3352,3 +3352,19 @@ a {
   .join-checkmark { width: 80px; height: 80px; }
   .join-success-text { font-size: 18px; }
 }
+
+/* ========== 心愿星内联图标 ========== */
+.star-img-inline {
+  display: inline !important;
+  width: 1em !important;
+  height: 1em !important;
+  max-width: 20px !important;
+  max-height: 20px !important;
+  min-width: 12px !important;
+  min-height: 12px !important;
+  vertical-align: middle !important;
+  object-fit: contain !important;
+  margin: 0 1px !important;
+  position: relative !important;
+  top: -0.05em !important;
+}

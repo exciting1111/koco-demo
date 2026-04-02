@@ -2292,7 +2292,7 @@ function closeKocForm() {
 }
 
 // Google Sheets Web App URL - Replace with your own after deployment
-var GOOGLE_SHEETS_URL = 'YOUR_GOOGLE_SHEETS_WEB_APP_URL';
+var GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwi0DxxIA3W5WIjidczzuidqtkCSGGhqLhFRvcLi6VFSFso2vkCWwxRAZtwoBfNT9Y/exec';
 
 function submitKocForm(e) {
   e.preventDefault();

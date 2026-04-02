@@ -2302,18 +2302,6 @@ function submitKocForm(e) {
     btn.innerHTML = '<span class="koc-form-spinner"></span>';
   }
 
-  // Collect form data
-  var formData = new FormData();
-  formData.append('Name', document.getElementById('kocName').value);
-  formData.append('Email', document.getElementById('kocEmail').value);
-  formData.append('Phone', document.getElementById('kocPhone').value);
-  formData.append('Platform', document.getElementById('kocPlatform').value);
-  formData.append('ProfileLink', document.getElementById('kocLink').value);
-  formData.append('Followers', document.getElementById('kocFollowers').value);
-  formData.append('Category', document.getElementById('kocCategory').value);
-  formData.append('Reason', document.getElementById('kocReason').value);
-  formData.append('Language', currentLang || 'VN');
-
   function showSuccess() {
     var form = document.getElementById('kocApplicationForm');
     var success = document.getElementById('kocFormSuccess');
@@ -2333,35 +2321,54 @@ function submitKocForm(e) {
     }
   }
 
-  // Submit to Google Sheets
+  // Submit to Google Sheets via hidden iframe (most reliable cross-origin method)
   if (GOOGLE_SHEETS_URL && GOOGLE_SHEETS_URL !== 'YOUR_GOOGLE_SHEETS_WEB_APP_URL') {
-    // Build URL-encoded params for compatibility
-    var params = new URLSearchParams();
-    params.append('Name', document.getElementById('kocName').value);
-    params.append('Email', document.getElementById('kocEmail').value);
-    params.append('Phone', document.getElementById('kocPhone').value);
-    params.append('Platform', document.getElementById('kocPlatform').value);
-    params.append('ProfileLink', document.getElementById('kocLink').value);
-    params.append('Followers', document.getElementById('kocFollowers').value);
-    params.append('Category', document.getElementById('kocCategory').value);
-    params.append('Reason', document.getElementById('kocReason').value);
-    params.append('Language', currentLang || 'VN');
+    var iframeName = 'koc-form-iframe-' + Date.now();
+    var iframe = document.createElement('iframe');
+    iframe.name = iframeName;
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
 
-    fetch(GOOGLE_SHEETS_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString()
-    })
-    .then(function() {
-      console.log('KOC form submitted successfully');
+    // Create a temporary form targeting the hidden iframe
+    var tempForm = document.createElement('form');
+    tempForm.method = 'POST';
+    tempForm.action = GOOGLE_SHEETS_URL;
+    tempForm.target = iframeName;
+    tempForm.style.display = 'none';
+
+    var fields = {
+      'Name': document.getElementById('kocName').value,
+      'Email': document.getElementById('kocEmail').value,
+      'Phone': document.getElementById('kocPhone').value,
+      'Platform': document.getElementById('kocPlatform').value,
+      'ProfileLink': document.getElementById('kocLink').value,
+      'Followers': document.getElementById('kocFollowers').value,
+      'Category': document.getElementById('kocCategory').value,
+      'Reason': document.getElementById('kocReason').value,
+      'Language': currentLang || 'VN'
+    };
+
+    for (var key in fields) {
+      var input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = fields[key];
+      tempForm.appendChild(input);
+    }
+
+    document.body.appendChild(tempForm);
+    tempForm.submit();
+
+    // Show success after a short delay (iframe won't fire readable events cross-origin)
+    setTimeout(function() {
       showSuccess();
-    })
-    .catch(function(error) {
-      console.error('Submit error:', error);
-      // Still show success (data likely saved despite CORS)
-      showSuccess();
-    });
+      // Clean up
+      try {
+        document.body.removeChild(tempForm);
+        document.body.removeChild(iframe);
+      } catch(err) {}
+      console.log('KOC form submitted to Google Sheets');
+    }, 2000);
   } else {
     // Demo mode fallback
     console.log('Demo mode: Google Sheets URL not configured');

@@ -63,7 +63,7 @@ const i18n = {
     koc_visual_label: 'KOC đang hoạt động',
     koc_visual_stat: 'KOC toàn cầu',
     koc_visual_top: 'Tháng này',
-    koc_visual_earn: '1.000.000₫+',
+    koc_visual_earn: '12tr - 120tr₫',
     koc_visual_earn_label: 'Thu nhập cao nhất',
     koc_visual_rating: 'Đánh giá',
     // ---- KOC Application Form ----
@@ -477,7 +477,7 @@ const i18n = {
     koc_visual_label: 'KOC 活跃中',
     koc_visual_stat: '全球 KOC',
     koc_visual_top: '本月',
-    koc_visual_earn: '¥400+',
+    koc_visual_earn: '¥3,600 - ¥36,000',
     koc_visual_earn_label: '最高收入',
     koc_visual_rating: '评分',
     // ---- KOC Application Form ----
@@ -891,7 +891,7 @@ const i18n = {
     koc_visual_label: 'KOC aktif',
     koc_visual_stat: 'KOC global',
     koc_visual_top: 'Bulan ini',
-    koc_visual_earn: 'Rp400.000+',
+    koc_visual_earn: 'Rp8jt - Rp80jt',
     koc_visual_earn_label: 'Penghasilan tertinggi',
     koc_visual_rating: 'Rating',
     // ---- KOC Application Form ----

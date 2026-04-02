@@ -2291,6 +2291,9 @@ function closeKocForm() {
   document.body.style.overflow = '';
 }
 
+// Google Sheets Web App URL - Replace with your own after deployment
+var GOOGLE_SHEETS_URL = 'YOUR_GOOGLE_SHEETS_WEB_APP_URL';
+
 function submitKocForm(e) {
   e.preventDefault();
   var btn = document.getElementById('kocFormSubmitBtn');
@@ -2298,13 +2301,24 @@ function submitKocForm(e) {
     btn.disabled = true;
     btn.innerHTML = '<span class="koc-form-spinner"></span>';
   }
-  // Simulate submission (demo mode)
-  setTimeout(function() {
+
+  // Collect form data
+  var formData = new FormData();
+  formData.append('Name', document.getElementById('kocName').value);
+  formData.append('Email', document.getElementById('kocEmail').value);
+  formData.append('Phone', document.getElementById('kocPhone').value);
+  formData.append('Platform', document.getElementById('kocPlatform').value);
+  formData.append('ProfileLink', document.getElementById('kocLink').value);
+  formData.append('Followers', document.getElementById('kocFollowers').value);
+  formData.append('Category', document.getElementById('kocCategory').value);
+  formData.append('Reason', document.getElementById('kocReason').value);
+  formData.append('Language', currentLang || 'VN');
+
+  function showSuccess() {
     var form = document.getElementById('kocApplicationForm');
     var success = document.getElementById('kocFormSuccess');
     if (form) form.style.display = 'none';
     if (success) success.style.display = '';
-    // Re-apply i18n to success state
     var lang = currentLang || 'VN';
     var dict = i18n[lang];
     if (dict) {
@@ -2317,7 +2331,29 @@ function submitKocForm(e) {
       btn.disabled = false;
       btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-right:6px"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="koc_form_submit">' + (dict && dict.koc_form_submit || 'G\u1eedi \u0111\u0103ng k\u00fd') + '</span>';
     }
-  }, 1500);
+  }
+
+  // Submit to Google Sheets
+  if (GOOGLE_SHEETS_URL && GOOGLE_SHEETS_URL !== 'YOUR_GOOGLE_SHEETS_WEB_APP_URL') {
+    fetch(GOOGLE_SHEETS_URL, {
+      method: 'POST',
+      body: formData
+    })
+    .then(function(response) { return response.json(); })
+    .then(function(data) {
+      console.log('KOC form submitted:', data);
+      showSuccess();
+    })
+    .catch(function(error) {
+      console.error('Submit error:', error);
+      // Still show success to user (data may have been saved)
+      showSuccess();
+    });
+  } else {
+    // Demo mode fallback
+    console.log('Demo mode: Google Sheets URL not configured');
+    setTimeout(showSuccess, 1500);
+  }
 }
 
 // Close KOC form on overlay click

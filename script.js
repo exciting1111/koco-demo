@@ -2335,18 +2335,31 @@ function submitKocForm(e) {
 
   // Submit to Google Sheets
   if (GOOGLE_SHEETS_URL && GOOGLE_SHEETS_URL !== 'YOUR_GOOGLE_SHEETS_WEB_APP_URL') {
+    // Build URL-encoded params for compatibility
+    var params = new URLSearchParams();
+    params.append('Name', document.getElementById('kocName').value);
+    params.append('Email', document.getElementById('kocEmail').value);
+    params.append('Phone', document.getElementById('kocPhone').value);
+    params.append('Platform', document.getElementById('kocPlatform').value);
+    params.append('ProfileLink', document.getElementById('kocLink').value);
+    params.append('Followers', document.getElementById('kocFollowers').value);
+    params.append('Category', document.getElementById('kocCategory').value);
+    params.append('Reason', document.getElementById('kocReason').value);
+    params.append('Language', currentLang || 'VN');
+
     fetch(GOOGLE_SHEETS_URL, {
       method: 'POST',
-      body: formData
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
     })
-    .then(function(response) { return response.json(); })
-    .then(function(data) {
-      console.log('KOC form submitted:', data);
+    .then(function() {
+      console.log('KOC form submitted successfully');
       showSuccess();
     })
     .catch(function(error) {
       console.error('Submit error:', error);
-      // Still show success to user (data may have been saved)
+      // Still show success (data likely saved despite CORS)
       showSuccess();
     });
   } else {

@@ -135,8 +135,8 @@ const i18n = {
     btn_register: 'Đăng ký ngay →',
     // ---- Video Section ----
     video_label: 'VIDEO',
-    video_title: '10 giây hiểu KOCO',
-    video_sub: '3 câu chuyện thật, 3 kết quả khác nhau, 1 điểm chung: ai cũng có iPhone.',
+    video_title: 'Sống theo cách của bạn',
+    video_sub: 'Không cần chờ đủ tiền. KOCO mang đến cách sở hữu mới — thông minh hơn, tự do hơn, đúng lúc hơn',
     // ---- Scenarios Section (VN prices) ----
     scenarios_label: '3 TÌNH HUỐNG THỰC TẾ',
     scenarios_title: 'Dù thế nào, bạn đều có iPhone',
@@ -549,8 +549,8 @@ const i18n = {
     btn_register: '立即注册 →',
     // ---- Video Section ----
     video_label: '视频',
-    video_title: '10秒了解 KOCO',
-    video_sub: '3个真实故事，3种不同结果，1个共同点：人人都能拥有 iPhone。',
+    video_title: '活出你的方式',
+    video_sub: '不必等存够钱。KOCO 带来全新拥有方式——更聰明、更自由、恰到好处。',
     // ---- Scenarios Section (CN prices) ----
     scenarios_label: '3种真实场景',
     scenarios_title: '无论如何，你都能拥有 iPhone',
@@ -963,8 +963,8 @@ const i18n = {
     btn_register: 'Daftar sekarang →',
     // ---- Video Section ----
     video_label: 'VIDEO',
-    video_title: '10 detik pahami KOCO',
-    video_sub: '3 kisah nyata, 3 hasil berbeda, 1 kesamaan: semua punya iPhone.',
+    video_title: 'Hidup dengan caramu sendiri',
+    video_sub: 'Tak perlu menunggu cukup uang. KOCO hadir dengan cara baru — lebih cerdas, lebih bebas, tepat waktu.',
     // ---- Scenarios Section (ID prices) ----
     scenarios_label: '3 SITUASI NYATA',
     scenarios_title: 'Bagaimanapun, kamu tetap punya iPhone',

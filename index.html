@@ -1415,9 +1415,9 @@
 </div>
 
 <!-- ========== LEGAL MODAL ========== -->
-<div class="modal-overlay" id="legalModal" onclick="closeProductModal(event)">
+<div class="modal-overlay" id="legalModal" onclick="if(event.target===this)closeLegalModal()">
   <div class="modal-sheet">
-    <button class="modal-close" onclick="closeModal('legalModal')">
+    <button class="modal-close" onclick="closeLegalModal()">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
         <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
@@ -1436,6 +1436,6 @@
   <svg width="18" height="18" style="color:#22C55E;vertical-align:middle;margin-right:6px"><use href="#icon-celebrate"/></svg> <span data-i18n="join_success">Tham gia thành công! Đã trừ 40.000₫</span>
 </div>
 
-<script src="script.js?v=40"></script>
+<script src="script.js?v=41"></script>
 </body>
 </html>

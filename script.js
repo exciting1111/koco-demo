@@ -2587,6 +2587,14 @@ function openLegalModal(type) {
   titleEl.innerText = content.title;
   contentEl.innerHTML = content.content;
   
-  modal.classList.add('active');
+  modal.classList.add('open');
   document.body.style.overflow = 'hidden';
+}
+
+function closeLegalModal() {
+  var modal = document.getElementById('legalModal');
+  if (modal) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 }

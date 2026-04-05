@@ -2581,7 +2581,7 @@ function openLegalModal(type) {
   var contentEl = document.getElementById('legalModalContent');
   
   // Get content based on current language, fallback to 'vn'
-  var lang = (typeof currentLang !== 'undefined' && legalContent[currentLang]) ? currentLang : 'vn';
+  var lang = (typeof currentLang !== 'undefined' && legalContent[currentLang.toLowerCase()]) ? currentLang.toLowerCase() : 'vn';
   var content = legalContent[lang][type];
   
   titleEl.innerText = content.title;

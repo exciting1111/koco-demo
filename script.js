@@ -2395,7 +2395,7 @@ function submitKocForm(e) {
 // ==========================================
 // LEGAL MODALS (About, Terms, Privacy, Disclaimer)
 // ==========================================
-const legalContent = {
+var legalContent = {
   vn: {
     about: {
       title: 'Về KOCO',
@@ -2576,12 +2576,13 @@ const legalContent = {
 };
 
 function openLegalModal(type) {
-  const modal = document.getElementById('legalModal');
-  const titleEl = document.getElementById('legalModalTitle');
-  const contentEl = document.getElementById('legalModalContent');
+  var modal = document.getElementById('legalModal');
+  var titleEl = document.getElementById('legalModalTitle');
+  var contentEl = document.getElementById('legalModalContent');
   
-  // Get content based on current language
-  const content = legalContent[currentLang][type];
+  // Get content based on current language, fallback to 'vn'
+  var lang = (typeof currentLang !== 'undefined' && legalContent[currentLang]) ? currentLang : 'vn';
+  var content = legalContent[lang][type];
   
   titleEl.innerText = content.title;
   contentEl.innerHTML = content.content;

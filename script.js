@@ -185,6 +185,12 @@ const i18n = {
     faq4_a: '100% chính hãng. KOCO hợp tác với các thương hiệu nổi tiếng thế giới, tất cả sản phẩm đều được kiểm tra nghiêm ngặt.',
     // ---- Footer ----
     footer_tagline: 'Chọn sản phẩm yêu thích, phần còn lại để KOCO lo.',
+    footer_about_us: 'Về chúng tôi',
+    footer_about_koco: 'Về KOCO',
+    footer_terms: 'Điều khoản KOCO',
+    footer_privacy: 'Chính sách bảo mật',
+    footer_disclaimer: 'Thỏa thuận miễn trừ',
+    footer_follow_us: 'Theo dõi chúng tôi',
     // ---- Toast Notifications ----
     notif_toast1_title: '🎉 Chúc mừng!',
     notif_toast1_msg: 'Nguyễn V.A. vừa trúng iPhone 17 Pro Max với 40.000₫!',
@@ -598,7 +604,13 @@ const i18n = {
     faq4_q: '商品是正品吗？',
     faq4_a: '100% 正品。KOCO 与全球知名品牌合作，所有商品均经过严格检验。',
     // ---- Footer ----
-    footer_tagline: '选择心仪商品，其余的交给 KOCO。',
+    footer_tagline: '选择心仪好物，其余交给 KOCO。',
+    footer_about_us: '关于我们',
+    footer_about_koco: '关于 KOCO',
+    footer_terms: 'KOCO条款',
+    footer_privacy: '隐私政策',
+    footer_disclaimer: '免责协议',
+    footer_follow_us: '关注我们',
     // ---- Toast Notifications ----
     notif_toast1_title: '🎉 恭喜！',
     notif_toast1_msg: '张小明刚刚以 ¥4 中奖 iPhone 17 Pro Max！',
@@ -1013,6 +1025,12 @@ const i18n = {
     faq4_a: '100% asli. KOCO bekerja sama dengan merek ternama dunia, semua produk telah diperiksa secara ketat.',
     // ---- Footer ----
     footer_tagline: 'Pilih produk favorit, sisanya biar KOCO yang urus.',
+    footer_about_us: 'Tentang Kami',
+    footer_about_koco: 'Tentang KOCO',
+    footer_terms: 'Syarat KOCO',
+    footer_privacy: 'Kebijakan Privasi',
+    footer_disclaimer: 'Penafian',
+    footer_follow_us: 'Ikuti Kami',
     // ---- Toast Notifications ----
     notif_toast1_title: '🎉 Selamat!',
     notif_toast1_msg: 'Budi S. baru saja menang iPhone 17 Pro Max dengan Rp4.000!',
@@ -2372,3 +2390,202 @@ function submitKocForm(e) {
     setTimeout(function() { applyLang(savedLang); }, 0);
   }
 })();
+
+
+// ==========================================
+// LEGAL MODALS (About, Terms, Privacy, Disclaimer)
+// ==========================================
+const legalContent = {
+  vn: {
+    about: {
+      title: 'Về KOCO',
+      content: `
+        <h3>KOCO là gì?</h3>
+        <p>KOCO là nền tảng thương mại điện tử đổi mới mang đến trải nghiệm "Mua sắm theo Ước nguyện" (Wish Purchase) độc đáo. Chúng tôi tin rằng mọi người đều xứng đáng có cơ hội sở hữu những sản phẩm chất lượng cao mà không bị rào cản tài chính cản bước.</p>
+        <h3>Mô hình "Mua sắm theo Ước nguyện"</h3>
+        <p>Đây là một phương thức mua sắm hoàn toàn mới, dựa trên sức mạnh của cộng đồng:
+        <ul>
+          <li><strong>Góp vốn chung:</strong> Giá trị sản phẩm được chia thành nhiều phần nhỏ bằng nhau.</li>
+          <li><strong>Tham gia linh hoạt:</strong> Người dùng có thể mua một hoặc nhiều phần tuỳ theo nhu cầu và khả năng.</li>
+          <li><strong>Nhận sản phẩm:</strong> Khi sản phẩm đủ số phần tham gia, hệ thống sẽ công bố người may mắn nhận được sản phẩm dựa trên thuật toán minh bạch.</li>
+          <li><strong>Mua giá gốc:</strong> Những người chưa may mắn có thể sử dụng số tiền đã tham gia để bù phần còn lại và mua sản phẩm với giá gốc. Không có khoản tiền nào bị lãng phí.</li>
+        </ul></p>
+        <p>KOCO không phải là một nền tảng cờ bạc. Chúng tôi cung cấp một phương thức mua sắm thay thế, nơi cộng đồng cùng nhau biến ước mơ thành hiện thực một cách minh bạch và an toàn.</p>
+      `
+    },
+    terms: {
+      title: 'Điều khoản KOCO',
+      content: `
+        <h3>1. Chấp nhận Điều khoản</h3>
+        <p>Bằng việc truy cập và sử dụng nền tảng KOCO, bạn đồng ý tuân thủ các điều khoản và điều kiện này. Nếu bạn không đồng ý với bất kỳ phần nào, vui lòng ngừng sử dụng dịch vụ của chúng tôi.</p>
+        <h3>2. Điều kiện Tham gia</h3>
+        <p>Người dùng phải đủ 18 tuổi trở lên và có năng lực hành vi dân sự đầy đủ theo quy định của pháp luật hiện hành tại quốc gia sở tại.</p>
+        <h3>3. Mô hình Mua sắm</h3>
+        <p>KOCO vận hành theo mô hình "Mua sắm theo Ước nguyện". Việc tham gia mua các phần của sản phẩm không đảm bảo bạn sẽ là người nhận được sản phẩm đó, trừ khi bạn chọn thanh toán phần giá trị còn lại để mua trực tiếp. Số tiền đã tham gia không được hoàn lại bằng tiền mặt nhưng có thể được sử dụng để khấu trừ khi mua sản phẩm đó với giá gốc.</p>
+        <h3>4. Minh bạch và Công bằng</h3>
+        <p>Chúng tôi cam kết sử dụng các thuật toán ngẫu nhiên, công khai và có thể kiểm chứng để xác định người nhận sản phẩm. Bất kỳ hành vi gian lận hoặc can thiệp vào hệ thống đều bị nghiêm cấm và sẽ dẫn đến việc khoá tài khoản vĩnh viễn.</p>
+      `
+    },
+    privacy: {
+      title: 'Chính sách Bảo mật',
+      content: `
+        <h3>1. Thu thập Thông tin</h3>
+        <p>Chúng tôi thu thập các thông tin cần thiết để cung cấp dịch vụ, bao gồm: tên, địa chỉ email, số điện thoại, địa chỉ giao hàng và thông tin thanh toán (được xử lý bởi các đối tác thanh toán bảo mật).</p>
+        <h3>2. Sử dụng Thông tin</h3>
+        <p>Thông tin của bạn được sử dụng để:
+        <ul>
+          <li>Xử lý đơn hàng và giao sản phẩm.</li>
+          <li>Cung cấp hỗ trợ khách hàng.</li>
+          <li>Gửi thông báo về trạng thái đơn hàng và các chương trình khuyến mãi (nếu bạn đồng ý).</li>
+          <li>Cải thiện trải nghiệm người dùng trên nền tảng.</li>
+        </ul></p>
+        <h3>3. Bảo vệ Dữ liệu</h3>
+        <p>KOCO áp dụng các biện pháp bảo mật kỹ thuật số tiên tiến để bảo vệ thông tin cá nhân của bạn khỏi việc truy cập, thay đổi hoặc phá huỷ trái phép. Chúng tôi không bán hoặc chia sẻ dữ liệu cá nhân của bạn cho bên thứ ba vì mục đích tiếp thị mà không có sự đồng ý rõ ràng.</p>
+      `
+    },
+    disclaimer: {
+      title: 'Thỏa thuận Miễn trừ Trách nhiệm',
+      content: `
+        <h3>1. Bản chất Dịch vụ</h3>
+        <p>KOCO cung cấp nền tảng thương mại điện tử dựa trên mô hình "Mua sắm theo Ước nguyện". Dịch vụ này <strong>không phải là cờ bạc, cá cược hay xổ số</strong> theo định nghĩa pháp luật, vì người dùng luôn có quyền lựa chọn mua sản phẩm với giá gốc bằng cách bù đắp phần giá trị còn lại.</p>
+        <h3>2. Rủi ro Công nghệ</h3>
+        <p>Mặc dù chúng tôi nỗ lực duy trì hệ thống hoạt động ổn định 24/7, KOCO không chịu trách nhiệm cho các sự cố gián đoạn dịch vụ do lỗi máy chủ, kết nối mạng, hoặc các nguyên nhân bất khả kháng nằm ngoài tầm kiểm soát của chúng tôi.</p>
+        <h3>3. Thông tin Sản phẩm</h3>
+        <p>Hình ảnh và mô tả sản phẩm trên nền tảng chỉ mang tính chất minh họa. Sản phẩm thực tế có thể có đôi chút khác biệt. Chúng tôi cam kết cung cấp sản phẩm chính hãng và mới 100% từ các nhà phân phối uy tín.</p>
+      `
+    }
+  },
+  cn: {
+    about: {
+      title: '关于 KOCO',
+      content: `
+        <h3>什么是 KOCO？</h3>
+        <p>KOCO 是一家创新的电子商务平台，为您带来独特的“心愿购”（Wish Purchase）体验。我们相信，每个人都应该有机会获得高品质的商品，而不应被财务门槛所阻挡。</p>
+        <h3>“心愿购”模式</h3>
+        <p>这是一种基于社区力量的全新购物方式：
+        <ul>
+          <li><strong>共同参与：</strong> 商品的价值被划分为若干等额的份数。</li>
+          <li><strong>灵活购买：</strong> 用户可以根据自己的需求和能力，购买一份或多份。</li>
+          <li><strong>获取商品：</strong> 当该商品的所有份数售罄时，系统将通过透明的算法揭晓一位幸运用户获得该商品。</li>
+          <li><strong>原价购买：</strong> 未能直接获得商品的用户，可以使用已投入的金额作为抵扣，补齐差价以原价购买该商品。您的每一分投入都不会浪费。</li>
+        </ul></p>
+        <p>KOCO 绝不是博彩平台。我们提供的是一种替代性的购物方式，让社区共同努力，以透明、安全的方式将梦想变为现实。</p>
+      `
+    },
+    terms: {
+      title: 'KOCO 条款',
+      content: `
+        <h3>1. 接受条款</h3>
+        <p>通过访问和使用 KOCO 平台，即表示您同意遵守本条款与条件。如果您不同意任何部分，请停止使用我们的服务。</p>
+        <h3>2. 参与条件</h3>
+        <p>用户必须年满 18 周岁，并具备所在国家/地区适用法律规定的完全民事行为能力。</p>
+        <h3>3. 购物模式说明</h3>
+        <p>KOCO 按照“心愿购”模式运营。参与购买商品的份数并不保证您一定会直接获得该商品，除非您选择支付剩余价值进行直接购买。已参与的金额不可兑换为现金退还，但可用于在以原价购买该特定商品时进行抵扣。</p>
+        <h3>4. 透明与公平</h3>
+        <p>我们承诺使用公开、可验证的随机算法来确定商品的获得者。严禁任何作弊或干扰系统运行的行为，一经发现将导致账号被永久封禁。</p>
+      `
+    },
+    privacy: {
+      title: '隐私政策',
+      content: `
+        <h3>1. 信息收集</h3>
+        <p>我们仅收集提供服务所必需的信息，包括：姓名、电子邮件地址、电话号码、送货地址以及支付信息（由安全的支付合作伙伴处理）。</p>
+        <h3>2. 信息使用</h3>
+        <p>您的信息将用于：
+        <ul>
+          <li>处理订单和交付商品。</li>
+          <li>提供客户支持。</li>
+          <li>发送订单状态通知及促销信息（在您同意的情况下）。</li>
+          <li>改善平台的用户体验。</li>
+        </ul></p>
+        <h3>3. 数据保护</h3>
+        <p>KOCO 采用先进的数字安全措施，保护您的个人信息免受未经授权的访问、篡改或破坏。未经您的明确同意，我们绝不会将您的个人数据出售或分享给第三方用于营销目的。</p>
+      `
+    },
+    disclaimer: {
+      title: '免责协议',
+      content: `
+        <h3>1. 服务性质</h3>
+        <p>KOCO 提供基于“心愿购”模式的电子商务平台。本服务<strong>绝不构成法律定义上的赌博、博彩或彩票</strong>，因为用户始终拥有通过补齐差价以原价购买该商品的选择权，其投入的资金具有实际的购买力。</p>
+        <h3>2. 技术风险</h3>
+        <p>尽管我们尽最大努力保持系统 24/7 稳定运行，但 KOCO 对因服务器故障、网络连接问题或超出我们控制范围的不可抗力事件导致的服务中断不承担责任。</p>
+        <h3>3. 商品信息</h3>
+        <p>平台上的商品图片和描述仅供参考，实际商品可能存在微小差异。我们承诺提供的所有商品均为来自信誉良好分销商的 100% 全新正品。</p>
+      `
+    }
+  },
+  id: {
+    about: {
+      title: 'Tentang KOCO',
+      content: `
+        <h3>Apa itu KOCO?</h3>
+        <p>KOCO adalah platform e-commerce inovatif yang menghadirkan pengalaman "Pembelian Impian" (Wish Purchase) yang unik. Kami percaya bahwa setiap orang berhak memiliki kesempatan untuk mendapatkan produk berkualitas tinggi tanpa terhalang oleh hambatan finansial.</p>
+        <h3>Model "Pembelian Impian"</h3>
+        <p>Ini adalah cara belanja baru yang didasarkan pada kekuatan komunitas:
+        <ul>
+          <li><strong>Partisipasi Bersama:</strong> Nilai produk dibagi menjadi beberapa bagian yang sama.</li>
+          <li><strong>Pembelian Fleksibel:</strong> Pengguna dapat membeli satu atau lebih bagian sesuai dengan kebutuhan dan kemampuan mereka.</li>
+          <li><strong>Mendapatkan Produk:</strong> Ketika semua bagian produk terjual, sistem akan mengumumkan satu pengguna yang beruntung untuk mendapatkan produk tersebut melalui algoritma yang transparan.</li>
+          <li><strong>Beli Harga Asli:</strong> Pengguna yang belum beruntung dapat menggunakan jumlah yang telah mereka ikuti untuk menutupi sisa harga dan membeli produk dengan harga asli. Tidak ada uang yang terbuang sia-sia.</li>
+        </ul></p>
+        <p>KOCO bukanlah platform perjudian. Kami menyediakan metode belanja alternatif di mana komunitas bekerja sama untuk mewujudkan impian dengan cara yang transparan dan aman.</p>
+      `
+    },
+    terms: {
+      title: 'Syarat & Ketentuan KOCO',
+      content: `
+        <h3>1. Penerimaan Syarat</h3>
+        <p>Dengan mengakses dan menggunakan platform KOCO, Anda setuju untuk mematuhi syarat dan ketentuan ini. Jika Anda tidak setuju dengan bagian mana pun, harap berhenti menggunakan layanan kami.</p>
+        <h3>2. Syarat Partisipasi</h3>
+        <p>Pengguna harus berusia minimal 18 tahun dan memiliki kapasitas hukum penuh sesuai dengan hukum yang berlaku di negara tempat tinggal mereka.</p>
+        <h3>3. Model Belanja</h3>
+        <p>KOCO beroperasi dengan model "Pembelian Impian". Berpartisipasi dalam membeli bagian dari produk tidak menjamin bahwa Anda akan langsung menerima produk tersebut, kecuali Anda memilih untuk membayar sisa nilai untuk pembelian langsung. Jumlah yang telah diikuti tidak dapat dikembalikan secara tunai tetapi dapat digunakan sebagai potongan saat membeli produk tersebut dengan harga asli.</p>
+        <h3>4. Transparansi dan Keadilan</h3>
+        <p>Kami berkomitmen untuk menggunakan algoritma acak yang terbuka dan dapat diverifikasi untuk menentukan penerima produk. Segala bentuk kecurangan atau campur tangan dalam sistem sangat dilarang dan akan mengakibatkan pemblokiran akun permanen.</p>
+      `
+    },
+    privacy: {
+      title: 'Kebijakan Privasi',
+      content: `
+        <h3>1. Pengumpulan Informasi</h3>
+        <p>Kami hanya mengumpulkan informasi yang diperlukan untuk menyediakan layanan, termasuk: nama, alamat email, nomor telepon, alamat pengiriman, dan informasi pembayaran (diproses oleh mitra pembayaran yang aman).</p>
+        <h3>2. Penggunaan Informasi</h3>
+        <p>Informasi Anda digunakan untuk:
+        <ul>
+          <li>Memproses pesanan dan mengirimkan produk.</li>
+          <li>Menyediakan dukungan pelanggan.</li>
+          <li>Mengirim pemberitahuan status pesanan dan promosi (jika Anda setuju).</li>
+          <li>Meningkatkan pengalaman pengguna di platform.</li>
+        </ul></p>
+        <h3>3. Perlindungan Data</h3>
+        <p>KOCO menerapkan langkah-langkah keamanan digital canggih untuk melindungi informasi pribadi Anda dari akses, perubahan, atau penghancuran yang tidak sah. Kami tidak akan pernah menjual atau membagikan data pribadi Anda kepada pihak ketiga untuk tujuan pemasaran tanpa persetujuan eksplisit Anda.</p>
+      `
+    },
+    disclaimer: {
+      title: 'Penafian',
+      content: `
+        <h3>1. Sifat Layanan</h3>
+        <p>KOCO menyediakan platform e-commerce berdasarkan model "Pembelian Impian". Layanan ini <strong>sama sekali bukan perjudian, taruhan, atau lotre</strong> sebagaimana didefinisikan oleh hukum, karena pengguna selalu memiliki pilihan untuk membeli produk dengan harga asli dengan membayar selisihnya, dan dana yang mereka investasikan memiliki daya beli yang nyata.</p>
+        <h3>2. Risiko Teknologi</h3>
+        <p>Meskipun kami berupaya keras untuk menjaga sistem berjalan stabil 24/7, KOCO tidak bertanggung jawab atas gangguan layanan yang disebabkan oleh kegagalan server, masalah koneksi jaringan, atau peristiwa force majeure di luar kendali kami.</p>
+        <h3>3. Informasi Produk</h3>
+        <p>Gambar dan deskripsi produk di platform hanya untuk referensi, produk yang sebenarnya mungkin memiliki sedikit perbedaan. Kami berkomitmen untuk menyediakan produk asli 100% baru dari distributor terkemuka.</p>
+      `
+    }
+  }
+};
+
+function openLegalModal(type) {
+  const modal = document.getElementById('legalModal');
+  const titleEl = document.getElementById('legalModalTitle');
+  const contentEl = document.getElementById('legalModalContent');
+  
+  // Get content based on current language
+  const content = legalContent[currentLang][type];
+  
+  titleEl.innerText = content.title;
+  contentEl.innerHTML = content.content;
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}

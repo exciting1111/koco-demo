@@ -2230,7 +2230,7 @@ a {
 
 .footer-columns {
   display: flex;
-  gap: 56px;
+  gap: 48px;
   flex: 1;
   justify-content: flex-end;
 }
@@ -2239,7 +2239,8 @@ a {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  min-width: 120px;
+  min-width: 0;
+  white-space: nowrap;
 }
 
 .footer-col-title {

@@ -191,6 +191,7 @@ const i18n = {
     footer_privacy: 'Chính sách bảo mật',
     footer_disclaimer: 'Thỏa thuận miễn trừ',
     footer_follow_us: 'Theo dõi chúng tôi',
+    footer_contact_us: 'Liên hệ',
     // ---- Toast Notifications ----
     notif_toast1_title: '🎉 Chúc mừng!',
     notif_toast1_msg: 'Nguyễn V.A. vừa trúng iPhone 17 Pro Max với 40.000₫!',
@@ -611,6 +612,7 @@ const i18n = {
     footer_privacy: '隐私政策',
     footer_disclaimer: '免责协议',
     footer_follow_us: '关注我们',
+    footer_contact_us: '联系我们',
     // ---- Toast Notifications ----
     notif_toast1_title: '🎉 恭喜！',
     notif_toast1_msg: '张小明刚刚以 ¥4 中奖 iPhone 17 Pro Max！',
@@ -1031,6 +1033,7 @@ const i18n = {
     footer_privacy: 'Kebijakan Privasi',
     footer_disclaimer: 'Penafian',
     footer_follow_us: 'Ikuti Kami',
+    footer_contact_us: 'Hubungi Kami',
     // ---- Toast Notifications ----
     notif_toast1_title: '🎉 Selamat!',
     notif_toast1_msg: 'Budi S. baru saja menang iPhone 17 Pro Max dengan Rp4.000!',

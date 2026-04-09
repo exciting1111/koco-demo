@@ -37,10 +37,10 @@ const i18n = {
     hero_cta: 'Tham gia Wish Purchase →',
     // ---- Slide 2 ----
     slide2_badge: 'Đăng ký miễn phí',
-    slide2_title: 'Đăng ký là có ngay<br/><span class="s2-star-highlight">100<img src="images/lucky-star-icon.png" alt="★" class="star-img-title"/></span> tham gia miễn phí',
+    slide2_title: 'Đăng ký là có ngay<br/><span class="s2-star-highlight">100<img src="images/lucky-star-icon.png" alt="★" class="star-img-title"/></span> cơ hội tham gia',
     slide2_sub: 'iPhone, iWatch và nhiều sản phẩm thực tế sẽ liên tục được cập nhật.',
     slide2_more: 'Thêm nữa...',
-    slide2_card_label: 'Quà tặng đăng ký',
+    slide2_gift: 'MIỄN PHÍ',
     slide2_cta: 'Đăng ký nhận 100 ⭐ miễn phí →',
     // ---- Slide 3 ----
     slide3_badge: 'Ưu đãi Early Bird có hạn',
@@ -467,7 +467,7 @@ const i18n = {
     slide2_title: '注册即可免费拥有<br/><span class="s2-star-highlight">100<img src="images/lucky-star-icon.png" alt="★" class="star-img-title"/></span> 参与机会',
     slide2_sub: 'iPhone、iWatch等更多实物商品将持续上架。',
     slide2_more: '更多...',
-    slide2_card_label: '注册礼',
+    slide2_gift: '免费',
     slide2_cta: '注册领取 100 ⭐ 免费 →',
     // ---- Slide 3 ----
     slide3_badge: 'Early Bird 限时优惠',
@@ -894,7 +894,7 @@ const i18n = {
     slide2_title: 'Daftar dan dapatkan<br/><span class="s2-star-highlight">100<img src="images/lucky-star-icon.png" alt="★" class="star-img-title"/></span> kesempatan gratis',
     slide2_sub: 'iPhone, iWatch dan lebih banyak produk nyata akan terus ditambahkan.',
     slide2_more: 'Lainnya...',
-    slide2_card_label: 'Hadiah pendaftaran',
+    slide2_gift: 'GRATIS',
     slide2_cta: 'Daftar & dapatkan 100 ⭐ gratis →',
     // ---- Slide 3 ----
     slide3_badge: 'Promo Early Bird terbatas',

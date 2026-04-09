@@ -26,7 +26,7 @@ const i18n = {
     menu_logout: 'Đăng xuất',
     // ---- Hero Carousel ----
     hero_badge: '⏳ Early Bird đang mở giới hạn',
-    hero_title: `Không cần mua giá gốc,<br/>KOCO chỉ từ <span class="price-highlight-v2">1<img src="images/lucky-star-icon.png" alt="★" class="star-img-title"/></span>`,
+    hero_title: `Không cần mua giá gốc,<br/>KOCO chỉ từ <span class="price-highlight">1<img src="images/lucky-star-icon.png" alt="★" class="star-img-title"/></span>`,
     hero_sub: 'Bạn chỉ cần ước, phần còn lại để KOCO lo.',
     hero_trust1: '100% chính hãng',
     hero_trust2: 'Thuật toán minh bạch',
@@ -452,7 +452,7 @@ const i18n = {
     menu_logout: '退出登录',
     // ---- Hero Carousel ----
     hero_badge: '⏳ 限时早鸟开放中',
-    hero_title: `无需原价购，<br/>KOCO只要1<span class="price-highlight-v2"><img src="images/lucky-star-icon.png" alt="★" class="star-img-title"/></span>起`,
+    hero_title: `无需原价购，<br/>KOCO只要 <span class="price-highlight">1<img src="images/lucky-star-icon.png" alt="★" class="star-img-title"/> 起</span>`,
     hero_sub: '你只需要许下心愿，其余交给KOCO。',
     hero_trust1: '100% 正品保证',
     hero_trust2: '算法全透明',
@@ -878,7 +878,7 @@ const i18n = {
     menu_logout: 'Keluar',
     // ---- Hero Carousel ----
     hero_badge: '⏳ Early Bird terbatas sedang dibuka',
-    hero_title: `Tidak perlu harga asli,<br/>KOCO mulai dari <span class="price-highlight-v2">1<img src="images/lucky-star-icon.png" alt="★" class="star-img-title"/></span>`,
+    hero_title: `Tidak perlu harga asli,<br/>KOCO mulai dari <span class="price-highlight">1<img src="images/lucky-star-icon.png" alt="★" class="star-img-title"/></span>`,
     hero_sub: 'Kamu cukup bermimpi, sisanya biar KOCO yang urus.',
     hero_trust1: '100% produk asli',
     hero_trust2: 'Algoritma transparan',

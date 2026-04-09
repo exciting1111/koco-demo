@@ -774,48 +774,48 @@ a {
 
 /* Slide backgrounds */
 .slide-1 {
-  background: linear-gradient(135deg, #FF8A50 0%, #FF6B35 40%, #E85D26 100%);
-  overflow: hidden;
+  background: linear-gradient(160deg, #FFFAF6 0%, #FFF3EB 50%, #FFE8DA 100%);
+  overflow: visible;
   position: relative;
 }
 .slide-1::before {
   content: '';
   position: absolute;
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
-  top: -200px;
-  right: -100px;
+  background: radial-gradient(circle, rgba(255,87,34,0.06) 0%, transparent 70%);
+  top: -150px;
+  right: -50px;
   pointer-events: none;
 }
 .slide-1::after {
   content: '';
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
-  bottom: -150px;
-  left: -100px;
+  background: radial-gradient(circle, rgba(255,87,34,0.04) 0%, transparent 70%);
+  bottom: -100px;
+  left: -80px;
   pointer-events: none;
 }
 
-/* Slide 1 overrides: white text on orange */
+/* Slide 1 overrides: dark text on light background */
 .slide-1 .hero-badge {
-  background: rgba(255,255,255,0.18);
-  border-color: rgba(255,255,255,0.3);
-  color: #fff;
+  background: rgba(255,87,34,0.08);
+  border-color: rgba(255,87,34,0.2);
+  color: var(--orange);
 }
 .slide-1 .hero-badge .badge-dot {
-  background: #fff;
-  box-shadow: 0 0 6px rgba(255,255,255,0.5);
+  background: var(--orange);
+  box-shadow: 0 0 6px rgba(255,87,34,0.4);
 }
 .slide-1 .hero-title {
-  color: #fff;
+  color: var(--text-dark);
 }
 .slide-1 .hero-sub {
-  color: rgba(255,255,255,0.85);
+  color: var(--text-mid);
   font-size: 18px;
   margin-bottom: 20px;
 }
@@ -823,12 +823,13 @@ a {
   color: #fff;
   font-style: normal;
   font-weight: 900;
-  background: rgba(0,0,0,0.15);
-  padding: 2px 12px;
+  background: var(--orange);
+  padding: 4px 14px;
   border-radius: 8px;
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
+  box-shadow: 0 2px 12px rgba(255,87,34,0.3);
 }
 
 .star-img-title {
@@ -851,7 +852,7 @@ a {
   align-items: center;
   gap: 7px;
   font-size: 13.5px;
-  color: rgba(255,255,255,0.9);
+  color: var(--text-mid);
   font-weight: 500;
 }
 .hero-trust-check {
@@ -861,30 +862,34 @@ a {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.25);
-  color: #fff;
+  background: rgba(34,197,94,0.12);
+  color: #22C55E;
   font-size: 11px;
   font-weight: 700;
   flex-shrink: 0;
 }
 
-/* CTA on Slide 1: white button */
+/* CTA on Slide 1 */
 .slide-1 .btn-cta {
-  background: #fff;
-  color: var(--orange);
+  background: var(--orange);
+  color: #fff;
   font-weight: 700;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 20px rgba(255,87,34,0.35);
 }
 .slide-1 .btn-cta:hover {
-  background: #fff;
-  color: var(--orange-dark);
+  background: var(--orange-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  box-shadow: 0 8px 32px rgba(255,87,34,0.45);
 }
 
-/* Slide 1 hero image */
+/* Slide 1 hero image: slightly overflow bottom for seamless transition */
+.slide-1 .hero-image {
+  position: relative;
+  align-self: end;
+}
 .slide-1 .hero-image img {
-  filter: drop-shadow(0 16px 48px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 20px 50px rgba(255,87,34,0.18));
+  margin-bottom: -30px;
 }
 
 .slide-2 {

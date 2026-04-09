@@ -774,7 +774,7 @@ a {
 
 /* Slide backgrounds */
 .slide-1 {
-  background: linear-gradient(160deg, #F0F4FF 0%, #E8EEFF 40%, #E0E8F8 100%);
+  background: linear-gradient(160deg, #FFFFFF 0%, #FAFAFC 50%, #F5F5F8 100%);
   overflow: visible;
   position: relative;
 }
@@ -784,7 +784,7 @@ a {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,87,34,0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255,87,34,0.03) 0%, transparent 70%);
   top: -150px;
   right: -50px;
   pointer-events: none;
@@ -795,7 +795,7 @@ a {
   width: 350px;
   height: 350px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(100,120,255,0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0,0,0,0.015) 0%, transparent 70%);
   bottom: -100px;
   left: -80px;
   pointer-events: none;

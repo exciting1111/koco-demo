@@ -835,8 +835,8 @@ a {
 }
 
 .star-img-title {
-  width: 0.75em;
-  height: 0.75em;
+  width: 1em;
+  height: 1em;
   object-fit: contain;
   vertical-align: baseline;
   margin-left: 2px;

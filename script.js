@@ -452,7 +452,7 @@ const i18n = {
     menu_logout: '退出登录',
     // ---- Hero Carousel ----
     hero_badge: '⏳ 限时早鸟开放中',
-    hero_title: `无需原价购，<br/>KOCO只要 <span class="price-highlight">1<img src="images/lucky-star-icon.png" alt="★" class="star-img-title"/> 起</span>`,
+    hero_title: `无需原价购，<br/>KOCO只要 <span class="price-highlight">1<img src="images/lucky-star-icon.png" alt="★" class="star-img-title"/>起</span>`,
     hero_sub: '你只需要许下心愿，其余交给KOCO。',
     hero_trust1: '100% 正品保证',
     hero_trust2: '算法全透明',

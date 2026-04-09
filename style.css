@@ -774,7 +774,7 @@ a {
 
 /* Slide backgrounds */
 .slide-1 {
-  background: linear-gradient(160deg, #FFFAF6 0%, #FFF3EB 50%, #FFE8DA 100%);
+  background: linear-gradient(160deg, #F0F4FF 0%, #E8EEFF 40%, #E0E8F8 100%);
   overflow: visible;
   position: relative;
 }
@@ -784,7 +784,7 @@ a {
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,87,34,0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255,87,34,0.05) 0%, transparent 70%);
   top: -150px;
   right: -50px;
   pointer-events: none;
@@ -795,7 +795,7 @@ a {
   width: 350px;
   height: 350px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,87,34,0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(100,120,255,0.04) 0%, transparent 70%);
   bottom: -100px;
   left: -80px;
   pointer-events: none;
@@ -820,16 +820,18 @@ a {
   margin-bottom: 20px;
 }
 .slide-1 .price-highlight {
-  color: #fff;
+  color: var(--orange);
   font-style: normal;
   font-weight: 900;
-  background: var(--orange);
-  padding: 4px 14px;
-  border-radius: 8px;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   white-space: nowrap;
-  box-shadow: 0 2px 12px rgba(255,87,34,0.3);
+  box-shadow: none;
+  font-size: 1em;
+  gap: 2px;
 }
 
 .star-img-title {

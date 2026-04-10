@@ -1,61 +1,67 @@
-// ========== KOC VIDEO-STYLE ANIMATION V4 ==========
-// Fixes: auto-loop, proper phone frame, KOCO-branded chats, icon animations, bubble overflow
+// ========== KOC VIDEO-STYLE ANIMATION V6 ==========
+// No phone frame — WhatsApp UI floats directly as a card in the page
+// Pixel-perfect WhatsApp UI with real SVG icons
 
 var kocAnimTimeouts = [];
 var kocScrollAnim = null;
 
-// KOCO-branded chat messages with product avatar SVGs
-// avatar: SVG string for group icon (product/category thumbnail)
 var kocChatMessages = [
-  { name: 'KOCO Winners Club', msg: 'Aku baru menang iPhone 17! 🎉', time: '18:32', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#1a1a2e"/><text x="18" y="26" font-size="20" text-anchor="middle">🏆</text></svg>' },
-  { name: 'KOCO Smartphone', msg: 'iPhone 17 Pro cuma 1 ⭐ hari ini!', time: '17:15', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#1c1c1e"/><rect x="10" y="4" width="16" height="28" rx="3" fill="#3a3a3c"/><rect x="12" y="7" width="12" height="20" rx="1" fill="#007AFF"/><circle cx="18" cy="30" r="1.5" fill="#666"/></svg>' },
-  { name: 'KOCO Elektronik', msg: 'AirPods Pro GRATIS pakai bintang!', time: '15:18', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#1c1c1e"/><ellipse cx="13" cy="18" rx="4" ry="6" fill="white"/><ellipse cx="23" cy="18" rx="4" ry="6" fill="white"/><rect x="11" y="24" width="4" height="5" rx="2" fill="#ccc"/><rect x="21" y="24" width="4" height="5" rx="2" fill="#ccc"/></svg>' },
-  { name: 'KOCO KOC Community', msg: 'Bulan ini income 12 juta! 💰', time: '13:08', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#FF6B35"/><text x="18" y="26" font-size="18" text-anchor="middle">⭐</text></svg>' },
-  { name: 'KOCO Fashion', msg: 'Tas LV menang kemarin! Mau coba?', time: '13:07', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#8B4513"/><path d="M8 14 Q18 8 28 14 L26 28 H10 Z" fill="#D4A96A"/><path d="M14 14 Q18 10 22 14" fill="none" stroke="#8B4513" stroke-width="1.5"/></svg>' },
-  { name: 'KOCO Beauty', msg: 'SK-II Facial Kit bisa menang gratis!', time: '12:45', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#FFB6C1"/><rect x="12" y="8" width="12" height="18" rx="4" fill="white"/><rect x="14" y="6" width="8" height="4" rx="2" fill="#FF69B4"/><text x="18" y="22" font-size="8" text-anchor="middle" fill="#FF69B4">SK-II</text></svg>' },
-  { name: 'KOCO Gaming', msg: 'PS5 bisa menang pakai ⭐ gratis!', time: '10:58', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#003087"/><rect x="6" y="12" width="24" height="14" rx="4" fill="#1a1a2e"/><circle cx="24" cy="17" r="2" fill="#00D4FF"/><circle cx="28" cy="21" r="2" fill="#FF4444"/><rect x="9" y="17" width="2" height="4" rx="1" fill="white"/><rect x="8" y="18" width="4" height="2" rx="1" fill="white"/></svg>' },
-  { name: 'KOCO Kecantikan', msg: 'Parfum Chanel menang hari ini! 😍', time: '09:03', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#F5E6D3"/><rect x="13" y="10" width="10" height="16" rx="3" fill="#D4A96A"/><rect x="15" y="7" width="6" height="5" rx="1" fill="#B8860B"/><text x="18" y="22" font-size="6" text-anchor="middle" fill="#8B4513">No.5</text></svg>' },
-  { name: 'KOCO Rumah Tangga', msg: 'Dyson V15 cuma butuh 50 bintang!', time: '09:07', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#E8F4FD"/><path d="M18 8 L28 18 L26 20 L18 12 L10 20 L8 18 Z" fill="#2196F3"/><rect x="12" y="18" width="12" height="12" rx="1" fill="#1976D2"/><rect x="15" y="22" width="6" height="8" rx="1" fill="#BBDEFB"/></svg>' },
-  { name: 'KOCO Makanan', msg: 'Voucher GrabFood gratis dari KOCO!', time: '08:30', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#FF6B35"/><text x="18" y="26" font-size="20" text-anchor="middle">🍜</text></svg>' },
-  { name: 'KOCO Jam Tangan', msg: 'Apple Watch Series 10 menang! 💪', time: '07:55', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#1c1c1e"/><rect x="13" y="8" width="10" height="20" rx="5" fill="#2a2a2e"/><rect x="14" y="9" width="8" height="18" rx="4" fill="#007AFF"/><line x1="18" y1="18" x2="18" y2="14" stroke="white" stroke-width="1"/><line x1="18" y1="18" x2="21" y2="18" stroke="white" stroke-width="1"/></svg>' },
-  { name: 'KOCO Laptop & PC', msg: 'MacBook Air M3 bisa menang gratis!', time: '07:20', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#E8E8E8"/><rect x="6" y="9" width="24" height="16" rx="2" fill="#C0C0C0"/><rect x="8" y="11" width="20" height="12" rx="1" fill="#1c1c1e"/><rect x="4" y="25" width="28" height="3" rx="1" fill="#A0A0A0"/></svg>' },
-  { name: 'KOCO Olahraga', msg: 'Nike Air Max menang pakai bintang!', time: '06:45', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#FF4444"/><text x="18" y="26" font-size="20" text-anchor="middle">👟</text></svg>' },
-  { name: 'KOCO Kamera', msg: 'Sony A7 IV menang bulan ini! 📸', time: '06:10', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#1a1a1a"/><rect x="6" y="11" width="24" height="16" rx="3" fill="#333"/><circle cx="18" cy="19" r="5" fill="#222"/><circle cx="18" cy="19" r="3" fill="#444"/><circle cx="18" cy="19" r="1.5" fill="#666"/><rect x="13" y="8" width="5" height="4" rx="1" fill="#555"/></svg>' },
-  { name: 'KOCO Tablet', msg: 'iPad Pro M4 flash deal malam ini!', time: '05:30', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#1c1c1e"/><rect x="8" y="6" width="20" height="24" rx="3" fill="#2a2a2e"/><rect x="10" y="8" width="16" height="20" rx="1" fill="#007AFF"/><circle cx="18" cy="30" r="0" fill="none"/></svg>' },
+  { name: 'KOCO Winners Club', msg: 'Aku baru menang iPhone 17! 🎉', time: '18:32',
+    avatar: '<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#FFB300"/><path d="M24 12l3 6 6.5 1-4.7 4.6 1.1 6.4L24 27l-5.9 3 1.1-6.4L14.5 19l6.5-1z" fill="white"/></svg>' },
+  { name: 'KOCO Smartphone', msg: 'iPhone 17 Pro cuma 1 ⭐ hari ini!', time: '17:15',
+    avatar: '<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#1C1C1E"/><rect x="16" y="8" width="16" height="32" rx="4" fill="#2C2C2E"/><rect x="18" y="12" width="12" height="22" rx="2" fill="#007AFF"/><circle cx="24" cy="37" r="1.5" fill="#555"/></svg>' },
+  { name: 'KOCO Elektronik', msg: 'AirPods Pro GRATIS pakai bintang!', time: '15:18',
+    avatar: '<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#F5F5F5"/><ellipse cx="17" cy="22" rx="5" ry="7" fill="white" stroke="#DDD" stroke-width="1"/><ellipse cx="31" cy="22" rx="5" ry="7" fill="white" stroke="#DDD" stroke-width="1"/><rect x="15" y="29" width="4" height="6" rx="2" fill="#E0E0E0"/><rect x="29" y="29" width="4" height="6" rx="2" fill="#E0E0E0"/></svg>' },
+  { name: 'KOCO KOC Community', msg: 'Bulan ini income 12 juta! 💰', time: '13:08',
+    avatar: '<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#FF6B35"/><path d="M24 10l3.5 7 7.5 1.1-5.4 5.3 1.3 7.6L24 27l-6.9 4 1.3-7.6-5.4-5.3 7.5-1.1z" fill="white"/></svg>' },
+  { name: 'KOCO Fashion', msg: 'Tas LV menang kemarin! Mau coba?', time: '13:07',
+    avatar: '<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#8B6914"/><path d="M12 18q12-8 24 0l-2 16H14z" fill="#D4A96A"/><path d="M18 18q6-4 12 0" fill="none" stroke="#8B6914" stroke-width="2"/></svg>' },
+  { name: 'KOCO Beauty', msg: 'SK-II Facial Kit bisa menang gratis!', time: '12:45',
+    avatar: '<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#FADADD"/><rect x="16" y="12" width="16" height="22" rx="5" fill="white"/><rect x="18" y="10" width="12" height="6" rx="3" fill="#FF69B4"/><text x="24" y="28" font-size="8" text-anchor="middle" fill="#FF69B4" font-weight="700" font-family="Arial">SK-II</text></svg>' },
+  { name: 'KOCO Gaming', msg: 'PS5 bisa menang pakai ⭐ gratis!', time: '10:58',
+    avatar: '<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#003087"/><rect x="8" y="16" width="32" height="18" rx="6" fill="#1A1A2E"/><circle cx="33" cy="22" r="2.5" fill="#00D4FF"/><circle cx="38" cy="27" r="2.5" fill="#FF4444"/><rect x="12" y="23" width="3" height="5" rx="1.5" fill="white"/><rect x="10.5" y="24.5" width="6" height="3" rx="1.5" fill="white"/></svg>' },
+  { name: 'KOCO Kecantikan', msg: 'Parfum Chanel menang hari ini! 😍', time: '09:03',
+    avatar: '<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#F5E6D3"/><rect x="17" y="14" width="14" height="20" rx="4" fill="#D4A96A"/><rect x="19" y="10" width="10" height="7" rx="2" fill="#B8860B"/><text x="24" y="29" font-size="7" text-anchor="middle" fill="#8B4513" font-weight="700" font-family="Arial">N°5</text></svg>' },
+  { name: 'KOCO Rumah Tangga', msg: 'Dyson V15 cuma butuh 50 bintang!', time: '09:07',
+    avatar: '<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#E3F2FD"/><path d="M24 10L36 22l-2.5 2.5L24 15l-9.5 9.5L12 22z" fill="#1976D2"/><rect x="16" y="22" width="16" height="16" rx="2" fill="#2196F3"/><rect x="20" y="28" width="8" height="10" rx="1" fill="#BBDEFB"/></svg>' },
+  { name: 'KOCO Makanan', msg: 'Voucher GrabFood gratis dari KOCO!', time: '08:30',
+    avatar: '<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#00B14F"/><circle cx="24" cy="22" r="10" fill="white"/><path d="M18 22q6-6 12 0" fill="none" stroke="#00B14F" stroke-width="2"/><rect x="22" y="32" width="4" height="4" rx="1" fill="white"/></svg>' },
+  { name: 'KOCO Jam Tangan', msg: 'Apple Watch Series 10 menang! 💪', time: '07:55',
+    avatar: '<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#1C1C1E"/><rect x="15" y="10" width="18" height="28" rx="9" fill="#2C2C2E"/><rect x="17" y="12" width="14" height="24" rx="7" fill="#000"/><circle cx="24" cy="24" r="8" fill="#111"/><line x1="24" y1="24" x2="24" y2="18" stroke="#FF9500" stroke-width="1.5" stroke-linecap="round"/><line x1="24" y1="24" x2="28" y2="24" stroke="white" stroke-width="1" stroke-linecap="round"/></svg>' },
+  { name: 'KOCO Laptop & PC', msg: 'MacBook Air M3 bisa menang gratis!', time: '07:20',
+    avatar: '<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#E8E8E8"/><rect x="8" y="12" width="32" height="20" rx="2" fill="#C0C0C0"/><rect x="10" y="14" width="28" height="16" rx="1" fill="#1C1C1E"/><path d="M6 32h36v2a2 2 0 01-2 2H8a2 2 0 01-2-2v-2z" fill="#A0A0A0"/></svg>' },
+  { name: 'KOCO Olahraga', msg: 'Nike Air Max menang pakai bintang!', time: '06:45',
+    avatar: '<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#111"/><path d="M10 30c2-4 6-10 14-10 6 0 10 3 14 5l-2 4c-4-3-8-5-12-5-5 0-8 4-10 8z" fill="white"/></svg>' },
+  { name: 'KOCO Kamera', msg: 'Sony A7 IV menang bulan ini! 📸', time: '06:10',
+    avatar: '<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#1A1A1A"/><rect x="8" y="14" width="32" height="22" rx="4" fill="#333"/><circle cx="24" cy="25" r="7" fill="#222"/><circle cx="24" cy="25" r="5" fill="#444"/><circle cx="24" cy="25" r="2" fill="#666"/><rect x="17" y="10" width="8" height="5" rx="2" fill="#555"/></svg>' },
+  { name: 'KOCO Tablet', msg: 'iPad Pro M4 flash deal malam ini!', time: '05:30',
+    avatar: '<svg viewBox="0 0 48 48"><rect width="48" height="48" rx="24" fill="#1C1C1E"/><rect x="10" y="8" width="28" height="32" rx="4" fill="#2C2C2E"/><rect x="12" y="10" width="24" height="28" rx="2" fill="#007AFF"/></svg>' },
 ];
 
 var kocPlatforms = [
   {
-    name: 'TikTok',
-    svgId: 'tiktok',
-    glow: 'rgba(105,201,208,0.8)',
+    name: 'TikTok', svgId: 'tiktok', glow: 'rgba(105,201,208,0.8)',
     bubbles: [
       { text: '#koco_menang', count: '2.4K video' },
       { text: '#koco_gratis', count: '1.8K video' },
     ]
   },
   {
-    name: 'Instagram',
-    svgId: 'instagram',
-    glow: 'rgba(253,29,29,0.7)',
+    name: 'Instagram', svgId: 'instagram', glow: 'rgba(253,29,29,0.7)',
     bubbles: [
       { text: '@koco.official', count: '85K followers' },
       { text: '#kocoshop', count: '12K posts' },
     ]
   },
   {
-    name: 'Zalo',
-    svgId: 'zalo',
-    glow: 'rgba(0,104,255,0.7)',
+    name: 'Zalo', svgId: 'zalo', glow: 'rgba(0,104,255,0.7)',
     bubbles: [
       { text: 'KOCO Vietnam', count: '3.2K members' },
       { text: 'KOCO Deals', count: '1.7K members' },
     ]
   },
   {
-    name: 'Facebook',
-    svgId: 'facebook',
-    glow: 'rgba(24,119,242,0.7)',
+    name: 'Facebook', svgId: 'facebook', glow: 'rgba(24,119,242,0.7)',
     bubbles: [
       { text: 'KOCO Community', count: '5K members' },
       { text: 'KOCO KOC Group', count: '2.5K members' },
@@ -80,21 +86,26 @@ function kocGetSVG(name) {
 }
 
 function kocBuildHTML() {
-  // Build chat list HTML with KOCO logo in header
+  // Build chat list
   var chatHTML = '';
-  var msgs = kocChatMessages.concat(kocChatMessages);
+  var msgs = kocChatMessages.concat(kocChatMessages); // duplicate for seamless scroll
   msgs.forEach(function(m) {
-    chatHTML += '<div class="koc-chat-item">' +
-      '<div class="koc-chat-avatar-svg">' + m.avatar + '</div>' +
-      '<div class="koc-chat-info">' +
-        '<div class="koc-chat-name">' + m.name + ' <span class="koc-badge">KOCO</span></div>' +
-        '<div class="koc-chat-msg">' + m.msg + '</div>' +
+    chatHTML += '<div class="wa-chat-row">' +
+      '<div class="wa-avatar">' + m.avatar + '</div>' +
+      '<div class="wa-chat-body">' +
+        '<div class="wa-chat-top">' +
+          '<span class="wa-chat-name">' + m.name + '</span>' +
+          '<span class="wa-chat-time">' + m.time + '</span>' +
+        '</div>' +
+        '<div class="wa-chat-bottom">' +
+          '<span class="wa-chat-preview">' + m.msg + '</span>' +
+          '<span class="wa-koco-pill">KOCO</span>' +
+        '</div>' +
       '</div>' +
-      '<div class="koc-chat-time">' + m.time + '</div>' +
     '</div>';
   });
 
-  // Build icons HTML - 2x2 grid, bubbles positioned inside card
+  // Build icons HTML
   var iconsHTML = '';
   kocPlatforms.forEach(function(p, i) {
     iconsHTML += '<div class="koc-icon-item" id="kocIcon' + i + '">' +
@@ -113,61 +124,67 @@ function kocBuildHTML() {
   });
 
   return '<div class="koc-anim-wrapper" id="kocAnimWrapper">' +
-    // Act 1: iPhone frame with WhatsApp UI
+    // ===== ACT 1: WhatsApp card (no phone frame) =====
     '<div class="koc-act koc-act-1" id="kocAct1">' +
-      '<div class="koc-iphone">' +
-        '<div class="koc-iphone-notch"></div>' +
-        '<div class="koc-iphone-screen">' +
-          // WhatsApp status bar
-          '<div class="koc-wa-statusbar">' +
-            '<span class="koc-wa-time">9:41</span>' +
-            '<span class="koc-wa-icons">📶📶🔋</span>' +
+      '<div class="wa-card">' +
+        // Status bar
+        '<div class="wa-statusbar">' +
+          '<span class="wa-sb-time">9:41</span>' +
+          '<div class="wa-sb-right">' +
+            '<svg width="16" height="11" viewBox="0 0 16 11"><rect x="0" y="7" width="3" height="4" rx="0.5" fill="white" opacity="0.5"/><rect x="4" y="5" width="3" height="6" rx="0.5" fill="white" opacity="0.7"/><rect x="8" y="3" width="3" height="8" rx="0.5" fill="white" opacity="0.85"/><rect x="12" y="0" width="3" height="11" rx="0.5" fill="white"/></svg>' +
+            '<svg width="10" height="11" viewBox="0 0 10 11"><path d="M5 0C2.8 0 .8.8 0 2.2l1.5 1.3C2.2 2.5 3.5 2 5 2s2.8.5 3.5 1.5L10 2.2C9.2.8 7.2 0 5 0z" fill="white" opacity="0.5"/><path d="M5 3.5c-1.4 0-2.6.6-3.2 1.5L3.3 6.3c.4-.6 1-.9 1.7-.9s1.3.3 1.7.9l1.5-1.3c-.6-.9-1.8-1.5-3.2-1.5z" fill="white" opacity="0.7"/><circle cx="5" cy="8.5" r="1.5" fill="white"/></svg>' +
+            '<svg width="22" height="11" viewBox="0 0 22 11"><rect x="0" y="0" width="19" height="11" rx="2" fill="none" stroke="white" stroke-width="1.2"/><rect x="1.5" y="1.5" width="14" height="8" rx="1" fill="#4CD964"/><rect x="20" y="3" width="2" height="5" rx="1" fill="white" opacity="0.5"/></svg>' +
           '</div>' +
-          // WhatsApp top nav
-          '<div class="koc-wa-navbar">' +
-            '<span class="koc-wa-title">WhatsApp</span>' +
-            '<div class="koc-wa-nav-icons">' +
-              '<span class="koc-wa-icon">📷</span>' +
-              '<span class="koc-wa-icon">🔍</span>' +
-              '<span class="koc-wa-icon">⋮</span>' +
-            '</div>' +
+        '</div>' +
+        // Header
+        '<div class="wa-header">' +
+          '<span class="wa-header-title">WhatsApp</span>' +
+          '<div class="wa-header-icons">' +
+            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 15.2V16m0-9v5.2m0 0a1 1 0 100 2 1 1 0 000-2z" stroke="white" stroke-width="1.5"/><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="white" stroke-width="1.5"/><circle cx="17" cy="7" r="3" fill="#25D366"/></svg>' +
+            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="white" stroke-width="1.8"/><path d="M16.5 16.5L20 20" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>' +
+            '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="6" r="1.5" fill="white"/><circle cx="12" cy="12" r="1.5" fill="white"/><circle cx="12" cy="18" r="1.5" fill="white"/></svg>' +
           '</div>' +
-          // WhatsApp tab bar (Chats / Status / Calls)
-          '<div class="koc-wa-tabs">' +
-            '<span class="koc-wa-tab active">Chats</span>' +
-            '<span class="koc-wa-tab">Status</span>' +
-            '<span class="koc-wa-tab">Calls</span>' +
+        '</div>' +
+        // Tabs
+        '<div class="wa-tabs">' +
+          '<div class="wa-tab wa-tab-active">Chats</div>' +
+          '<div class="wa-tab">Updates</div>' +
+          '<div class="wa-tab">Communities</div>' +
+          '<div class="wa-tab">Calls</div>' +
+        '</div>' +
+        // Search
+        '<div class="wa-search">' +
+          '<svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6" stroke="#8696A0" stroke-width="2"/><path d="M16 16l3.5 3.5" stroke="#8696A0" stroke-width="2" stroke-linecap="round"/></svg>' +
+          '<span class="wa-search-text">Search</span>' +
+        '</div>' +
+        // Chat list
+        '<div class="wa-chat-list" id="kocChatList">' + chatHTML + '</div>' +
+        // Bottom bar
+        '<div class="wa-bottombar">' +
+          '<div class="wa-btab wa-btab-active">' +
+            '<svg width="22" height="22" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" fill="#25D366"/></svg>' +
+            '<span>Chats</span>' +
           '</div>' +
-          // Search bar
-          '<div class="koc-wa-search">' +
-            '<span class="koc-wa-search-icon">🔍</span>' +
-            '<span class="koc-wa-search-text">Search</span>' +
+          '<div class="wa-btab">' +
+            '<svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#8696A0" stroke-width="1.8"/><circle cx="12" cy="12" r="3.5" fill="#8696A0"/></svg>' +
+            '<span>Updates</span>' +
           '</div>' +
-          // Chat list
-          '<div class="koc-chat-list" id="kocChatList">' + chatHTML + '</div>' +
-          // Bottom tab bar (iOS style)
-          '<div class="koc-wa-bottombar">' +
-            '<div class="koc-wa-bottom-tab active">' +
-              '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 2H4C2.9 2 2 2.9 2 4v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" fill="#25D366"/></svg>' +
-              '<span>Chats</span>' +
-            '</div>' +
-            '<div class="koc-wa-bottom-tab">' +
-              '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#8696A0" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="#8696A0"/></svg>' +
-              '<span>Status</span>' +
-            '</div>' +
-            '<div class="koc-wa-bottom-tab">' +
-              '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" fill="#8696A0"/></svg>' +
-              '<span>Calls</span>' +
-            '</div>' +
+          '<div class="wa-btab">' +
+            '<svg width="22" height="22" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="#8696A0"/></svg>' +
+            '<span>Communities</span>' +
+          '</div>' +
+          '<div class="wa-btab">' +
+            '<svg width="22" height="22" viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" fill="#8696A0"/></svg>' +
+            '<span>Calls</span>' +
           '</div>' +
         '</div>' +
       '</div>' +
     '</div>' +
-    // Act 2: Social icons 2x2 grid
+    // ===== ACT 2: Social icons =====
     '<div class="koc-act koc-act-2" id="kocAct2">' +
       '<div class="koc-icons-grid">' + iconsHTML + '</div>' +
     '</div>' +
-    // Act 3: Logo burst (centered card, not fullscreen)
+    // ===== ACT 3: Logo burst (centered card) =====
     '<div class="koc-act koc-act-3" id="kocAct3">' +
       '<div class="koc-logo-card">' +
         '<div class="koc-burst-ring" id="kocBurstRing"></div>' +
@@ -204,16 +221,16 @@ function kocStartAnimation() {
     el.style.cssText = 'opacity:0;transform:scale(0.95);transition:none;';
   });
 
-  // Reset icons - start hidden, will animate in
+  // Reset icons
   for (var i = 0; i < 4; i++) {
     var icon = document.getElementById('kocIcon' + i);
     var bubble = document.getElementById('kocBubble' + i);
     var glow = document.getElementById('kocGlow' + i);
     var img = document.getElementById('kocImg' + i);
-    if (icon) { icon.style.cssText = 'opacity:0;transform:scale(0.3) rotate(-90deg);transition:none;'; }
-    if (bubble) { bubble.style.cssText = 'opacity:0;transform:translateY(10px) scale(0.8);transition:none;'; }
-    if (glow) { glow.style.cssText = 'opacity:0;transition:none;'; }
-    if (img) { img.style.cssText = 'transform:scale(1);transition:none;'; }
+    if (icon) icon.style.cssText = 'opacity:0;transform:scale(0.3) rotate(-90deg);transition:none;';
+    if (bubble) bubble.style.cssText = 'opacity:0;transform:translateY(10px) scale(0.8);transition:none;';
+    if (glow) glow.style.cssText = 'opacity:0;transition:none;';
+    if (img) img.style.cssText = 'transform:scale(1);transition:none;';
   }
 
   // Reset logo
@@ -226,7 +243,7 @@ function kocStartAnimation() {
   if (logoTag) logoTag.style.cssText = 'opacity:0;transform:translateY(20px);transition:none;';
   if (burstRing) burstRing.style.cssText = 'opacity:0;transform:scale(0);transition:none;';
 
-  // ---- ACT 1: Phone chat scrolling (0 - 5s) ----
+  // ---- ACT 1: WhatsApp chat scrolling (0 - 5s) ----
   kocDelay(function() {
     act1.style.transition = 'opacity 0.8s ease, transform 0.8s cubic-bezier(0.34,1.2,0.64,1)';
     act1.style.opacity = '1';
@@ -258,7 +275,7 @@ function kocStartAnimation() {
       act2.style.opacity = '1';
       act2.style.transform = 'scale(1)';
 
-      // Animate icons in one by one with bounce
+      // Animate icons in
       for (var i = 0; i < 4; i++) {
         (function(idx) {
           kocDelay(function() {
@@ -277,9 +294,8 @@ function kocStartAnimation() {
         })(i);
       }
 
-      // Show bubbles after icons appear - staggered
-      var bubbleTargets = [0, 1, 2, 3];
-      bubbleTargets.forEach(function(idx, seq) {
+      // Show bubbles
+      [0, 1, 2, 3].forEach(function(idx, seq) {
         kocDelay(function() {
           var bubble = document.getElementById('kocBubble' + idx);
           var img = document.getElementById('kocImg' + idx);
@@ -291,9 +307,7 @@ function kocStartAnimation() {
           if (img) {
             img.style.transition = 'transform 0.3s ease';
             img.style.transform = 'scale(1.15)';
-            setTimeout(function() {
-              if (img) img.style.transform = 'scale(1)';
-            }, 300);
+            setTimeout(function() { if (img) img.style.transform = 'scale(1)'; }, 300);
           }
         }, 1400 + seq * 300);
       });
@@ -303,7 +317,6 @@ function kocStartAnimation() {
 
   // ---- Transition ACT 2 → ACT 3 (at 10s) ----
   kocDelay(function() {
-    // Icons fly out
     var flyPositions = [
       'translate(-80px,-80px) rotate(-270deg) scale(0)',
       'translate(80px,-80px) rotate(270deg) scale(0)',
@@ -332,7 +345,6 @@ function kocStartAnimation() {
         act3.style.opacity = '1';
         act3.style.transform = 'scale(1)';
 
-        // Burst ring
         kocDelay(function() {
           if (burstRing) {
             burstRing.style.transition = 'opacity 0.3s ease, transform 0.8s cubic-bezier(0.34,1.56,0.64,1)';
@@ -341,7 +353,6 @@ function kocStartAnimation() {
           }
         }, 100);
 
-        // Logo pop
         kocDelay(function() {
           if (logoImg) {
             logoImg.style.transition = 'opacity 0.5s ease, transform 0.7s cubic-bezier(0.34,1.56,0.64,1)';
@@ -350,7 +361,6 @@ function kocStartAnimation() {
           }
         }, 200);
 
-        // Wordmark slide up
         kocDelay(function() {
           if (logoWord) {
             logoWord.style.transition = 'opacity 0.5s ease, transform 0.6s cubic-bezier(0.34,1.56,0.64,1)';
@@ -359,7 +369,6 @@ function kocStartAnimation() {
           }
         }, 450);
 
-        // Tagline
         kocDelay(function() {
           if (logoTag) {
             logoTag.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -368,7 +377,7 @@ function kocStartAnimation() {
           }
         }, 700);
 
-        // AUTO LOOP: restart after 3s on Act 3
+        // AUTO LOOP
         kocDelay(function() {
           kocStartAnimation();
         }, 3000);
@@ -382,16 +391,13 @@ function kocInitAnimation() {
   var card = document.getElementById('kocVisualCard');
   if (!card) return;
 
-  // Override old CSS
   card.style.opacity = '1';
   card.style.transform = 'none';
   card.style.animation = 'none';
   card.style.transition = 'none';
 
-  // Replace card content
   card.innerHTML = kocBuildHTML();
 
-  // Trigger on scroll into view
   var triggered = false;
   var obs = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {

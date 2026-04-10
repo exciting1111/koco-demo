@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet" />
- <link rel="stylesheet" href="style.css?v=46"> />
+ <link rel="stylesheet" href="style.css?v=47" />
 </head>
 <body>
 
@@ -679,43 +679,46 @@
 <section class="koc-section">
   <div class="koc-inner">
 
-    <!-- Left: Square visual card -->
+    <!-- Left: Square visual card (Animated) -->
     <div class="koc-visual">
-      <div class="koc-visual-card">
+      <div class="koc-visual-card" id="kocVisualCard">
+        <!-- Canvas for particles & glow -->
+        <canvas class="koc-card-canvas" id="kocCardCanvas"></canvas>
         <!-- Top: avatar stack + label -->
-        <div class="koc-visual-top">
+        <div class="koc-visual-top koc-anim-item" data-delay="0">
           <div class="koc-avatar-stack">
-            <div class="koc-avatar" style="background:linear-gradient(135deg,#FF6B35,#FF9A5C);">K</div>
-            <div class="koc-avatar" style="background:linear-gradient(135deg,#6C63FF,#A78BFA);">O</div>
-            <div class="koc-avatar" style="background:linear-gradient(135deg,#10B981,#34D399);">C</div>
-            <div class="koc-avatar koc-avatar-more">+</div>
+            <div class="koc-avatar koc-anim-avatar" data-delay="200" style="background:linear-gradient(135deg,#FF6B35,#FF9A5C);">K</div>
+            <div class="koc-avatar koc-anim-avatar" data-delay="350" style="background:linear-gradient(135deg,#6C63FF,#A78BFA);">O</div>
+            <div class="koc-avatar koc-anim-avatar" data-delay="500" style="background:linear-gradient(135deg,#10B981,#34D399);">C</div>
+            <div class="koc-avatar koc-avatar-more koc-anim-avatar" data-delay="650">+</div>
           </div>
-          <div class="koc-visual-label" data-i18n="koc_visual_label">KOC đang hoạt động</div>
+          <div class="koc-visual-label koc-anim-fade" data-delay="700" data-i18n="koc_visual_label">KOC &#273;ang ho&#7841;t &#273;&#7897;ng</div>
         </div>
         <!-- Center: big stat -->
-        <div class="koc-visual-stat">
-          <div class="koc-visual-stat-num">12,480</div>
-          <div class="koc-visual-stat-label" data-i18n="koc_visual_stat">KOC toàn cầu</div>
+        <div class="koc-visual-stat koc-anim-item" data-delay="400">
+          <div class="koc-visual-stat-num koc-count-up" data-target="12480" data-delay="600">0</div>
+          <div class="koc-visual-stat-label koc-anim-fade" data-delay="1200" data-i18n="koc_visual_stat">KOC to&#224;n c&#7847;u</div>
         </div>
         <!-- Bottom: mini stats row -->
-        <div class="koc-visual-row">
+        <div class="koc-visual-row koc-anim-slide-up" data-delay="1000">
           <div class="koc-visual-mini">
-            <div class="koc-visual-mini-val">🏆 Top 1</div>
-            <div class="koc-visual-mini-key" data-i18n="koc_visual_top">Tháng này</div>
+            <div class="koc-visual-mini-val koc-anim-fade" data-delay="1200">&#127942; Top 1</div>
+            <div class="koc-visual-mini-key koc-anim-fade" data-delay="1300" data-i18n="koc_visual_top">Th&#225;ng n&#224;y</div>
           </div>
-          <div class="koc-visual-divider"></div>
+          <div class="koc-visual-divider koc-anim-fade" data-delay="1250"></div>
           <div class="koc-visual-mini">
-            <div class="koc-visual-mini-val" data-i18n="koc_visual_earn">1.000.000₫+</div>
-            <div class="koc-visual-mini-key" data-i18n="koc_visual_earn_label">Thu nhập cao nhất</div>
+            <div class="koc-visual-mini-val koc-anim-fade" data-delay="1350" data-i18n="koc_visual_earn">1.000.000&#8363;+</div>
+            <div class="koc-visual-mini-key koc-anim-fade" data-delay="1450" data-i18n="koc_visual_earn_label">Thu nh&#7853;p cao nh&#7845;t</div>
           </div>
-          <div class="koc-visual-divider"></div>
+          <div class="koc-visual-divider koc-anim-fade" data-delay="1400"></div>
           <div class="koc-visual-mini">
-            <div class="koc-visual-mini-val"><img src="images/lucky-star-icon.png" alt="★" class="star-img-inline" /> 4.9</div>
-            <div class="koc-visual-mini-key" data-i18n="koc_visual_rating">Đánh giá</div>
+            <div class="koc-visual-mini-val koc-anim-fade" data-delay="1500"><img src="images/lucky-star-icon.png" alt="&#9733;" class="star-img-inline" /> <span class="koc-count-up-decimal" data-target="4.9" data-delay="1500">0</span></div>
+            <div class="koc-visual-mini-key koc-anim-fade" data-delay="1600" data-i18n="koc_visual_rating">&#272;&#225;nh gi&#225;</div>
           </div>
         </div>
       </div>
     </div>
+
 
     <!-- Right: Headline + benefit cards -->
     <div class="koc-right">
@@ -1495,5 +1498,6 @@
 </div>
 
 <script src="script.js?v=43"></script>
+<script src="koc-animation.js?v=1"></script>
 </body>
 </html>

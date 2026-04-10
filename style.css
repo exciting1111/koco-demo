@@ -4304,3 +4304,98 @@ a {
 .legal-modal-content li {
   margin-bottom: 8px;
 }
+
+
+/* ========== KOC VISUAL CARD ANIMATIONS ========== */
+
+/* Canvas layer for particles & glow */
+.koc-card-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 24px;
+}
+
+.koc-visual-card {
+  position: relative;
+  z-index: 0;
+}
+
+.koc-visual-top,
+.koc-visual-stat,
+.koc-visual-row {
+  position: relative;
+  z-index: 1;
+}
+
+/* Avatar bounce-in animation */
+.koc-anim-avatar {
+  opacity: 0;
+  transform: scale(0) rotate(-20deg);
+  transition: opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.koc-anim-avatar.koc-animated {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Fade-in animation */
+.koc-anim-fade {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.koc-anim-fade.koc-animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide-up animation for bottom panel */
+.koc-anim-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.koc-anim-slide-up.koc-animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Number counting glow pulse */
+.koc-visual-stat-num {
+  transition: text-shadow 0.3s ease;
+}
+
+.koc-visual-stat-num.koc-counting {
+  text-shadow: 0 0 30px rgba(100, 150, 255, 0.4), 0 0 60px rgba(100, 150, 255, 0.15);
+}
+
+/* Card entrance */
+#kocVisualCard {
+  opacity: 0;
+  transform: scale(0.9) translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#kocVisualCard.koc-card-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Breathing border glow */
+@keyframes kocBorderGlow {
+  0%, 100% { box-shadow: 0 20px 60px rgba(15,52,96,0.3), 0 4px 16px rgba(0,0,0,0.1), inset 0 0 0 1px rgba(100,150,255,0.08); }
+  50% { box-shadow: 0 20px 60px rgba(15,52,96,0.4), 0 4px 16px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(100,150,255,0.2); }
+}
+
+#kocVisualCard.koc-card-visible {
+  animation: kocBorderGlow 4s ease-in-out infinite;
+}

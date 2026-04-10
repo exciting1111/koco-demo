@@ -4,23 +4,24 @@
 var kocAnimTimeouts = [];
 var kocScrollAnim = null;
 
-// KOCO-branded chat messages
+// KOCO-branded chat messages with product avatar SVGs
+// avatar: SVG string for group icon (product/category thumbnail)
 var kocChatMessages = [
-  { name: 'KOCO Winners Club 🏆', msg: 'Aku baru menang iPhone 17! 🎉', time: '18:32', color: '#FF6B35', koco: true },
-  { name: 'KOCO Indonesia 🇮🇩', msg: 'Daftar gratis, dapat 100 ⭐ sekarang!', time: '17:15', color: '#FF6B35', koco: true },
-  { name: 'KOCO Tech Hunters', msg: 'AirPods Pro bisa dapat GRATIS 🎧', time: '15:18', color: '#e74c3c', koco: true },
-  { name: 'KOCO KOC Community', msg: 'Bulan ini income 12 juta! 💰', time: '13:08', color: '#9b59b6', koco: true },
-  { name: 'KOCO Daily Deals', msg: 'Flash deal: iPhone hanya 1 ⭐!', time: '13:07', color: '#e67e22', koco: true },
-  { name: 'KOCO Lifestyle', msg: 'Wish Purchase itu nyata! Coba sekarang', time: '12:45', color: '#1abc9c', koco: true },
-  { name: 'KOCO Gaming Squad', msg: 'PS5 bisa menang pakai ⭐ gratis!', time: '10:58', color: '#3498db', koco: true },
-  { name: 'KOCO Beauty Circle', msg: 'SK-II kit menang kemarin! 😍', time: '09:03', color: '#f39c12', koco: true },
-  { name: 'KOCO Travel Buddies', msg: 'Pakai reward KOCO buat liburan ✈️', time: '09:07', color: '#27ae60', koco: true },
-  { name: 'KOCO Foodies 🍜', msg: 'Voucher makan gratis dari KOCO!', time: '08:30', color: '#e74c3c', koco: true },
-  { name: 'KOCO Crypto & Tech', msg: 'KOCO referral +50 ⭐ per teman!', time: '07:55', color: '#f1c40f', koco: true },
-  { name: 'KOCO Fitness Club', msg: 'Apple Watch menang pagi ini! 💪', time: '07:20', color: '#3498db', koco: true },
-  { name: 'KOCO Book & Learn', msg: 'Belajar cara jadi KOC sukses', time: '06:45', color: '#9b59b6', koco: true },
-  { name: 'KOCO Asia Network', msg: 'Join sekarang, gratis selamanya!', time: '06:10', color: '#2ecc71', koco: true },
-  { name: 'KOCO Night Owls 🦉', msg: 'Malam ini ada flash draw iPhone!', time: '05:30', color: '#e67e22', koco: true },
+  { name: 'KOCO Winners Club', msg: 'Aku baru menang iPhone 17! 🎉', time: '18:32', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#1a1a2e"/><text x="18" y="26" font-size="20" text-anchor="middle">🏆</text></svg>' },
+  { name: 'KOCO Smartphone', msg: 'iPhone 17 Pro cuma 1 ⭐ hari ini!', time: '17:15', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#1c1c1e"/><rect x="10" y="4" width="16" height="28" rx="3" fill="#3a3a3c"/><rect x="12" y="7" width="12" height="20" rx="1" fill="#007AFF"/><circle cx="18" cy="30" r="1.5" fill="#666"/></svg>' },
+  { name: 'KOCO Elektronik', msg: 'AirPods Pro GRATIS pakai bintang!', time: '15:18', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#1c1c1e"/><ellipse cx="13" cy="18" rx="4" ry="6" fill="white"/><ellipse cx="23" cy="18" rx="4" ry="6" fill="white"/><rect x="11" y="24" width="4" height="5" rx="2" fill="#ccc"/><rect x="21" y="24" width="4" height="5" rx="2" fill="#ccc"/></svg>' },
+  { name: 'KOCO KOC Community', msg: 'Bulan ini income 12 juta! 💰', time: '13:08', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#FF6B35"/><text x="18" y="26" font-size="18" text-anchor="middle">⭐</text></svg>' },
+  { name: 'KOCO Fashion', msg: 'Tas LV menang kemarin! Mau coba?', time: '13:07', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#8B4513"/><path d="M8 14 Q18 8 28 14 L26 28 H10 Z" fill="#D4A96A"/><path d="M14 14 Q18 10 22 14" fill="none" stroke="#8B4513" stroke-width="1.5"/></svg>' },
+  { name: 'KOCO Beauty', msg: 'SK-II Facial Kit bisa menang gratis!', time: '12:45', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#FFB6C1"/><rect x="12" y="8" width="12" height="18" rx="4" fill="white"/><rect x="14" y="6" width="8" height="4" rx="2" fill="#FF69B4"/><text x="18" y="22" font-size="8" text-anchor="middle" fill="#FF69B4">SK-II</text></svg>' },
+  { name: 'KOCO Gaming', msg: 'PS5 bisa menang pakai ⭐ gratis!', time: '10:58', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#003087"/><rect x="6" y="12" width="24" height="14" rx="4" fill="#1a1a2e"/><circle cx="24" cy="17" r="2" fill="#00D4FF"/><circle cx="28" cy="21" r="2" fill="#FF4444"/><rect x="9" y="17" width="2" height="4" rx="1" fill="white"/><rect x="8" y="18" width="4" height="2" rx="1" fill="white"/></svg>' },
+  { name: 'KOCO Kecantikan', msg: 'Parfum Chanel menang hari ini! 😍', time: '09:03', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#F5E6D3"/><rect x="13" y="10" width="10" height="16" rx="3" fill="#D4A96A"/><rect x="15" y="7" width="6" height="5" rx="1" fill="#B8860B"/><text x="18" y="22" font-size="6" text-anchor="middle" fill="#8B4513">No.5</text></svg>' },
+  { name: 'KOCO Rumah Tangga', msg: 'Dyson V15 cuma butuh 50 bintang!', time: '09:07', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#E8F4FD"/><path d="M18 8 L28 18 L26 20 L18 12 L10 20 L8 18 Z" fill="#2196F3"/><rect x="12" y="18" width="12" height="12" rx="1" fill="#1976D2"/><rect x="15" y="22" width="6" height="8" rx="1" fill="#BBDEFB"/></svg>' },
+  { name: 'KOCO Makanan', msg: 'Voucher GrabFood gratis dari KOCO!', time: '08:30', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#FF6B35"/><text x="18" y="26" font-size="20" text-anchor="middle">🍜</text></svg>' },
+  { name: 'KOCO Jam Tangan', msg: 'Apple Watch Series 10 menang! 💪', time: '07:55', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#1c1c1e"/><rect x="13" y="8" width="10" height="20" rx="5" fill="#2a2a2e"/><rect x="14" y="9" width="8" height="18" rx="4" fill="#007AFF"/><line x1="18" y1="18" x2="18" y2="14" stroke="white" stroke-width="1"/><line x1="18" y1="18" x2="21" y2="18" stroke="white" stroke-width="1"/></svg>' },
+  { name: 'KOCO Laptop & PC', msg: 'MacBook Air M3 bisa menang gratis!', time: '07:20', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#E8E8E8"/><rect x="6" y="9" width="24" height="16" rx="2" fill="#C0C0C0"/><rect x="8" y="11" width="20" height="12" rx="1" fill="#1c1c1e"/><rect x="4" y="25" width="28" height="3" rx="1" fill="#A0A0A0"/></svg>' },
+  { name: 'KOCO Olahraga', msg: 'Nike Air Max menang pakai bintang!', time: '06:45', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#FF4444"/><text x="18" y="26" font-size="20" text-anchor="middle">👟</text></svg>' },
+  { name: 'KOCO Kamera', msg: 'Sony A7 IV menang bulan ini! 📸', time: '06:10', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#1a1a1a"/><rect x="6" y="11" width="24" height="16" rx="3" fill="#333"/><circle cx="18" cy="19" r="5" fill="#222"/><circle cx="18" cy="19" r="3" fill="#444"/><circle cx="18" cy="19" r="1.5" fill="#666"/><rect x="13" y="8" width="5" height="4" rx="1" fill="#555"/></svg>' },
+  { name: 'KOCO Tablet', msg: 'iPad Pro M4 flash deal malam ini!', time: '05:30', avatar: '<svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="10" fill="#1c1c1e"/><rect x="8" y="6" width="20" height="24" rx="3" fill="#2a2a2e"/><rect x="10" y="8" width="16" height="20" rx="1" fill="#007AFF"/><circle cx="18" cy="30" r="0" fill="none"/></svg>' },
 ];
 
 var kocPlatforms = [
@@ -83,11 +84,10 @@ function kocBuildHTML() {
   var chatHTML = '';
   var msgs = kocChatMessages.concat(kocChatMessages);
   msgs.forEach(function(m) {
-    var initials = m.name.replace(/[^\w\s]/gi, '').trim().split(' ').slice(0,2).map(function(w){return w[0]||'';}).join('').toUpperCase();
     chatHTML += '<div class="koc-chat-item">' +
-      '<div class="koc-chat-avatar" style="background:' + m.color + '">' + initials + '</div>' +
+      '<div class="koc-chat-avatar-svg">' + m.avatar + '</div>' +
       '<div class="koc-chat-info">' +
-        '<div class="koc-chat-name">' + m.name + '</div>' +
+        '<div class="koc-chat-name">' + m.name + ' <span class="koc-badge">KOCO</span></div>' +
         '<div class="koc-chat-msg">' + m.msg + '</div>' +
       '</div>' +
       '<div class="koc-chat-time">' + m.time + '</div>' +
@@ -113,24 +113,52 @@ function kocBuildHTML() {
   });
 
   return '<div class="koc-anim-wrapper" id="kocAnimWrapper">' +
-    // Act 1: iPhone frame with chat
+    // Act 1: iPhone frame with WhatsApp UI
     '<div class="koc-act koc-act-1" id="kocAct1">' +
       '<div class="koc-iphone">' +
         '<div class="koc-iphone-notch"></div>' +
         '<div class="koc-iphone-screen">' +
-          '<div class="koc-chat-header">' +
-            '<div class="koc-chat-logo">' +
-              '<img src="images/koco-logo.png" alt="KOCO" style="height:20px;vertical-align:middle;margin-right:6px" onerror="this.style.display=\'none\'" />' +
-              '<span style="font-weight:700;font-size:14px;color:#FF6B35;font-family:-apple-system,sans-serif">KOCO</span>' +
-            '</div>' +
-            '<div class="koc-chat-search">🔍 Search</div>' +
+          // WhatsApp status bar
+          '<div class="koc-wa-statusbar">' +
+            '<span class="koc-wa-time">9:41</span>' +
+            '<span class="koc-wa-icons">📶📶🔋</span>' +
           '</div>' +
+          // WhatsApp top nav
+          '<div class="koc-wa-navbar">' +
+            '<span class="koc-wa-title">WhatsApp</span>' +
+            '<div class="koc-wa-nav-icons">' +
+              '<span class="koc-wa-icon">📷</span>' +
+              '<span class="koc-wa-icon">🔍</span>' +
+              '<span class="koc-wa-icon">⋮</span>' +
+            '</div>' +
+          '</div>' +
+          // WhatsApp tab bar (Chats / Status / Calls)
+          '<div class="koc-wa-tabs">' +
+            '<span class="koc-wa-tab active">Chats</span>' +
+            '<span class="koc-wa-tab">Status</span>' +
+            '<span class="koc-wa-tab">Calls</span>' +
+          '</div>' +
+          // Search bar
+          '<div class="koc-wa-search">' +
+            '<span class="koc-wa-search-icon">🔍</span>' +
+            '<span class="koc-wa-search-text">Search</span>' +
+          '</div>' +
+          // Chat list
           '<div class="koc-chat-list" id="kocChatList">' + chatHTML + '</div>' +
-          '<div class="koc-iphone-bar">' +
-            '<span class="koc-phone-tab active">💬 Chats</span>' +
-            '<span class="koc-phone-tab">⬆ Updates</span>' +
-            '<span class="koc-phone-tab">👥 Groups</span>' +
-            '<span class="koc-phone-tab">📞 Calls</span>' +
+          // Bottom tab bar (iOS style)
+          '<div class="koc-wa-bottombar">' +
+            '<div class="koc-wa-bottom-tab active">' +
+              '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 2H4C2.9 2 2 2.9 2 4v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" fill="#25D366"/></svg>' +
+              '<span>Chats</span>' +
+            '</div>' +
+            '<div class="koc-wa-bottom-tab">' +
+              '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#8696A0" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="#8696A0"/></svg>' +
+              '<span>Status</span>' +
+            '</div>' +
+            '<div class="koc-wa-bottom-tab">' +
+              '<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" fill="#8696A0"/></svg>' +
+              '<span>Calls</span>' +
+            '</div>' +
           '</div>' +
         '</div>' +
       '</div>' +
@@ -139,9 +167,9 @@ function kocBuildHTML() {
     '<div class="koc-act koc-act-2" id="kocAct2">' +
       '<div class="koc-icons-grid">' + iconsHTML + '</div>' +
     '</div>' +
-    // Act 3: Logo burst
+    // Act 3: Logo burst (centered card, not fullscreen)
     '<div class="koc-act koc-act-3" id="kocAct3">' +
-      '<div class="koc-logo-burst">' +
+      '<div class="koc-logo-card">' +
         '<div class="koc-burst-ring" id="kocBurstRing"></div>' +
         '<img src="images/koco-logo.png" alt="KOCO" class="koc-logo-img" id="kocLogoImg" onerror="this.style.display=\'none\'" />' +
         '<div class="koc-logo-wordmark" id="kocLogoWord">KOCO</div>' +

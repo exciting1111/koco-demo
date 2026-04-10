@@ -105,21 +105,21 @@ function kocBuildHTML() {
     '</div>';
   });
 
-  // Build icons HTML
+  // Build icons HTML — vertical list layout, no overlap
   var iconsHTML = '';
   kocPlatforms.forEach(function(p, i) {
-    iconsHTML += '<div class="koc-icon-item" id="kocIcon' + i + '">' +
-      '<div class="koc-icon-glow" id="kocGlow' + i + '" style="background:radial-gradient(circle,' + p.glow + ' 0%,transparent 70%)"></div>' +
-      '<div class="koc-icon-img" id="kocImg' + i + '">' + kocGetSVG(p.svgId) + '</div>' +
-      '<div class="koc-icon-label">' + p.name + '</div>' +
-      '<div class="koc-icon-bubble" id="kocBubble' + i + '">' +
-        p.bubbles.map(function(b, bi) {
-          return '<div class="' + (bi === 0 ? 'koc-bubble-main' : 'koc-bubble-sub') + '">' +
-            '<span class="koc-bubble-text">' + b.text + '</span>' +
-            '<span class="koc-bubble-count">' + b.count + '</span>' +
-          '</div>';
-        }).join('') +
+    var bubblesHTML = p.bubbles.map(function(b) {
+      return '<div class="koc-stat-item">' +
+        '<span class="koc-stat-label">' + b.text + '</span>' +
+        '<span class="koc-stat-value">' + b.count + '</span>' +
+      '</div>';
+    }).join('');
+    iconsHTML += '<div class="koc-platform-row" id="kocIcon' + i + '">' +
+      '<div class="koc-platform-left">' +
+        '<div class="koc-platform-icon" id="kocImg' + i + '">' + kocGetSVG(p.svgId) + '</div>' +
+        '<div class="koc-platform-name">' + p.name + '</div>' +
       '</div>' +
+      '<div class="koc-platform-stats" id="kocBubble' + i + '">' + bubblesHTML + '</div>' +
     '</div>';
   });
 
@@ -182,7 +182,7 @@ function kocBuildHTML() {
     '</div>' +
     // ===== ACT 2: Social icons =====
     '<div class="koc-act koc-act-2" id="kocAct2">' +
-      '<div class="koc-icons-grid">' + iconsHTML + '</div>' +
+      '<div class="koc-platform-list">' + iconsHTML + '</div>' +
     '</div>' +
     // ===== ACT 3: Logo burst (simple & clean) =====
     '<div class="koc-act koc-act-3" id="kocAct3">' +
@@ -219,16 +219,14 @@ function kocStartAnimation() {
     el.style.cssText = 'opacity:0;transform:scale(0.95);transition:none;';
   });
 
-  // Reset icons
+  // Reset platform rows
   for (var i = 0; i < 4; i++) {
-    var icon = document.getElementById('kocIcon' + i);
-    var bubble = document.getElementById('kocBubble' + i);
-    var glow = document.getElementById('kocGlow' + i);
+    var row = document.getElementById('kocIcon' + i);
+    var stats = document.getElementById('kocBubble' + i);
     var img = document.getElementById('kocImg' + i);
-    if (icon) icon.style.cssText = 'opacity:0;transform:scale(0.3) rotate(-90deg);transition:none;';
-    if (bubble) bubble.style.cssText = 'opacity:0;transform:translateY(10px) scale(0.8);transition:none;';
-    if (glow) glow.style.cssText = 'opacity:0;transition:none;';
-    if (img) img.style.cssText = 'transform:scale(1);transition:none;';
+    if (row) row.style.cssText = 'opacity:0;transform:translateX(-30px);transition:none;';
+    if (stats) stats.style.cssText = 'opacity:0;transform:translateX(20px);transition:none;';
+    if (img) img.style.cssText = 'transform:scale(0.5) rotate(-15deg);transition:none;';
   }
 
   // Reset logo
@@ -269,63 +267,51 @@ function kocStartAnimation() {
       act2.style.opacity = '1';
       act2.style.transform = 'scale(1)';
 
-      // Animate icons in
+      // Animate platform rows in sequentially
       for (var i = 0; i < 4; i++) {
         (function(idx) {
+          // Row slides in from left
           kocDelay(function() {
-            var icon = document.getElementById('kocIcon' + idx);
-            var glow = document.getElementById('kocGlow' + idx);
-            if (icon) {
-              icon.style.transition = 'opacity 0.5s ease, transform 0.6s cubic-bezier(0.34,1.56,0.64,1)';
-              icon.style.opacity = '1';
-              icon.style.transform = 'scale(1) rotate(0deg)';
+            var row = document.getElementById('kocIcon' + idx);
+            var img = document.getElementById('kocImg' + idx);
+            if (row) {
+              row.style.transition = 'opacity 0.5s ease, transform 0.6s cubic-bezier(0.34,1.56,0.64,1)';
+              row.style.opacity = '1';
+              row.style.transform = 'translateX(0)';
             }
-            if (glow) {
-              glow.style.transition = 'opacity 0.5s ease';
-              glow.style.opacity = '0.8';
+            if (img) {
+              img.style.transition = 'transform 0.6s cubic-bezier(0.34,1.56,0.64,1)';
+              img.style.transform = 'scale(1) rotate(0deg)';
             }
-          }, 200 + idx * 250);
+          }, 200 + idx * 300);
+
+          // Stats slide in from right with delay
+          kocDelay(function() {
+            var stats = document.getElementById('kocBubble' + idx);
+            if (stats) {
+              stats.style.transition = 'opacity 0.4s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1)';
+              stats.style.opacity = '1';
+              stats.style.transform = 'translateX(0)';
+            }
+          }, 500 + idx * 300);
         })(i);
       }
-
-      // Show bubbles
-      [0, 1, 2, 3].forEach(function(idx, seq) {
-        kocDelay(function() {
-          var bubble = document.getElementById('kocBubble' + idx);
-          var img = document.getElementById('kocImg' + idx);
-          if (bubble) {
-            bubble.style.transition = 'opacity 0.4s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1)';
-            bubble.style.opacity = '1';
-            bubble.style.transform = 'translateY(0) scale(1)';
-          }
-          if (img) {
-            img.style.transition = 'transform 0.3s ease';
-            img.style.transform = 'scale(1.15)';
-            setTimeout(function() { if (img) img.style.transform = 'scale(1)'; }, 300);
-          }
-        }, 1400 + seq * 300);
-      });
 
     }, 500);
   }, 5000);
 
   // ---- Transition ACT 2 → ACT 3 (at 10s) ----
   kocDelay(function() {
-    var flyPositions = [
-      'translate(-80px,-80px) rotate(-270deg) scale(0)',
-      'translate(80px,-80px) rotate(270deg) scale(0)',
-      'translate(-80px,80px) rotate(-270deg) scale(0)',
-      'translate(80px,80px) rotate(270deg) scale(0)'
-    ];
+    // Fade out platform rows
     for (var i = 0; i < 4; i++) {
       (function(idx) {
-        var icon = document.getElementById('kocIcon' + idx);
-        var bubble = document.getElementById('kocBubble' + idx);
-        if (bubble) { bubble.style.transition = 'opacity 0.2s'; bubble.style.opacity = '0'; }
-        if (icon) {
-          icon.style.transition = 'transform 0.7s cubic-bezier(0.55,0,1,0.45), opacity 0.7s ease';
-          icon.style.transform = flyPositions[idx];
-          icon.style.opacity = '0';
+        var row = document.getElementById('kocIcon' + idx);
+        var stats = document.getElementById('kocBubble' + idx);
+        if (stats) { stats.style.transition = 'opacity 0.3s ease'; stats.style.opacity = '0'; }
+        if (row) {
+          row.style.transition = 'opacity 0.4s ease, transform 0.5s ease';
+          row.style.opacity = '0';
+          row.style.transform = 'translateY(-20px) scale(0.9)';
         }
       })(i);
     }

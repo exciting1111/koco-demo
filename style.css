@@ -4796,33 +4796,28 @@ a {
 /* ACT 3: Logo Burst — centered card            */
 /* ============================================ */
 .koc-act-3 {
-  background: rgba(10, 10, 24, 0.95) !important;
+  background: white !important;
   border-radius: 20px;
 }
 
 .koc-logo-card {
   position: relative;
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(ellipse at center, #FF7043 0%, #FF5722 55%, #E64A19 100%);
-  border-radius: 32px;
+  width: 240px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  box-shadow:
-    0 0 60px rgba(255, 87, 34, 0.5),
-    0 20px 60px rgba(0,0,0,0.4);
-  overflow: hidden;
+  gap: 10px;
+  background: transparent;
+  overflow: visible;
 }
 
 .koc-burst-ring {
   position: absolute;
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,107,53,0.15);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
@@ -4831,29 +4826,28 @@ a {
 }
 
 .koc-logo-img {
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
   object-fit: contain;
   position: relative;
   z-index: 2;
-  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 6px 20px rgba(255,107,53,0.35));
 }
 
 .koc-logo-wordmark {
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 900;
-  color: white;
+  color: #FF5722;
   font-family: 'Inter', -apple-system, sans-serif;
   letter-spacing: -1px;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
   position: relative;
   z-index: 2;
   line-height: 1;
 }
 
 .koc-logo-tagline {
-  font-size: 9px;
-  color: rgba(255,255,255,0.85);
+  font-size: 11px;
+  color: #888;
   font-family: -apple-system, sans-serif;
   letter-spacing: 0.5px;
   position: relative;

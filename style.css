@@ -4802,54 +4802,34 @@ a {
 
 .koc-logo-card {
   position: relative;
-  width: 240px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 16px;
   background: transparent;
-  overflow: visible;
 }
 
 .koc-burst-ring {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  border: 2px solid rgba(255,107,53,0.15);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  z-index: 1;
-  pointer-events: none;
+  display: none;
 }
 
 .koc-logo-img {
-  width: 90px;
-  height: 90px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
-  position: relative;
-  z-index: 2;
-  filter: drop-shadow(0 6px 20px rgba(255,107,53,0.35));
+  border-radius: 26px;
+  filter: drop-shadow(0 10px 30px rgba(255,107,53,0.3));
 }
 
 .koc-logo-wordmark {
-  font-size: 36px;
-  font-weight: 900;
-  color: #FF5722;
-  font-family: 'Inter', -apple-system, sans-serif;
-  letter-spacing: -1px;
-  position: relative;
-  z-index: 2;
-  line-height: 1;
+  display: none;
 }
 
 .koc-logo-tagline {
-  font-size: 11px;
-  color: #888;
+  font-size: 13px;
+  color: #666;
   font-family: -apple-system, sans-serif;
-  letter-spacing: 0.5px;
-  position: relative;
-  z-index: 2;
+  letter-spacing: 1px;
+  font-weight: 500;
 }

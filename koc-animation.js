@@ -184,12 +184,10 @@ function kocBuildHTML() {
     '<div class="koc-act koc-act-2" id="kocAct2">' +
       '<div class="koc-icons-grid">' + iconsHTML + '</div>' +
     '</div>' +
-    // ===== ACT 3: Logo burst (centered card) =====
+    // ===== ACT 3: Logo burst (simple & clean) =====
     '<div class="koc-act koc-act-3" id="kocAct3">' +
       '<div class="koc-logo-card">' +
-        '<div class="koc-burst-ring" id="kocBurstRing"></div>' +
-        '<img src="images/koco-logo.png" alt="KOCO" class="koc-logo-img" id="kocLogoImg" onerror="this.style.display=\'none\'" />' +
-        '<div class="koc-logo-wordmark" id="kocLogoWord">KOCO</div>' +
+        '<img src="images/koco-logo.png" alt="KOCO" class="koc-logo-img" id="kocLogoImg" />' +
         '<div class="koc-logo-tagline" id="kocLogoTag">Wish Purchase · Gratis · Nyata</div>' +
       '</div>' +
     '</div>' +
@@ -235,13 +233,9 @@ function kocStartAnimation() {
 
   // Reset logo
   var logoImg = document.getElementById('kocLogoImg');
-  var logoWord = document.getElementById('kocLogoWord');
   var logoTag = document.getElementById('kocLogoTag');
-  var burstRing = document.getElementById('kocBurstRing');
-  if (logoImg) logoImg.style.cssText = 'opacity:0;transform:scale(0.2) rotate(-20deg);transition:none;';
-  if (logoWord) logoWord.style.cssText = 'opacity:0;transform:translateY(30px);transition:none;';
-  if (logoTag) logoTag.style.cssText = 'opacity:0;transform:translateY(20px);transition:none;';
-  if (burstRing) burstRing.style.cssText = 'opacity:0;transform:scale(0);transition:none;';
+  if (logoImg) logoImg.style.cssText = 'opacity:0;transform:scale(0.3);transition:none;';
+  if (logoTag) logoTag.style.cssText = 'opacity:0;transform:translateY(15px);transition:none;';
 
   // ---- ACT 1: WhatsApp chat scrolling (0 - 5s) ----
   kocDelay(function() {
@@ -346,28 +340,12 @@ function kocStartAnimation() {
         act3.style.transform = 'scale(1)';
 
         kocDelay(function() {
-          if (burstRing) {
-            burstRing.style.transition = 'opacity 0.3s ease, transform 0.8s cubic-bezier(0.34,1.56,0.64,1)';
-            burstRing.style.opacity = '0.6';
-            burstRing.style.transform = 'scale(1.5)';
-          }
-        }, 100);
-
-        kocDelay(function() {
           if (logoImg) {
-            logoImg.style.transition = 'opacity 0.5s ease, transform 0.7s cubic-bezier(0.34,1.56,0.64,1)';
+            logoImg.style.transition = 'opacity 0.6s ease, transform 0.8s cubic-bezier(0.34,1.56,0.64,1)';
             logoImg.style.opacity = '1';
-            logoImg.style.transform = 'scale(1) rotate(0deg)';
+            logoImg.style.transform = 'scale(1)';
           }
         }, 200);
-
-        kocDelay(function() {
-          if (logoWord) {
-            logoWord.style.transition = 'opacity 0.5s ease, transform 0.6s cubic-bezier(0.34,1.56,0.64,1)';
-            logoWord.style.opacity = '1';
-            logoWord.style.transform = 'translateY(0)';
-          }
-        }, 450);
 
         kocDelay(function() {
           if (logoTag) {
@@ -375,7 +353,7 @@ function kocStartAnimation() {
             logoTag.style.opacity = '1';
             logoTag.style.transform = 'translateY(0)';
           }
-        }, 700);
+        }, 600);
 
         // AUTO LOOP
         kocDelay(function() {
